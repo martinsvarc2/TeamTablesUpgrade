@@ -22,6 +22,7 @@ const ChartContainer = React.forwardRef
     {children}
   </div>
 ))
+ChartContainer.displayName = "ChartContainer"
 
 const ChartTooltipContent = React.forwardRef
   HTMLDivElement,
@@ -36,3 +37,6 @@ const ChartTooltipContent = React.forwardRef
     {...props}
   />
 ))
+ChartTooltipContent.displayName = "ChartTooltipContent"
+
+export { ChartContainer, ChartTooltipContent }
