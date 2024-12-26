@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect, useMemo } from "react"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+import { PowerMomentWidget } from "@/components/power-moment-widget"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Play, Pause, Pencil, BarChart2, Check, X, ArrowLeft, ChevronLeft, ChevronRight, Zap } from 'lucide-react'
@@ -901,15 +902,6 @@ function CallNotesWidget({ log }: { log: CallLogData }) {
           Customer showed interest in our premium package. Follow up next week to discuss financing options. Customer showed interest in our premium package. Follow up next week to discuss financing options. Customer showed interest in our premium package. Follow up next week to discuss financing options. Customer showed interest in our premium package. Follow up next week to discuss financing options.
         </p>
       </div>
-    </div>
-  )
-}
-
-function PowerMomentWidget({ moment }: { moment: string }) {
-  return (
-    <div className="bg-white rounded-xl shadow-md p-4 h-[calc(40vh-80px)] overflow-y-auto">
-      <h2 className="text-lg font-semibold mb-2">Power Moment</h2>
-      <p className="text-sm text-gray-600">{moment}</p>
     </div>
   )
 }
