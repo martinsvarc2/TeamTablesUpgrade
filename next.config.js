@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverActions: true,
-  },
   async headers() {
     return [
       {
@@ -19,10 +16,8 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_VERCEL_URL: process.env.VERCEL_URL,
   },
-  // Added images configuration
   images: {
     domains: ['res.cloudinary.com'],
   }
 }
-
 module.exports = nextConfig
