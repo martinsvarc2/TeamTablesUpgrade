@@ -1,6 +1,6 @@
-import { ActivityView } from "./components/activity-view"
-import { RatingsView } from "./components/ratings-view"
-import { CallLogsView } from "./components/call-logs-view"
+import { ActivityView } from "./activity-view"
+import { RatingsView } from "./ratings-view"
+import { CallLogsView } from "./call-logs-view"
 import { Card, CardContent } from "@/components/ui/card"
 import { TrendingUp, Target } from 'lucide-react'
 
