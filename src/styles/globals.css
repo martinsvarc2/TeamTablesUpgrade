@@ -1,94 +1,114 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+ :root {
+   --background: 0 0% 100%;
+   --foreground: 240 10% 3.9%;
+   --card: 0 0% 100%;
+   --card-foreground: 240 10% 3.9%;
+   --popover: 0 0% 100%;
+   --popover-foreground: 240 10% 3.9%;
+   --primary: 271 95% 38%;
+   --primary-foreground: 0 0% 98%;
+   --secondary: 45 93% 55%;
+   --secondary-foreground: 240 5.9% 10%;
+   --muted: 240 4.8% 95.9%;
+   --muted-foreground: 240 3.8% 46.1%;
+   --accent: 45 93% 55%;
+   --accent-foreground: 240 5.9% 10%;
+   --destructive: 0 84.2% 60.2%;
+   --destructive-foreground: 0 0% 98%;
+   --border: 240 5.9% 90%;
+   --input: 240 5.9% 90%;
+   --ring: 271 95% 38%;
+   --radius: 1rem;
+   --metric-card: 45 93% 55%;
+   --metric-border: 271 95% 38%;
+   --purple-button: 271 95% 38%;
+   --yellow-highlight: 45 93% 55%;
+   --chart-1: 271 95% 38%;
+   --chart-2: 45 93% 55%;
+ }
 
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
- 
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
- 
-    --primary: 271 95% 38%;
-    --primary-foreground: 0 0% 98%;
- 
-    --secondary: 45 93% 55%;
-    --secondary-foreground: 240 5.9% 10%;
- 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
- 
-    --accent: 45 93% 55%;
-    --accent-foreground: 240 5.9% 10%;
- 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 271 95% 38%;
- 
-    --radius: 1rem;
-
-    --metric-card: 45 93% 55%;
-    --metric-border: 271 95% 38%;
-    --purple-button: 271 95% 38%;
-    --yellow-highlight: 45 93% 55%;
-  }
-
-  .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
- 
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
- 
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
- 
-    --primary: 271 95% 38%;
-    --primary-foreground: 0 0% 98%;
- 
-    --secondary: 45 93% 55%;
-    --secondary-foreground: 240 5.9% 10%;
- 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
- 
-    --accent: 45 93% 55%;
-    --accent-foreground: 240 5.9% 10%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
- 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 271 95% 38%;
-  }
+ .dark {
+   --background: 240 10% 3.9%;
+   --foreground: 0 0% 98%;
+   --card: 240 10% 3.9%;
+   --card-foreground: 0 0% 98%;
+   --popover: 240 10% 3.9%;
+   --popover-foreground: 0 0% 98%;
+   --primary: 271 95% 38%;
+   --primary-foreground: 0 0% 98%;
+   --secondary: 45 93% 55%;
+   --secondary-foreground: 240 5.9% 10%;
+   --muted: 240 3.7% 15.9%;
+   --muted-foreground: 240 5% 64.9%;
+   --accent: 45 93% 55%;
+   --accent-foreground: 240 5.9% 10%;
+   --destructive: 0 62.8% 30.6%;
+   --destructive-foreground: 0 0% 98%;
+   --border: 240 3.7% 15.9%;
+   --input: 240 3.7% 15.9%;
+   --ring: 271 95% 38%;
+ }
 }
- 
+
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+ * {
+   @apply border-border;
+ }
+ body {
+   @apply bg-background text-foreground;
+ }
 }
 
 .metric-card {
-  @apply bg-[#f8b922] border-[#5b06be] border rounded-xl p-4 transition-all hover:shadow-md;
+ @apply bg-[#f8b922] border-[#5b06be] border rounded-xl p-4 transition-all hover:shadow-md;
 }
 
 .purple-button {
-  @apply bg-[#5b06be] text-white hover:bg-[#5b06be]/90 transition-all;
+ @apply bg-[#5b06be] text-white hover:bg-[#5b06be]/90 transition-all;
 }
 
 .yellow-highlight {
-  @apply bg-[#f8b922] text-[#5b06be] font-semibold;
+ @apply bg-[#f8b922] text-[#5b06be] font-semibold;
+}
+
+@keyframes in {
+ from {
+   opacity: 0;
+   transform: translateY(10px);
+ }
+ to {
+   opacity: 1;
+   transform: translateY(0);
+ }
+}
+
+.animate-in {
+ animation: in 0.2s ease-out;
+}
+
+@keyframes pulse {
+ 0% {
+   box-shadow: 0 0 0 0 rgba(91, 6, 190, 0.7);
+ }
+ 70% {
+   box-shadow: 0 0 0 10px rgba(91, 6, 190, 0);
+ }
+ 100% {
+   box-shadow: 0 0 0 0 rgba(91, 6, 190, 0);
+ }
+}
+
+.step {
+ counter-increment: step;
+}
+
+.step:before {
+ @apply absolute w-8 h-8 bg-muted rounded-full font-medium text-center text-base inline-flex items-center justify-center -left-4 text-muted-foreground;
+ content: counter(step);
 }
 
