@@ -4,7 +4,14 @@ import { useState, useMemo } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter,
+} from "@/components/ui/card"
 import { BarChart2, ArrowLeft } from 'lucide-react'
 import { filterData } from "../utils/formatters"
 import Image from 'next/image'
@@ -325,7 +332,7 @@ function PerformanceDialog({ data }: { data: ActivityData }) {
   );
 }
 
-export function ActivityView() {
+const ActivityView: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("")
   const [performanceRange, setPerformanceRange] = useState([0, 100]);
   const [sortOption, setSortOption] = useState("standard");
@@ -570,3 +577,5 @@ export function ActivityView() {
     </Card>
   )
 }
+
+export default ActivityView;
