@@ -332,7 +332,7 @@ function PerformanceDialog({ data }: { data: ActivityData }) {
   );
 }
 
-const ActivityView: React.FC = () => {
+export default function ActivityView() {
   const [searchQuery, setSearchQuery] = useState("")
   const [performanceRange, setPerformanceRange] = useState([0, 100]);
   const [sortOption, setSortOption] = useState("standard");
@@ -391,6 +391,7 @@ const ActivityView: React.FC = () => {
   }, [searchQuery, performanceRange, sortOption, activityData]);
 
   return (
+  <>
     <Card className="w-full bg-white rounded-3xl shadow-lg overflow-hidden shadow-md shadow-black/10">
       <CardHeader className="flex flex-row items-center justify-between p-4 border-b">
         <div className="flex items-center gap-2">
@@ -428,7 +429,7 @@ const ActivityView: React.FC = () => {
                 <DropdownMenuRadioItem value="date-new" className="py-3 text-base font-normal">Date (newest first)</DropdownMenuRadioItem>
                 <DropdownMenuRadioItem value="date-old" className="py-3 text-base font-normal">Date (oldest first)</DropdownMenuRadioItem>
               </DropdownMenuRadioGroup>
-              <div className="pt-6 pb-4"><div className="pt-6 pb-4">
+              <div className="pt-6 pb-4">
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-base font-medium">Overall Performance Range:</span>
                   <span className="text-base font-medium text-[#5b06be]">{performanceRange[0]} - {performanceRange[1]}</span>
@@ -540,42 +541,42 @@ const ActivityView: React.FC = () => {
           </table>
         </div>
       </CardContent>
-      <Dialog open={isNoteDialogOpen} onOpenChange={setIsNoteDialogOpen}>
-        <DialogContent className="sm:max-w-[90vw] w-[95vw] flex flex-col items-center">
-          <DialogHeader>
-            <DialogTitle>{notes[currentUser?.name || ''] ? 'Edit' : 'Add'} Note for {currentUser?.name}</DialogTitle>
-          </DialogHeader>
-          <div className="grid gap-4 py-4 w-full">
-            <Textarea
-              value={currentNote}
-              onChange={(e) => setCurrentNote(e.target.value)}
-              placeholder="Enter your note here..."
-              className="col-span-3 min-h-[200px] w-full text-base"
-            />
-          </div>
-          <DialogFooter className="flex justify-center w-full">
-            <div className="w-full flex justify-center">
-              <Button 
-                type="submit" 
-                onClick={handleSaveNote}
-                className="bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-6 py-2 rounded-full text-sm font-medium mx-auto"
-              >
-                Save Note
-              </Button>
-            </div>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-      <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
-        <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden">
-          <DialogHeader>
-            <DialogTitle className="sr-only">Select Date Range</DialogTitle>
-          </DialogHeader>
-          <Calendar onSelectRange={handleSelectDateRange} />
-        </DialogContent>
-      </Dialog>
     </Card>
-  )
-}
 
-export default ActivityView;
+    <Dialog open={isNoteDialogOpen} onOpenChange={setIsNoteDialogOpen}>
+      <DialogContent className="sm:max-w-[90vw] w-[95vw] flex flex-col items-center">
+        <DialogHeader>
+          <DialogTitle>{notes[currentUser?.name || ''] ? 'Edit' : 'Add'} Note for {currentUser?.name}</DialogTitle>
+        </DialogHeader>
+        <div className="grid gap-4 py-4 w-full">
+          <Textarea
+            value={currentNote}
+            onChange={(e) => setCurrentNote(e.target.value)}
+            placeholder="Enter your note here..."
+            className="col-span-3 min-h-[200px] w-full text-base"
+          />
+        </div>
+        <DialogFooter className="flex justify-center w-full">
+          <div className="w-full flex justify-center">
+            <Button 
+              type="submit" 
+              onClick={handleSaveNote}
+              className="bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-6 py-2 rounded-full text-sm font-medium mx-auto"
+            >
+              Save Note
+            </Button>
+          </div>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+
+    <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
+      <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden">
+        <DialogHeader>
+          <DialogTitle className="sr-only">Select Date Range</DialogTitle>
+        </DialogHeader>
+        <Calendar onSelectRange={handleSelectDateRange} />
+      </DialogContent>
+    </Dialog>
+  </>
+)
