@@ -300,21 +300,21 @@ function PerformanceDialog({ data }: { data: ActivityData }) {
               className="w-full h-full max-w-none"
             >
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={chartData} margin={{ top: 20, right: 30, left: 10, bottom: 20 }}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis 
-                    dataKey="date" 
-                    tickFormatter={(value) => new Date(value).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-                  />
-                  <YAxis 
-                    domain={[0, 100]} 
-                    tickCount={6} 
-                    tickFormatter={(value) => `${value}%`}
-                  />
-                  <ChartTooltip content={<ChartTooltipContent />} />
-                  <Line type="monotone" dataKey="score" stroke="var(--color-score)" strokeWidth={2} dot={{ r: 4 }} />
-                </LineChart>
-              </ResponsiveContainer>
+  <LineChart data={chartData} margin={{ top: 20, right: 30, left: 10, bottom: 20 }}>
+    <CartesianGrid strokeDasharray="3 3" />
+    <XAxis 
+      dataKey="date" 
+      tickFormatter={(value) => new Date(value).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+    />
+    <YAxis 
+      domain={[0, 100]} 
+      tickCount={6} 
+      tickFormatter={(value) => `${value}%`}
+    />
+    <Tooltip content={<ChartTooltipContent />} />
+    <Line type="monotone" dataKey="score" stroke="var(--color-score)" strokeWidth={2} dot={{ r: 4 }} />
+  </LineChart>
+</ResponsiveContainer>
             </ChartContainer>
           </div>
         </div>
