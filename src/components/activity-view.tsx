@@ -332,7 +332,7 @@ function PerformanceDialog({ data }: { data: ActivityData }) {
   );
 }
 
-export default function ActivityView() {
+function ActivityView() {
   const [searchQuery, setSearchQuery] = useState("")
   const [performanceRange, setPerformanceRange] = useState([0, 100]);
   const [sortOption, setSortOption] = useState("standard");
