@@ -44,6 +44,20 @@ import { Calendar } from "./calendar"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart"
 
+interface ActivityViewProps {
+  data: {
+    name: string;
+    avatar: string;
+    trainingsToday: number;
+    thisWeek: number;
+    thisMonth: number;
+    total: number;
+    currentStreak: number;
+    longestStreak: number;
+    consistency: number;
+  }[];
+}
+
 interface ActivityData {
   name: string
   avatar: string
@@ -332,7 +346,7 @@ function PerformanceDialog({ data }: { data: ActivityData }) {
   );
 }
 
-function ActivityView() {
+function ActivityView({ data }: ActivityViewProps) {
   const [searchQuery, setSearchQuery] = useState("")
   const [performanceRange, setPerformanceRange] = useState([0, 100]);
   const [sortOption, setSortOption] = useState("standard");
