@@ -42,7 +42,7 @@ import {
 } from "@/components/ui/select"
 import { Calendar } from "./calendar"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { ChartContainer, ChartTooltipContent } from "@/components/ui/chart"
 
 interface ActivityData {
   name: string
@@ -582,4 +582,4 @@ function ActivityView() {
  )
 }
 
-export default ActivityView
+export { ActivityView }
