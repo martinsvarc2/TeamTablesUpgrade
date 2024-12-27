@@ -1,14 +1,8 @@
 "use client"
-
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-const ChartContainer = React.forwardRef
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & {
-    config: Record<string, { label: string; color: string }>
-  }
->(({ className, children, config, ...props }, ref) => (
+const ChartContainer = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & { config: Record<string, { label: string; color: string }> }>(({ className, children, config, ...props }, ref) => (
   <div ref={ref} className={cn("relative", className)} {...props}>
     <style>
       {Object.entries(config).map(
@@ -24,10 +18,7 @@ const ChartContainer = React.forwardRef
 ))
 ChartContainer.displayName = "ChartContainer"
 
-const ChartTooltipContent = React.forwardRef
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+const ChartTooltipContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...props }, ref) => (
   <div
     ref={ref}
     className={cn(
