@@ -24,11 +24,81 @@ const ratingsData = [
 ]
 
 const callLogsData = [
-  { name: "David Anderson", avatar: "DA", date: "2024-11-13", overallPerformance: 88, engagement: 90, objectionHandling: 85, informationGathering: 89, programExplanation: 87, closingSkills: 86, overallEffectiveness: 88 },
-  { name: "Megan Taylor", avatar: "MT", date: "2024-11-13", overallPerformance: 92, engagement: 93, objectionHandling: 90, informationGathering: 94, programExplanation: 91, closingSkills: 89, overallEffectiveness: 92 },
-  { name: "Sarah Williams", avatar: "SW", date: "2024-11-14", overallPerformance: 85, engagement: 87, objectionHandling: 83, informationGathering: 86, programExplanation: 84, closingSkills: 82, overallEffectiveness: 85 },
-  { name: "John Martinez", avatar: "JM", date: "2024-11-14", overallPerformance: 95, engagement: 96, objectionHandling: 94, informationGathering: 95, programExplanation: 93, closingSkills: 92, overallEffectiveness: 95 },
-  { name: "Emma Thompson", avatar: "ET", date: "2024-11-15", overallPerformance: 89, engagement: 91, objectionHandling: 87, informationGathering: 90, programExplanation: 88, closingSkills: 86, overallEffectiveness: 89 },
+  { 
+    name: "David Anderson", 
+    avatar: "DA", 
+    date: "2024-11-13", 
+    performance: 88,  // Changed from overallPerformance
+    audioUrl: "/audio1.mp3",  // Added
+    audioUrlOgg: "/audio1.ogg",  // Added
+    engagement: 90, 
+    objectionHandling: 85, 
+    informationGathering: 89, 
+    programExplanation: 87, 
+    closingSkills: 86, 
+    overallEffectiveness: 88,
+    callerImage: "https://res.cloudinary.com/drkudvyog/image/upload/v1734301718/a-3d-cartoon-style-profile-image-of-david-a-40-yea-vzj8l6oUQwqDyV_BtWc0Eg-n9lLI1SAQfuxxvzy48S83Q_yy9urr.png"  // Added
+  },
+  { 
+    name: "Megan Taylor", 
+    avatar: "MT", 
+    date: "2024-11-13", 
+    performance: 92,
+    audioUrl: "/audio2.mp3",
+    audioUrlOgg: "/audio2.ogg",
+    engagement: 93, 
+    objectionHandling: 90, 
+    informationGathering: 94, 
+    programExplanation: 91, 
+    closingSkills: 89, 
+    overallEffectiveness: 92,
+    callerImage: "https://res.cloudinary.com/drkudvyog/image/upload/v1734565206/a-3d-cartoon-style-profile-image-of-rachel-a-30-ye-tkHg-wwXRnKMpxUbbd3X5w-x8ca8T9zQB-uIbW2TAzcMg_exndep.png"
+  },
+  { 
+    name: "Sarah Williams", 
+    avatar: "SW", 
+    date: "2024-11-14", 
+    performance: 85,
+    audioUrl: "/audio3.mp3",
+    audioUrlOgg: "/audio3.ogg",
+    engagement: 87, 
+    objectionHandling: 83, 
+    informationGathering: 86, 
+    programExplanation: 84, 
+    closingSkills: 82, 
+    overallEffectiveness: 85,
+    callerImage: "https://res.cloudinary.com/drkudvyog/image/upload/v1734565214/a-3d-cartoon-style-profile-image-of-a-45-year-old--cEWhASYMTDaIRrdhScg9nw-eP1jjMAQR16vtgZMb1_GIA_slmeu2.png"
+  },
+  { 
+    name: "John Martinez", 
+    avatar: "JM", 
+    date: "2024-11-14", 
+    performance: 95,
+    audioUrl: "/audio4.mp3",
+    audioUrlOgg: "/audio4.ogg",
+    engagement: 96, 
+    objectionHandling: 94, 
+    informationGathering: 95, 
+    programExplanation: 93, 
+    closingSkills: 92, 
+    overallEffectiveness: 95,
+    callerImage: "https://res.cloudinary.com/drkudvyog/image/upload/v1734301718/a-3d-cartoon-style-profile-image-of-david-a-40-yea-vzj8l6oUQwqDyV_BtWc0Eg-n9lLI1SAQfuxxvzy48S83Q_yy9urr.png"
+  },
+  { 
+    name: "Emma Thompson", 
+    avatar: "ET", 
+    date: "2024-11-15", 
+    performance: 89,
+    audioUrl: "/audio5.mp3",
+    audioUrlOgg: "/audio5.ogg",
+    engagement: 91, 
+    objectionHandling: 87, 
+    informationGathering: 90, 
+    programExplanation: 88, 
+    closingSkills: 86, 
+    overallEffectiveness: 89,
+    callerImage: "https://res.cloudinary.com/drkudvyog/image/upload/v1734565206/a-3d-cartoon-style-profile-image-of-rachel-a-30-ye-tkHg-wwXRnKMpxUbbd3X5w-x8ca8T9zQB-uIbW2TAzcMg_exndep.png"
+  }
 ]
 
 export default function Dashboard() {
