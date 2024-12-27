@@ -841,6 +841,7 @@ function PerformanceMetricsWidget({ log }: { log: CallLogData }) {
                       key={metric.label}
                       onSelect={() => setSelectedMetric(metric.label)}
                       className="flex justify-between items-center"
+                      inset={false}
                     >
                       <span>{metric.label}</span>
                       <span className="ml-2 text-[#22c55e] font-semibold">{metric.value}/100</span>
