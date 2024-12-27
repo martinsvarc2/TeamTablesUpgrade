@@ -86,9 +86,10 @@ export function PerformanceMetricsWidget({ log }: PerformanceMetricsWidgetProps)
                   <div 
                     key={metric.label} 
                     onClick={() => setSelectedMetric(metric.label)}
-                    className={`bg-white rounded-lg p-1.5 cursor-pointer transition-all hover:shadow-md flex flex-col items-center justify-between h-20 w-[120px] border border-gray-200 relative ${
-                      metric.label === selectedMetric ? 'bg-[#f0fdf4] border-[#22c55e]' : ''
-                    }`} {/* Updated metric card styles */}
+                    className={cn(
+                      "bg-white rounded-lg p-1.5 cursor-pointer transition-all hover:shadow-md flex flex-col items-center justify-between h-20 w-[120px] border border-gray-200 relative",
+                       metric.label === selectedMetric && "bg-[#f0fdf4] border-[#22c55e]"
+                    )}
                   >
                     <h3 className="text-[9px] font-medium text-center w-full h-6 flex items-center justify-center leading-tight">
                       {metric.label}
