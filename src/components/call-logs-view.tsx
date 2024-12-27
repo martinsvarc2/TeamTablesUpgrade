@@ -377,8 +377,8 @@ export function CallLogsView() {
                           <DialogTrigger asChild>
                             <Button 
                               variant="ghost" 
-                              size="xs"
-                              className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs"
+                              size="sm"
+                               className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs h-7"
                             >
                               <span className="font-medium">{log.performance}/100</span>
                               <span className="ml-1 font-medium">View Info</span>
