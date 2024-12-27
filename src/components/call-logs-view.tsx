@@ -506,8 +506,8 @@ function FeedbackDialog({ name, initialFeedback, onSaveFeedback }: { name: strin
       <DialogTrigger asChild>
         <Button 
           variant="default" 
-          size="xs"
-          className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs pulse-button"
+          size="sm"
+          className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs h-7 pulse-button"
         >
           {initialFeedback ? `Edit Feedback for ${name}` : `Add Feedback for ${name}`}
         </Button>
