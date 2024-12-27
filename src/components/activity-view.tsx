@@ -579,4 +579,7 @@ export default function ActivityView() {
       </DialogContent>
     </Dialog>
   </>
-)
+ )
+}
+
+export default ActivityView
