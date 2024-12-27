@@ -172,8 +172,10 @@ export function CallLogsView() {
   };
 
   const handlePerformanceRangeChange = (value: number[]) => {
-    setPerformanceRange(value);
-  };
+  if (value.length === 2) {
+    setPerformanceRange([value[0], value[1]] as [number, number]);
+  }
+};
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
