@@ -35,6 +35,10 @@ import { Slider } from "@/components/ui/slider"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { cn } from "@/lib/utils";
 
+interface CallLogsViewProps {
+  data: CallLogData[];
+}
+
 interface CallLogData {
   name: string
   avatar: string
@@ -149,7 +153,7 @@ const callLogsData: CallLogData[] = [
   }
 ]
 
-export function CallLogsView() {
+export function CallLogsView({ data }: CallLogsViewProps) {
   const [showMore, setShowMore] = useState(false)
   const [feedbacks, setFeedbacks] = useState<{ [key: string]: string }>({})
   const [error, setError] = useState<Error | null>(null);
