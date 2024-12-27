@@ -499,10 +499,10 @@ function ActivityView() {
                   <td className="px-2 py-4 text-center">
                     <Dialog>
                       <DialogTrigger asChild>
-                        <Button 
+                       <Button 
                           variant="ghost" 
-                          size="xs"
-                          className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs"
+                          size="sm"
+                          className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs h-7"
                         >
                           <span className="font-medium">{user.overallPerformance}/100</span>
                           <span className="ml-1 font-medium">View Info</span>
