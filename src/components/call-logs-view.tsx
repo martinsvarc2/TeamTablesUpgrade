@@ -430,7 +430,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                                 variant="default" 
                                 size="sm"
                                 className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-4 py-2 text-sm"
-                                onClick={() => handleAddFeedback(log.name)}
+                                onClick={() => handleSaveFeedback(log.name, feedbacks[log.name] || '')}
                               >
                                 Add Feedback for {log.name}
                               </Button>
