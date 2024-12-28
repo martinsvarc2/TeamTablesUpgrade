@@ -405,21 +405,68 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                             </Button>
                           </DialogTrigger>
                           <DialogContent className="max-w-4xl w-[95vw] p-6">
-                            <DialogHeader className="flex items-center w-full gap-2 py-0.5 px-1 border-b bg-white rounded-lg shadow-sm mb-4">
-                              {/* Your existing header content */}
-                            </DialogHeader>
-                            <div className="grid grid-cols-2 gap-6">
-                              {/* Left Column - Metrics */}
-                              <div className="bg-white rounded-xl shadow-sm p-4">
-                                <PerformanceMetricsWidget log={log} />
-                              </div>
-                              {/* Right Column - Level Up Plan and other widgets */}
-                              <div className="space-y-6">
-                                {/* Level Up Plan */}
-                                <div className="bg-white rounded-xl shadow-sm p-4">
-                                  <LevelUpPlanWidget />
+                            {/* Header with date, users, and tags */}
+                            <div className="flex items-center justify-between w-full p-2 mb-6 bg-gray-50 rounded-lg">
+                              <div className="flex items-center gap-3">
+                                <span className="text-sm text-gray-500">{formatDateShort(log.date)}</span>
+                                <div className="flex items-center gap-2">
+                                  <Avatar className="h-6 w-6 border border-[#5b06be]">
+                                    <AvatarImage src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" alt={`${log.name}'s profile`} />
+                                  </Avatar>
+                                  <span className="text-sm">{log.name}</span>
+                                  <span className="mx-2">×</span>
+                                  <Avatar className="h-6 w-6 border border-[#5b06be]">
+                                    <AvatarImage src={log.callerImage} alt={`Caller for ${log.name}`} />
+                                  </Avatar>
+                                  <span className="text-xs font-medium bg-[#F3E8FF] text-[#7C3AED] px-3 py-1 rounded-full border border-[#7C3AED]/20">
+                                    Creative Finance
+                                  </span>
+                                  <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full">
+                                    Intermediate
+                                  </span>
                                 </div>
-                                {/* Call Notes and Power Moment */}
+                              </div>
+                              <Button 
+                                variant="default" 
+                                size="sm"
+                                className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-4 py-2 text-sm"
+                              >
+                                Add Feedback for {log.name}
+                              </Button>
+                            </div>
+                          
+                            {/* Main content grid */}
+                            <div className="grid grid-cols-2 gap-6">
+                              {/* Left column */}
+                              <div>
+                                <Tabs defaultValue="metrics" className="w-full">
+                                  <TabsList className="grid w-full grid-cols-2 mb-4">
+                                    <TabsTrigger value="metrics">Metrics</TabsTrigger>
+                                    <TabsTrigger value="transcript">Transcript</TabsTrigger>
+                                  </TabsList>
+                                  <TabsContent value="metrics">
+                                    <PerformanceMetricsWidget log={log} />
+                                  </TabsContent>
+                                  <TabsContent value="transcript">
+                                    <TranscriptView messages={[]} agentName={log.name} />
+                                  </TabsContent>
+                                </Tabs>
+                              </div>
+                          
+                              {/* Right column */}
+                              <div className="space-y-6">
+                                <div className="bg-white rounded-xl shadow-sm p-4">
+                                  <div className="flex items-center justify-between mb-4">
+                                    <h2 className="text-lg font-semibold">Level Up Plan</h2>
+                                    <div className="flex items-center gap-2">
+                                      <Button variant="ghost" size="sm"><ChevronLeft className="h-4 w-4" /></Button>
+                                      <span className="text-sm">1/3</span>
+                                      <Button variant="ghost" size="sm"><ChevronRight className="h-4 w-4" /></Button>
+                                    </div>
+                                  </div>
+                                  <AreasOfImprovement currentIndex={0} />
+                                </div>
+                                
                                 <div className="grid grid-cols-2 gap-6">
                                   <div className="bg-white rounded-xl shadow-sm p-4">
                                     <CallNotesWidget log={log} />
