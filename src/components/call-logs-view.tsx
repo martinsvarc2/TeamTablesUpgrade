@@ -436,8 +436,8 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                               </Button>
                             </div>
                           
-                            {/* Main content */}
-                            <div className="grid grid-cols-2 gap-6 h-[calc(80vh-120px)]">
+                           {/* Main content */}
+                            <div className="grid grid-cols-2 gap-6 h-[calc(90vh-180px)]">  {/* Updated height calculation */}
                               {/* Left column */}
                               <div className="h-full">
                                 <Tabs defaultValue="metrics" className="w-full h-full">
@@ -476,22 +476,31 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                                 </Tabs>
                               </div>
                           
-                              {/* Right column grid with equal heights */}
+                              {/* Right column */}
                               <div className="space-y-6 h-full flex flex-col">
-                                {/* Level Up Plan takes 60% of height */}
-                                <div className="flex-grow-0 flex-shrink-0 h-[60%]">
+                                {/* Level Up Plan - takes proportional height */}
+                                <div className="h-3/5">  {/* Changed from fixed percentage */}
                                   <div className="bg-white rounded-xl shadow-sm p-4 h-full">
-                                    <div className="flex items-center justify-between mb-4">
-                                      <h2 className="text-lg font-semibold">Level Up Plan</h2>
-                                      <div className="flex items-center gap-2">
-                                        <Button variant="ghost" size="sm"><ChevronLeft className="h-4 w-4" /></Button>
-                                        <span className="text-sm">1/3</span>
-                                        <Button variant="ghost" size="sm"><ChevronRight className="h-4 w-4" /></Button>
-                                      </div>
-                                    </div>
-                                    <AreasOfImprovement currentIndex={0} />
+                                    {/* ... Level Up Plan content ... */}
                                   </div>
                                 </div>
+                            
+                                {/* Bottom grid - takes remaining height */}
+                                <div className="grid grid-cols-2 gap-6 h-2/5">  {/* Changed from fixed percentage */}
+                                  <div className="bg-white rounded-xl shadow-sm p-4 h-full">
+                                    <h2 className="text-lg font-semibold mb-2">Call Notes</h2>
+                                    <p className="text-sm text-gray-600 line-clamp-3">Customer showed interest in our premium package. Follow up next week to discuss financing options.</p>
+                                  </div>
+                                  <div className="bg-white rounded-xl shadow-sm p-4 h-full">
+                                    <div className="flex items-start gap-2 mb-2">
+                                      <h2 className="text-lg font-semibold">Power Moment!</h2>
+                                      <span className="text-yellow-500">⚡</span>
+                                    </div>
+                                    <p className="text-sm text-gray-600 line-clamp-3">Polite and professional tone throughout the call.</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           
                                 <div className="grid grid-cols-2 gap-6 flex-grow-0 flex-shrink-0 h-[40%]">
                                   <div className="bg-white rounded-xl shadow-sm p-4 h-full">
