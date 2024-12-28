@@ -433,17 +433,22 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                               </div>
                             </DialogHeader>
                             <div className="space-y-4">
-                              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 auto-rows-fr h-[calc(80vh-120px)]"> {/* Update 2 */}
+                              <div className="grid grid-cols-2 gap-4">
+                                {/* Left column: Metrics */}
                                 <PerformanceMetricsWidget log={log} />
-                                <div className="flex flex-col gap-4">
-                                  <LevelUpPlanWidget />
-                                  <div className="grid grid-cols-2 gap-4 flex-grow">
-                                    <CallNotesWidget log={log} />
-                                    <PowerMomentWidget moment="Polite and professional tone throughout the call." />
-                                  </div>
-                                </div>
+    
+                              {/* Right column: Call Notes and Power Moment */}
+                              <div className="grid grid-cols-2 gap-4">
+                                <CallNotesWidget log={log} />
+                                <PowerMomentWidget moment="Polite and professional tone throughout the call." />
                               </div>
                             </div>
+  
+                            {/* Bottom row: Level Up Plan */}
+                            <div className="mt-4 w-full">
+                              <LevelUpPlanWidget />
+                            </div>
+                          </div>
                           </DialogContent>
                         </Dialog>
                       </td>
