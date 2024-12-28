@@ -335,6 +335,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                 <tr className="bg-[#f8b922]">
                   <th className="px-6 py-4 text-center text-sm font-medium text-white first:pl-6 last:pr-6">Date</th>
                   <th className="px-6 py-4 text-center text-sm font-medium text-white">Users</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Caller</th>
                   <th className="px-6 py-4 text-center text-sm font-medium text-white">Performance</th>
                   <th className="px-6 py-4 text-center text-sm font-medium text-white">Recording</th>
                 </tr>
@@ -353,33 +354,13 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                         </div>
                       </td>
                       <td className="px-4 py-3 text-center">
-                        <div className="flex items-center justify-start gap-2 ml-8 flex-nowrap whitespace-nowrap">
-                          {/* User Avatar */}
-                          <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
-                            <AvatarImage src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" alt={`${log.name}'s profile`} />
-                          </Avatar>
-                          <span className="font-medium text-black text-sm">{log.name}</span>
-      
-                          {/* Cross Icon */}
-                          <Image
-                            src="https://images.vexels.com/media/users/3/155474/isolated/preview/4e12cd94f7591c3c851fce62fdc3d463-x-cross-doodle-icon.png"
-                            alt="X icon"
-                            width={12}
-                            height={12}
-                            className="mx-2"
-                          />
-    
-                          {/* Caller Avatar */}
+                        <div className="flex items-center justify-start gap-2 ml-8 flex-nowrap whitespace-nowrap"> {/* Updated line */}
                           <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                             <AvatarImage src={log.callerImage} alt={`Caller for ${log.name}`} />
                           </Avatar>
-    
-                          {/* Category Tag */}
                           <span className="text-xs font-medium bg-[#F3E8FF] text-[#7C3AED] px-3 py-1 rounded-full border border-[#7C3AED]/20">
                             {index === 0 ? "Creative Finance" : index === 1 ? "Agent Outreach" : index === 2 ? "Foreclosure" : index === 3 ? "Wholesaling" : index === 4 ? "Creative Finance" : "Wholesaling"}
                           </span>
-  
-                          {/* Difficulty Tag */}
                           {index === 0 ? (
                             <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full backdrop-blur-sm">Intermediate</span>
                           ) : index === 1 ? (
@@ -1037,4 +1018,3 @@ export function TranscriptView({ messages, className, agentName }: TranscriptVie
     }
   }
 `}</style>
-
