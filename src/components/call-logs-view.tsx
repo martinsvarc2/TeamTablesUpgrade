@@ -395,7 +395,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                               />
                             </Button>
                           </DialogTrigger>
-                          <DialogContent className="max-w-4xl w-[95vw] p-6 max-h-[80vh] overflow-y-auto"> {/* Update 1 */}
+                          <DialogContent className="max-w-4xl w-[95vw] p-6">
                             <DialogHeader className="flex items-center w-full gap-2 py-0.5 px-1 border-b bg-white rounded-lg shadow-sm mb-4">
                               <div className="flex items-center justify-between w-full">
                                 <div className="flex items-center gap-3">
@@ -432,6 +432,32 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                                 />
                               </div>
                             </DialogHeader>
+
+                            <div className="grid grid-cols-2 gap-6">
+                              {/* Left Column - Metrics */}
+                              <div className="bg-white rounded-xl shadow-sm p-4">
+                                <PerformanceMetricsWidget log={log} />
+                              </div>
+
+                              {/* Right Column - Level Up Plan and other widgets */}
+                              <div className="space-y-6">
+                                {/* Level Up Plan */}
+                                <div className="bg-white rounded-xl shadow-sm p-4">
+                                  <LevelUpPlanWidget />
+                                </div>
+
+                                {/* Call Notes and Power Moment */}
+                                <div className="grid grid-cols-2 gap-6">
+                                  <div className="bg-white rounded-xl shadow-sm p-4">
+                                    <CallNotesWidget log={log} />
+                                  </div>
+                                  <div className="bg-white rounded-xl shadow-sm p-4">
+                                    <PowerMomentWidget moment="Polite and professional tone throughout the call." />
+                                  </div>
+                                </div>
+                               </div>
+                              </div>
+                            </DialogContent>
                             <div className="space-y-4">
                               <div className="grid grid-cols-2 gap-4">
                                 {/* Left column: Metrics */}
