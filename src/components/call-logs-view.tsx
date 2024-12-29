@@ -478,18 +478,47 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                                    </Tabs>
                                 </div>
                           
-                                {/* Pravý sloupec */}
+                                {/* Right column */}
                                 <div className="space-y-6">
-                                   <div className="bg-white rounded-xl shadow-sm p-4">
-                                      <LevelUpPlanWidget />
+                                   {/* Level Up Plan */}
+                                   <div>
+                                      <div className="flex items-center justify-between mb-4">
+                                         <h2 className="text-lg font-semibold">Level Up Plan</h2>
+                                         <div className="flex items-center gap-2">
+                                            <Button variant="ghost" size="sm"><ChevronLeft className="h-4 w-4" /></Button>
+                                            <span className="text-sm">1/3</span>
+                                            <Button variant="ghost" size="sm"><ChevronRight className="h-4 w-4" /></Button>
+                                         </div>
+                                      </div>
+                                      
+                                      <div className="bg-white rounded-xl shadow-sm p-6">
+                                         <div className="flex items-center justify-between mb-2">
+                                            <h3 className="text-lg font-semibold text-[#7C3AED]">Objection Handling</h3>
+                                            <Button variant="ghost" size="sm" className="text-[#7C3AED]">
+                                               <Pencil className="h-4 w-4 mr-2" />
+                                               Edit
+                                            </Button>
+                                         </div>
+                                         <p className="text-sm text-gray-600">Improve addressing customer concerns.</p>
+                                      </div>
                                    </div>
-                                   
+                                
+                                   {/* Call Notes a Power Moment Grid */}
                                    <div className="grid grid-cols-2 gap-6">
                                       <div className="bg-white rounded-xl shadow-sm p-4">
-                                         <CallNotesWidget log={log} />
+                                         <h2 className="text-lg font-semibold mb-2">Call Notes</h2>
+                                         <p className="text-sm text-gray-600 line-clamp-3">
+                                            Customer showed interest in our premium package. Follow up next week to discuss financing options.
+                                         </p>
                                       </div>
                                       <div className="bg-white rounded-xl shadow-sm p-4">
-                                         <PowerMomentWidget moment="Polite and professional tone throughout the call." />
+                                         <div className="flex items-start gap-2 mb-2">
+                                            <h2 className="text-lg font-semibold">Power Moment!</h2>
+                                            <span className="text-yellow-500">⚡</span>
+                                         </div>
+                                         <p className="text-sm text-gray-600 line-clamp-3">
+                                            Polite and professional tone throughout the call.
+                                         </p>
                                       </div>
                                    </div>
                                 </div>
