@@ -329,14 +329,15 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             </div>
         </CardHeader>
         <CardContent className="p-0 flex flex-col h-[calc(100%-76px)]">
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto max-h-[60vh] overflow-y-auto">
             <table className="w-full">
               <thead>
                 <tr className="bg-[#f8b922]">
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white first:pl-6 last:pr-6">Date</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Users</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Performance</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Recording</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white first:pl-6">Date</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">User</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Avatar</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Call Performance</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white last:pr-6">Recording</th>
                 </tr>
               </thead>
               <tbody>
@@ -352,7 +353,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                               alt={`${log.name}'s profile`} 
                             />
                           </Avatar>
-                          <span className="font-medium text-black text-sm">{log.name}</span>
+                          <span className="font-medium text-black text-sm whitespace-nowrap">{log.name}</span>
                           
                           <Image
                             src="https://images.vexels.com/media/users/3/155474/isolated/preview/4e12cd94f7591c3c851fce62fdc3d463-x-cross-doodle-icon.png"
@@ -1007,7 +1008,7 @@ function CallNotesWidget({ log }: { log: CallLogData }) {
   return (
     <div className="bg-white rounded-xl shadow-md p-4 h-[calc(40vh-80px)] flex flex-col">
       <h2 className="text-lg font-semibold mb-2">Call Notes</h2>
-      <div className="flex-grow overflow-y-auto pr-2">
+      <div className="flex-grow overflow-y-auto pr-2 scrollbar scrollbar-thin scrollbar-thumb-[#5b06be] scrollbar-track-gray-100 hover:scrollbar-thumb-[#7016e0]">
         <p className="text-sm text-gray-600">
           Customer showed interest in our premium package. Follow up next week to discuss financing options. Customer showed interest in our premium package. Follow up next week to discuss financing options. Customer showed interest in our premium package. Follow up next week to discuss financing options. Customer showed interest in our premium package. Follow up next week to discuss financing options.
         </p>
@@ -1057,7 +1058,7 @@ export function TranscriptView({ messages, className, agentName }: TranscriptVie
   return (
     <div className={cn("h-full flex flex-col", className)}>
       <h2 className="text-xl font-semibold mb-4">Call Transcript</h2>
-      <div className="flex-grow overflow-y-auto pr-4 space-y-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400">
+      <div className="flex-grow overflow-y-auto pr-4 space-y-4 scrollbar scrollbar-thin scrollbar-thumb-[#5b06be] scrollbar-track-gray-100 hover:scrollbar-thumb-[#7016e0]">
         {messages.map((message, index) => (
           <div
             key={index}
