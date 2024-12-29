@@ -333,9 +333,9 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <table className="w-full">
               <thead>
                 <tr className="bg-[#f8b922]">
-                  <th className="px-6 py-4 text-left text-sm font-medium text-white first:pl-6 last:pr-6">Date</th>
-                  <th className="px-6 py-4 text-left text-sm font-medium text-white">User</th>
-                  <th className="px-6 py-4 text-left text-sm font-medium text-white">Avatar</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white first:pl-6 last:pr-6">Date</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">User</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Avatar</th>
                   <th className="px-6 py-4 text-center text-sm font-medium text-white">Call Performance</th>
                   <th className="px-6 py-4 text-center text-sm font-medium text-white">Call Recording</th>
                 </tr>
@@ -350,7 +350,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       
                       {/* User Column */}
                       <td className="px-4 py-3">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-center gap-2">
                           <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                             <AvatarImage 
                               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
@@ -363,7 +363,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       
                       {/* Agent Column */}
                       <td className="px-4 py-3">
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-center gap-2">
                           <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                             <AvatarImage 
                               src={log.callerImage}
