@@ -217,9 +217,9 @@ export function CallLogsView({ data }: CallLogsViewProps) {
 
   if (!callLogsData || callLogsData.length === 0) {
     return (
-      <Card className="w-full bg-white overflow-hidden">
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-6 bg-white shadow-md">
-          <CardTitle className="text-2xl font-bold flex items-center gap-2 text-black">
+      <div className="w-full bg-white overflow-hidden">
+        <div className="p-6 border-b flex flex-row items-center justify-between">
+          <div className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
             <Image
               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
               alt="Team Call Logs"
