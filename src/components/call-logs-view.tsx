@@ -228,12 +228,12 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               className="h-6 w-6"
             />
             Team Call Logs
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="p-6 text-center text-gray-500">
+          </div>
+        </div>
+        <div className="p-6 text-center text-gray-500">
           No call logs available.
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     )
   }
 
@@ -242,8 +242,8 @@ export function CallLogsView({ data }: CallLogsViewProps) {
   try {
     return (
       <Card className="w-full bg-white overflow-hidden">
-        <CardHeader className="p-6 border-b flex flex-row items-center justify-between">
-          <CardTitle className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
+        <div className="p-6 border-b flex flex-row items-center justify-between">
+          <div className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
             <Image
               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
               alt="Team Call Logs"
@@ -328,7 +328,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               </div>
             </div>
         </CardHeader>
-        <CardContent className="p-0 flex flex-col h-[calc(100%-76px)]">
+        <div className="p-0 flex flex-col h-[calc(100%-76px)]">
           <div className="overflow-x-auto max-h-[60vh] overflow-y-auto">
             <table className="w-full">
               <thead>
@@ -340,13 +340,18 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                   <th className="px-6 py-4 text-center text-sm font-medium text-white last:pr-6">Recording</th>
                 </tr>
               </thead>
-              <tbody>
+              <<tbody>
                 {filteredAndSortedData && filteredAndSortedData.length > 0 ? (
                   visibleData.map((log, index) => (
                     <tr key={index} className="border-b border-gray-200/10">
-                      <td className="px-4 py-3 text-black text-xs whitespace-nowrap text-center">{formatDateShort(log.date)}</td>
-                      <td className="px-4 py-3 text-center">
-                        <div className="flex items-center justify-start gap-2 ml-8">
+                      {/* Date Column */}
+                      <td className="px-4 py-3 text-black text-xs whitespace-nowrap text-center">
+                        {formatDateShort(log.date)}
+                      </td>
+              
+                      {/* User Column */}
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-2">
                           <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                             <AvatarImage 
                               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" 
@@ -354,36 +359,33 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                             />
                           </Avatar>
                           <span className="font-medium text-black text-sm whitespace-nowrap">{log.name}</span>
-                          
-                          <Image
-                            src="https://images.vexels.com/media/users/3/155474/isolated/preview/4e12cd94f7591c3c851fce62fdc3d463-x-cross-doodle-icon.png"
-                            alt="X icon"
-                            width={12}
-                            height={12}
-                            className="mx-2"
-                          />
-                          
+                        </div>
+                      </td>
+              
+                      {/* Avatar/Caller Column */}
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-2">
                           <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                             <AvatarImage src={log.callerImage} alt={`Caller for ${log.name}`} />
                           </Avatar>
-                          
-                          <span className="text-xs font-medium bg-[#F3E8FF] text-[#7C3AED] px-3 py-1 rounded-full border border-[#7C3AED]/20">
-                            {index === 0 ? "Creative Finance" : index === 1 ? "Agent Outreach" : index === 2 ? "Foreclosure" : index === 3 ? "Wholesaling" : index === 4 ? "Creative Finance" : "Wholesaling"}
-                          </span>
-                          
-                          {index === 0 ? (
-                            <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full backdrop-blur-sm">Intermediate</span>
-                          ) : index === 1 ? (
-                            <span className="text-xs font-medium bg-green-100/80 text-green-800 border border-green-300 px-3 py-1 rounded-full backdrop-blur-sm">Easy</span>
-                          ) : index === 2 ? (
-                            <span className="text-xs font-medium bg-red-100/80 text-red-800 border border-red-300 px-3 py-1 rounded-full backdrop-blur-sm">Hard</span>
-                          ) : index === 3 ? (
-                            <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full backdrop-blur-sm">Intermediate</span>
-                          ) : index === 4 ? (
-                            <span className="text-xs font-medium bg-green-100/80 text-green-800 border border-green-300 px-3 py-1 rounded-full backdrop-blur-sm">Easy</span>
-                          ) : (
-                            <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full backdrop-blur-sm">Intermediate</span>
-                          )}
+                          <div className="flex flex-col">
+                            <span className="text-xs font-medium bg-[#F3E8FF] text-[#7C3AED] px-3 py-1 rounded-full border border-[#7C3AED]/20">
+                              {index === 0 ? "Creative Finance" : index === 1 ? "Agent Outreach" : index === 2 ? "Foreclosure" : index === 3 ? "Wholesaling" : index === 4 ? "Creative Finance" : "Wholesaling"}
+                            </span>
+                            {index === 0 ? (
+                              <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full backdrop-blur-sm mt-1">Intermediate</span>
+                            ) : index === 1 ? (
+                              <span className="text-xs font-medium bg-green-100/80 text-green-800 border border-green-300 px-3 py-1 rounded-full backdrop-blur-sm mt-1">Easy</span>
+                            ) : index === 2 ? (
+                              <span className="text-xs font-medium bg-red-100/80 text-red-800 border border-red-300 px-3 py-1 rounded-full backdrop-blur-sm mt-1">Hard</span>
+                            ) : index === 3 ? (
+                              <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full backdrop-blur-sm mt-1">Intermediate</span>
+                            ) : index === 4 ? (
+                              <span className="text-xs font-medium bg-green-100/80 text-green-800 border border-green-300 px-3 py-1 rounded-full backdrop-blur-sm mt-1">Easy</span>
+                            ) : (
+                              <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full backdrop-blur-sm mt-1">Intermediate</span>
+                            )}
+                          </div>
                         </div>
                       </td>
                       <td className="px-4 py-3 text-center">
