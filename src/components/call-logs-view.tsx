@@ -241,7 +241,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
 
   try {
     return (
-      <Card className="w-full bg-white overflow-hidden">
+      <div className="w-full bg-white overflow-hidden">
         <div className="p-6 border-b flex flex-row items-center justify-between">
           <div className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
             <Image
