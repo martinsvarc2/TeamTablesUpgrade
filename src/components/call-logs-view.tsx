@@ -394,110 +394,104 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                               />
                             </Button>
                           </DialogTrigger>
-                          // NAJÍT tento jednoduchý kód:
                           <DialogContent>
                             {/* Zde vložit obsah dialogu */}
                           </DialogContent>
-                          
-                          // NAHRADIT za tento kompletní kód:
-                          <DialogContent className="max-w-4xl w-[95vw] p-6">
-                            {/* Header - informace o hovoru */}
-                            <div className="flex items-center justify-between w-full p-2 mb-6 bg-gray-50 rounded-lg">
-                              <div className="flex items-center gap-3">
-                                <span className="text-sm text-gray-500">{formatDateShort(log.date)}</span>
-                                <div className="flex items-center gap-2">
-                                  <Avatar className="h-6 w-6 border border-[#5b06be]">
-                                    <AvatarImage 
-                                      src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" 
-                                      alt={`${log.name}'s profile`} 
-                                    />
-                                  </Avatar>
-                                  <span className="text-sm">{log.name}</span>
-                                  <span className="mx-2">×</span>
-                                  <Avatar className="h-6 w-6 border border-[#5b06be]">
-                                    <AvatarImage src={log.callerImage} alt={`Caller for ${log.name}`} />
-                                  </Avatar>
-                                  <span className="text-xs font-medium bg-[#F3E8FF] text-[#7C3AED] px-3 py-1 rounded-full border border-[#7C3AED]/20">
-                                    Creative Finance
-                                  </span>
-                                  <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full">
-                                    Intermediate
-                                  </span>
-                                </div>
-                              </div>
-                              <Button 
-                                variant="default" 
-                                size="sm"
-                                className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] hover:text-white transition-all px-4 py-2 text-sm"
-                                onClick={() => handleSaveFeedback(log.name, feedbacks[log.name] || '')}
-                              >
-                                Add Feedback for {log.name}
-                              </Button>
-                            </div>
-                          
-                            {/* Hlavní obsah - dvousloupcový layout */}
-                            <div className="grid grid-cols-2 gap-6 h-[calc(100vh-250px)]">
-                              {/* Levý sloupec - Metrics a Transcript */}
-                              <div className="h-full">
-                                <Tabs defaultValue="metrics" className="w-full h-full flex flex-col">
-                                  <TabsList className="grid w-full grid-cols-2 mb-4">
-                                    <TabsTrigger value="metrics">Metrics</TabsTrigger>
-                                    <TabsTrigger value="transcript">Transcript</TabsTrigger>
-                                  </TabsList>
-                                  
-                                  <TabsContent value="metrics" className="flex-grow overflow-auto">
-                                    <PerformanceMetricsWidget log={log} />
-                                  </TabsContent>
-                                  
-                                  <TabsContent value="transcript" className="flex-grow overflow-hidden">
-                                    <TranscriptView messages={[
-                                      {
-                                        speaker: "Megan",
-                                        avatar: "M",
-                                        content: "Hey, I'm Megan. I'll be the homeowner, and you're the investor. Ready to hear your opening pitch.",
-                                        isAgent: false
-                                      },
-                                      {
-                                        speaker: "Martin",
-                                        avatar: "MA",
-                                        content: "Hey, Megan. This is Martin. How are you doing today?",
-                                        isAgent: true
-                                      },
-                                      {
-                                        speaker: "Megan",
-                                        avatar: "M",
-                                        content: "Hi, Martin. I'm doing okay. Thanks for asking. About you?",
-                                        isAgent: false
-                                      },
-                                      {
-                                        speaker: "Martin",
-                                        avatar: "MA",
-                                        content: "Everything is great. Hamdulah.",
-                                        isAgent: true
-                                      }
-                                    ]} agentName={log.name} />
-                                  </TabsContent>
-                                </Tabs>
-                              </div>
-                          
-                              {/* Pravý sloupec - Level Up Plan, Call Notes, Power Moment */}
-                              <div className="h-full flex flex-col justify-between">
-                                <LevelUpPlanWidget />
-                                <div className="grid grid-cols-2 gap-6">
-                                  <CallNotesWidget log={log} />
-                                  <div className="bg-white rounded-xl shadow-sm p-4">
-                                    <div className="flex items-start gap-2 mb-2">
-                                      <h2 className="text-lg font-semibold">Power Moment!</h2>
-                                      <span className="text-yellow-500">⚡</span>
-                                    </div>
-                                    <p className="text-sm text-gray-600 line-clamp-3">
-                                      Polite and professional tone throughout the call.
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </DialogContent>
+                        </Dialog>
+                      </td>
+            
+                      {/* Recording Column */}
+                      <td className="px-4 py-3 text-center">
+                        <AudioPlayer audioUrl={log.audioUrl} />
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={5} className="px-4 py-3 text-center text-gray-500">
+                      No call logs available.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+          {filteredAndSortedData.length > 5 && (
+            <div className="p-4 flex justify-center">
+              <Button
+                variant="ghost"
+                onClick={() => setShowMore(!showMore)}
+                className="rounded-full text-black hover:bg-gray-200 shadow-md shadow-black/10"
+              >
+                {showMore ? "Show Less" : "Show More"}
+              </Button>
+            </div>
+          )}
+        </CardContent>
+        <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
+          <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden">
+            <DialogHeader>
+              <DialogTitle className="sr-only">Select Date Range</DialogTitle>
+            </DialogHeader>
+            <Calendar onSelectRange={handleSelectDateRange} />
+          </DialogContent>
+        </Dialog>
+      </Card>
+    )
+  } catch (err) {
+    setError(err as Error);
+    return null;
+  }
+}
+
+function FeedbackDialog({ name, initialFeedback, onSaveFeedback }: { name: string, initialFeedback: string, onSaveFeedback: (feedback: string) => void }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const [feedback, setFeedback] = useState(initialFeedback)
+  const [isEditing, setIsEditing] = useState(false)
+
+  useEffect(() => {
+    setFeedback(initialFeedback)
+    setIsEditing(!initialFeedback)
+  }, [initialFeedback])
+
+  const handleAddFeedback = () => { // Updated function name
+    onSaveFeedback(feedback)
+    setIsEditing(false)
+  }
+
+  return (
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogTrigger asChild>
+        <Button 
+          variant="default" 
+          size="sm"
+          className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs h-7 pulse-button"
+        >
+          {initialFeedback ? `Edit Feedback for ${name}` : `Add Feedback for ${name}`}
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <div className="mt-4 space-y-4">
+          <Textarea 
+            value={feedback}
+            onChange={(e) => {
+              setFeedback(e.target.value)
+              setIsEditing(true)
+            }}
+            placeholder="Enter your feedback here..."
+            className="min-h-[100px] border-gray-300 focus:ring-black"
+          />
+          <div className="flex justify-center mt-4">
+            <Button
+              variant="default"
+              className="w-full max-w-md bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all rounded-full py-6 text-lg font-medium"
+              onClick={handleAddFeedback} // Updated onClick handler
+            >
+              {isEditing ? `Add Feedback for ${name}` : `Edit Feedback for ${name}`}
+            </Button>
+          </div>
+        </div>
+      </DialogContent>
     </Dialog>
   )
 }
