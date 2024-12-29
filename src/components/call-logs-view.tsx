@@ -436,11 +436,17 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                                 </Button>
                              </div>
                           
-                             {/* Main content - nová struktura */}
-                             <div className="grid grid-cols-2 gap-6">
-                                {/* Levý sloupec */}
-                                <div className="space-y-6">
-                                   <Tabs defaultValue="metrics" className="w-full">
+                             {/* Main content */}
+                              <div className="grid grid-cols-2 gap-6 h-[calc(100vh-250px)]">  {/* Přidaná fixní výška */}
+                               {/* Levý sloupec */}
+                               <div className="h-full">  {/* Přidaná plná výška */}
+                                  <Tabs defaultValue="metrics" className="w-full h-full flex flex-col">  {/* Přidán flex layout */}
+                                     <TabsList className="grid w-full grid-cols-2 mb-4 flex-shrink-0">  {/* Přidán flex-shrink-0 */}
+                                        <TabsTrigger value="metrics">Metrics</TabsTrigger>
+                                        <TabsTrigger value="transcript">Transcript</TabsTrigger>
+                                     </TabsList>
+                                     
+                                     <TabsContent value="metrics" className="flex-grow overflow-auto">  {/* Přidán flex-grow a overflow */}
                                       <TabsList className="grid w-full grid-cols-2 mb-4">
                                          <TabsTrigger value="metrics">Metrics</TabsTrigger>
                                          <TabsTrigger value="transcript">Transcript</TabsTrigger>
@@ -479,7 +485,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                                 </div>
                           
                                 {/* Right column */}
-                                <div className="space-y-6">
+                                <div className="h-full flex flex-col justify-between">  {/* Změněno na flex container */}
                                    {/* Level Up Plan */}
                                    <div>
                                       <div className="flex items-center justify-between mb-4">
