@@ -54,7 +54,7 @@ interface CallLogData {
   closingSkills: number;
   overallEffectiveness: number;
   notes?: string;
-  callerImage: string; // New field for caller image
+  callerImage: string; 
 }
 
 interface ImprovementArea {
