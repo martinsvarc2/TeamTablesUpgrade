@@ -405,7 +405,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                             </Button>
                           </DialogTrigger>
                           <DialogContent className="max-w-4xl w-[95vw] p-6">
-                             {/* Header - ponecháváme beze změny */}
+                             {/* Header */}
                              <div className="flex items-center justify-between w-full p-2 mb-6 bg-gray-50 rounded-lg">
                                 <div className="flex items-center gap-3">
                                    <span className="text-sm text-gray-500">{formatDateShort(log.date)}</span>
@@ -437,94 +437,96 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                              </div>
                           
                              {/* Main content */}
-                              <div className="grid grid-cols-2 gap-6 h-[calc(100vh-250px)]">
-                                 {/* Levý sloupec */}
-                                 <div className="h-full">
-                                    <Tabs defaultValue="metrics" className="w-full h-full flex flex-col">
-                                       <TabsList className="grid w-full grid-cols-2 mb-4 flex-shrink-0">
-                                          <TabsTrigger value="metrics">Metrics</TabsTrigger>
-                                          <TabsTrigger value="transcript">Transcript</TabsTrigger>
-                                       </TabsList>
-                                       
-                                       <TabsContent value="metrics" className="flex-grow overflow-auto">
-                                          <div className="space-y-4">
-                                             <DropdownMenu>
-                                                <DropdownMenuTrigger asChild>
-                                                   <Button variant="outline" className="w-full justify-between">
-                                                      Overall Score
-                                                      <ChevronDown className="ml-2 h-4 w-4" />
-                                                   </Button>
-                                                </DropdownMenuTrigger>
-                                                <DropdownMenuContent className="w-full">
-                                                   <DropdownMenuItem inset={false}>
-                                                      <span>Overall Score</span>
-                                                      <span className="ml-2 text-[#22c55e] font-semibold">{log.performance}/100</span>
-                                                   </DropdownMenuItem>
-                                                </DropdownMenuContent>
-                                             </DropdownMenu>
-                                             <div className="bg-[#f0fdf4] border border-[#22c55e] rounded-xl p-4">
-                                                <div className="flex justify-between items-center mb-2">
-                                                   <h3 className="text-lg font-semibold">Overall Score</h3>
-                                                   <span className="text-[#22c55e] font-bold">{log.performance}/100</span>
-                                                </div>
-                                                <p className="text-sm text-gray-600">Combined score reflecting the agent's overall performance across all metrics.</p>
-                                             </div>
-                                          </div>
-                                       </TabsContent>
-                                       
-                                       <TabsContent value="transcript">
-                                          <TranscriptView messages={[]} agentName={log.name} className="h-[calc(100vh-300px)]" />
-                                       </TabsContent>
-                                    </Tabs>
-                                 </div>
-                                 
-                                 {/* Right column */}
-                                  <div className="h-full flex flex-col">
-                                     {/* Level Up Plan */}
-                                     <div className="flex-grow">
-                                        <div className="flex items-center justify-between mb-4">
-                                           <h2 className="text-lg font-semibold">Level Up Plan</h2>
-                                           <div className="flex items-center gap-2">
-                                              <Button variant="ghost" size="sm"><ChevronLeft className="h-4 w-4" /></Button>
-                                              <span className="text-sm">1/3</span>
-                                              <Button variant="ghost" size="sm"><ChevronRight className="h-4 w-4" /></Button>
-                                           </div>
-                                        </div>
-                                        
-                                        <div className="bg-white rounded-xl shadow-sm p-6">
-                                           <div className="flex items-center justify-between mb-2">
-                                              <h3 className="text-lg font-semibold text-[#7C3AED]">Objection Handling</h3>
-                                              <Button variant="ghost" size="sm" className="text-[#7C3AED]">
-                                                 <Pencil className="h-4 w-4 mr-2" />
-                                                 Edit
-                                              </Button>
-                                           </div>
-                                           <p className="text-sm text-gray-600">Improve addressing customer concerns.</p>
-                                        </div>
-                                     </div>
-                                  
-                                     {/* Bottom Cards */}
-                                     <div className="grid grid-cols-2 gap-6 mt-6">
-                                        {/* Call Notes */}
-                                        <div className="bg-white rounded-xl shadow-sm p-4">
-                                           <h2 className="text-lg font-semibold mb-2">Call Notes</h2>
-                                           <p className="text-sm text-gray-600 line-clamp-3">
-                                              Customer showed interest in our premium package. Follow up next week to discuss financing options.
-                                           </p>
-                                        </div>
-                                        
-                                        {/* Power Moment */}
-                                        <div className="bg-white rounded-xl shadow-sm p-4">
-                                           <div className="flex items-start gap-2 mb-2">
-                                              <h2 className="text-lg font-semibold">Power Moment!</h2>
-                                              <span className="text-yellow-500">⚡</span>
-                                           </div>
-                                           <p className="text-sm text-gray-600 line-clamp-3">
-                                              Polite and professional tone throughout the call.
-                                           </p>
-                                        </div>
-                                     </div>
-                                  </div>
+                             <div className="grid grid-cols-2 gap-6 h-[calc(100vh-250px)]">
+                                {/* Levý sloupec */}
+                                <div className="h-full">
+                                   <Tabs defaultValue="metrics" className="w-full h-full flex flex-col">
+                                      <TabsList className="grid w-full grid-cols-2 mb-4 flex-shrink-0">
+                                         <TabsTrigger value="metrics">Metrics</TabsTrigger>
+                                         <TabsTrigger value="transcript">Transcript</TabsTrigger>
+                                      </TabsList>
+                                      
+                                      <TabsContent value="metrics" className="flex-grow overflow-auto">
+                                         <div className="space-y-4">
+                                            <DropdownMenu>
+                                               <DropdownMenuTrigger asChild>
+                                                  <Button variant="outline" className="w-full justify-between">
+                                                     Overall Score
+                                                     <ChevronDown className="ml-2 h-4 w-4" />
+                                                  </Button>
+                                               </DropdownMenuTrigger>
+                                               <DropdownMenuContent className="w-full">
+                                                  <DropdownMenuItem inset={false}>
+                                                     <span>Overall Score</span>
+                                                     <span className="ml-2 text-[#22c55e] font-semibold">{log.performance}/100</span>
+                                                  </DropdownMenuItem>
+                                               </DropdownMenuContent>
+                                            </DropdownMenu>
+                                            <div className="bg-[#f0fdf4] border border-[#22c55e] rounded-xl p-4">
+                                               <div className="flex justify-between items-center mb-2">
+                                                  <h3 className="text-lg font-semibold">Overall Score</h3>
+                                                  <span className="text-[#22c55e] font-bold">{log.performance}/100</span>
+                                               </div>
+                                               <p className="text-sm text-gray-600">Combined score reflecting the agent's overall performance across all metrics.</p>
+                                            </div>
+                                         </div>
+                                      </TabsContent>
+                                      
+                                      <TabsContent value="transcript">
+                                         <TranscriptView messages={[]} agentName={log.name} className="h-[calc(100vh-300px)]" />
+                                      </TabsContent>
+                                   </Tabs>
+                                </div>
+                          
+                                {/* Right column */}
+                                <div className="h-full flex flex-col">
+                                   {/* Level Up Plan */}
+                                   <div className="flex-grow">
+                                      <div className="flex items-center justify-between mb-4">
+                                         <h2 className="text-lg font-semibold">Level Up Plan</h2>
+                                         <div className="flex items-center gap-2">
+                                            <Button variant="ghost" size="sm"><ChevronLeft className="h-4 w-4" /></Button>
+                                            <span className="text-sm">1/3</span>
+                                            <Button variant="ghost" size="sm"><ChevronRight className="h-4 w-4" /></Button>
+                                         </div>
+                                      </div>
+                                      
+                                      <div className="bg-white rounded-xl shadow-sm p-6">
+                                         <div className="flex items-center justify-between mb-2">
+                                            <h3 className="text-lg font-semibold text-[#7C3AED]">Objection Handling</h3>
+                                            <Button variant="ghost" size="sm" className="text-[#7C3AED]">
+                                               <Pencil className="h-4 w-4 mr-2" />
+                                               Edit
+                                            </Button>
+                                         </div>
+                                         <p className="text-sm text-gray-600">Improve addressing customer concerns.</p>
+                                      </div>
+                                   </div>
+                                   
+                                   {/* Bottom Cards */}
+                                   <div className="grid grid-cols-2 gap-6 mt-6">
+                                      {/* Call Notes */}
+                                      <div className="bg-white rounded-xl shadow-sm p-4">
+                                         <h2 className="text-lg font-semibold mb-2">Call Notes</h2>
+                                         <p className="text-sm text-gray-600 line-clamp-3">
+                                            Customer showed interest in our premium package. Follow up next week to discuss financing options.
+                                         </p>
+                                      </div>
+                                      
+                                      {/* Power Moment */}
+                                      <div className="bg-white rounded-xl shadow-sm p-4">
+                                         <div className="flex items-start gap-2 mb-2">
+                                            <h2 className="text-lg font-semibold">Power Moment!</h2>
+                                            <span className="text-yellow-500">⚡</span>
+                                         </div>
+                                         <p className="text-sm text-gray-600 line-clamp-3">
+                                            Polite and professional tone throughout the call.
+                                         </p>
+                                      </div>
+                                   </div>
+                                </div>
+                             </div>
+                          </DialogContent>
                                 
                                    {/* Call Notes a Power Moment Grid */}
                                    <div className="grid grid-cols-2 gap-6">
