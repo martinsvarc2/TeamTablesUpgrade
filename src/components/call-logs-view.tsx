@@ -352,18 +352,21 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-2">
                           <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
-                            <AvatarImage src={log.callerImage} alt={`${log.name}'s profile`} />
+                            <AvatarImage 
+                              src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
+                              alt={`${log.name}'s profile`} 
+                            />
                           </Avatar>
                           <span className="font-medium text-black text-sm">{log.name}</span>
                         </div>
                       </td>
-            
+                      
                       {/* Agent Column */}
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-2">
                           <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                             <AvatarImage 
-                              src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" 
+                              src={log.callerImage}
                               alt="Agent profile" 
                             />
                           </Avatar>
