@@ -304,6 +304,8 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       min={0}
                       max={100}
                       step={1}
+                      minStepsBetweenThumbs={1}
+                      defaultValue={[performanceRange[0], performanceRange[1]]}
                       value={[performanceRange[0], performanceRange[1]]}
                       onValueChange={(newValue) => setPerformanceRange(newValue as [number, number])}
                       className="w-full [&_[role=slider]]:bg-white [&_[role=slider]]:border-2 [&_[role=slider]]:border-[#5b06be] [&_[role=slider]]:w-4 [&_[role=slider]]:h-4 [&_[role=slider]]:rounded-full [&_[role=track]]:bg-[#f8b922] [&_[role=track]]:opacity-100 [&_[role=range]]:bg-[#5b06be] [&_[role=track.background]]:bg-[#f8b922]"
