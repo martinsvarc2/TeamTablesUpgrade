@@ -6,7 +6,7 @@ import { CallLogsView } from "@/components/call-logs-view"
 import { Card, CardContent } from "@/components/ui/card"
 import { TrendingUp, Target } from 'lucide-react'
 
-// Sample data (replace with actual data fetching logic)
+
 const activityData = [
   { name: "Sarah Johnson", avatar: "SJ", trainingsToday: 3, thisWeek: 15, thisMonth: 45, total: 180, currentStreak: 7, longestStreak: 15, consistency: 85 },
   { name: "Michael Chen", avatar: "MC", trainingsToday: 4, thisWeek: 18, thisMonth: 52, total: 195, currentStreak: 9, longestStreak: 18, consistency: 92 },
