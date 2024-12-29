@@ -245,9 +245,8 @@ export function CallLogsView({ data }: CallLogsViewProps) {
 
   try {
     return (
-      <div className="w-full bg-white overflow-hidden">
-        <div className="p-6 border-b flex flex-row items-center justify-between">
-          <CardHeader>
+      <Card className="w-full bg-white overflow-hidden">
+        <CardHeader className="border-b">
           <div className="flex justify-between items-center">
             <div className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
               <Image
@@ -257,7 +256,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                 height={24}
                 className="h-6 w-6"
               />
-              <CardTitle>Team Call Logs</CardTitle>
+              <span>Team Call Logs</span>
             </div>
             <div className="flex items-center gap-4">
               <Button 
@@ -333,8 +332,10 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                 />
               </div>
             </div>
+          </div>
         </CardHeader>
-        <div className="p-0 flex flex-col h-[calc(100%-76px)]">
+        <CardContent className="p-0">
+          <div className="flex flex-col h-[calc(100%-76px)]">
           <div className="overflow-x-auto max-h-[60vh] overflow-y-auto">
             <table className="w-full">
               <thead>
@@ -413,7 +414,8 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                               />
                             </Button>
                           </DialogTrigger>
-                          <DialogContent>
+                          <DialogContent className="max-w-4xl w-[95vw] p-6">
+                            {/* Your dialog content here */}
                           </DialogContent>
                         </Dialog>
                       </td>
@@ -443,6 +445,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               </Button>
             </div>
           )}
+          </div>
         </CardContent>
         <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
           <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden">
