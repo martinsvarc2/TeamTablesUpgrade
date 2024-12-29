@@ -663,6 +663,7 @@ function AudioPlayer({ audioUrl }: { audioUrl: string }) {
                 key={speed}
                 onClick={() => setPlaybackSpeed(speed)}
                 className="cursor-pointer"
+                inset={false}
               >
                 {speed}x
               </DropdownMenuItem>
