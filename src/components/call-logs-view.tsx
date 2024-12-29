@@ -413,7 +413,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                               />
                             </Button>
                           </DialogTrigger>
-                          </div>
+                          <DialogContent>
                           </DialogContent>
                         </Dialog>
                       </td>
