@@ -252,7 +252,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               className="h-6 w-6"
             />
             Team Call Logs
-          </CardTitle>
+          </div>
           <div className="flex items-center gap-4">
               <Button 
                 variant="outline" 
@@ -340,7 +340,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                   <th className="px-6 py-4 text-center text-sm font-medium text-white last:pr-6">Recording</th>
                 </tr>
               </thead>
-              <<tbody>
+              <tbody>
                 {filteredAndSortedData && filteredAndSortedData.length > 0 ? (
                   visibleData.map((log, index) => (
                     <tr key={index} className="border-b border-gray-200/10">
