@@ -437,55 +437,49 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                              </div>
                           
                              {/* Main content */}
-                              <div className="grid grid-cols-2 gap-6 h-[calc(100vh-250px)]">  {/* Přidaná fixní výška */}
-                               {/* Levý sloupec */}
-                               <div className="h-full">  {/* Přidaná plná výška */}
-                                  <Tabs defaultValue="metrics" className="w-full h-full flex flex-col">  {/* Přidán flex layout */}
-                                     <TabsList className="grid w-full grid-cols-2 mb-4 flex-shrink-0">  {/* Přidán flex-shrink-0 */}
-                                        <TabsTrigger value="metrics">Metrics</TabsTrigger>
-                                        <TabsTrigger value="transcript">Transcript</TabsTrigger>
-                                     </TabsList>
-                                     
-                                     <TabsContent value="metrics" className="flex-grow overflow-auto">  {/* Přidán flex-grow a overflow */}
-                                      <TabsList className="grid w-full grid-cols-2 mb-4">
-                                         <TabsTrigger value="metrics">Metrics</TabsTrigger>
-                                         <TabsTrigger value="transcript">Transcript</TabsTrigger>
-                                      </TabsList>
-                                      
-                                      <TabsContent value="metrics">
-                                         <div className="space-y-4">
-                                            <DropdownMenu>
-                                               <DropdownMenuTrigger asChild>
-                                                  <Button variant="outline" className="w-full justify-between">
-                                                     Overall Score
-                                                     <ChevronDown className="ml-2 h-4 w-4" />
-                                                  </Button>
-                                               </DropdownMenuTrigger>
-                                               <DropdownMenuContent className="w-full">
-                                                  <DropdownMenuItem inset={false}>
-                                                     <span>Overall Score</span>
-                                                     <span className="ml-2 text-[#22c55e] font-semibold">{log.performance}/100</span>
-                                                  </DropdownMenuItem>
-                                               </DropdownMenuContent>
-                                            </DropdownMenu>
-                                            <div className="bg-[#f0fdf4] border border-[#22c55e] rounded-xl p-4">
-                                               <div className="flex justify-between items-center mb-2">
-                                                  <h3 className="text-lg font-semibold">Overall Score</h3>
-                                                  <span className="text-[#22c55e] font-bold">{log.performance}/100</span>
-                                               </div>
-                                               <p className="text-sm text-gray-600">Combined score reflecting the agent's overall performance across all metrics.</p>
-                                            </div>
-                                         </div>
-                                      </TabsContent>
-                                      
-                                      <TabsContent value="transcript">
-                                         <TranscriptView messages={[]} agentName={log.name} className="h-[calc(100vh-300px)]" />
-                                      </TabsContent>
-                                   </Tabs>
-                                </div>
-                          
-                                {/* Right column */}
-                                <div className="h-full flex flex-col justify-between">  {/* Změněno na flex container */}
+                              <div className="grid grid-cols-2 gap-6 h-[calc(100vh-250px)]">
+                                 {/* Levý sloupec */}
+                                 <div className="h-full">
+                                    <Tabs defaultValue="metrics" className="w-full h-full flex flex-col">
+                                       <TabsList className="grid w-full grid-cols-2 mb-4 flex-shrink-0">
+                                          <TabsTrigger value="metrics">Metrics</TabsTrigger>
+                                          <TabsTrigger value="transcript">Transcript</TabsTrigger>
+                                       </TabsList>
+                                       
+                                       <TabsContent value="metrics" className="flex-grow overflow-auto">
+                                          <div className="space-y-4">
+                                             <DropdownMenu>
+                                                <DropdownMenuTrigger asChild>
+                                                   <Button variant="outline" className="w-full justify-between">
+                                                      Overall Score
+                                                      <ChevronDown className="ml-2 h-4 w-4" />
+                                                   </Button>
+                                                </DropdownMenuTrigger>
+                                                <DropdownMenuContent className="w-full">
+                                                   <DropdownMenuItem inset={false}>
+                                                      <span>Overall Score</span>
+                                                      <span className="ml-2 text-[#22c55e] font-semibold">{log.performance}/100</span>
+                                                   </DropdownMenuItem>
+                                                </DropdownMenuContent>
+                                             </DropdownMenu>
+                                             <div className="bg-[#f0fdf4] border border-[#22c55e] rounded-xl p-4">
+                                                <div className="flex justify-between items-center mb-2">
+                                                   <h3 className="text-lg font-semibold">Overall Score</h3>
+                                                   <span className="text-[#22c55e] font-bold">{log.performance}/100</span>
+                                                </div>
+                                                <p className="text-sm text-gray-600">Combined score reflecting the agent's overall performance across all metrics.</p>
+                                             </div>
+                                          </div>
+                                       </TabsContent>
+                                       
+                                       <TabsContent value="transcript">
+                                          <TranscriptView messages={[]} agentName={log.name} className="h-[calc(100vh-300px)]" />
+                                       </TabsContent>
+                                    </Tabs>
+                                 </div>
+                                 
+                                 {/* Right column */}
+                                 <div className="h-full flex flex-col justify-between">
                                    {/* Level Up Plan */}
                                    <div>
                                       <div className="flex items-center justify-between mb-4">
