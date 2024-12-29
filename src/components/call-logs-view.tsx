@@ -218,24 +218,20 @@ export function CallLogsView({ data }: CallLogsViewProps) {
   if (!callLogsData || callLogsData.length === 0) {
     return (
       <Card className="w-full bg-white overflow-hidden">
-        <CardHeader className="border-b">
-          <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
-              <Image
-                src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
-                alt="Team Call Logs"
-                width={24}
-                height={24}
-                className="h-6 w-6"
-              />
-              <span>Team Call Logs</span>
-            </div>
-          </div>
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-6 bg-white shadow-md">
+          <CardTitle className="text-2xl font-bold flex items-center gap-2 text-black">
+            <Image
+              src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
+              alt="Team Call Logs"
+              width={24}
+              height={24}
+              className="h-6 w-6"
+            />
+            Team Call Logs
+          </CardTitle>
         </CardHeader>
-        <CardContent>
-          <div className="text-center text-gray-500">
-            No call logs available.
-          </div>
+        <CardContent className="p-6 text-center text-gray-500">
+          No call logs available.
         </CardContent>
       </Card>
     )
@@ -246,19 +242,18 @@ export function CallLogsView({ data }: CallLogsViewProps) {
   try {
     return (
       <Card className="w-full bg-white overflow-hidden">
-        <CardHeader className="border-b">
-          <div className="flex justify-between items-center">
-            <div className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
-              <Image
-                src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
-                alt="Team Call Logs"
-                width={24}
-                height={24}
-                className="h-6 w-6"
-              />
-              <span>Team Call Logs</span>
-            </div>
-            <div className="flex items-center gap-4">
+        <CardHeader className="p-6 border-b flex flex-row items-center justify-between">
+          <CardTitle className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
+            <Image
+              src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
+              alt="Team Call Logs"
+              width={24}
+              height={24}
+              className="h-6 w-6"
+            />
+            Team Call Logs
+          </CardTitle>
+          <div className="flex items-center gap-4">
               <Button 
                 variant="outline" 
                 size="sm"
@@ -332,67 +327,62 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                 />
               </div>
             </div>
-          </div>
         </CardHeader>
-        <CardContent className="p-0">
-          <div className="flex flex-col h-[calc(100%-76px)]">
-          <div className="overflow-x-auto max-h-[60vh] overflow-y-auto">
+        <CardContent className="p-0 flex flex-col h-[calc(100%-76px)]">
+          <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="bg-[#f8b922]">
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white first:pl-6">Date</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">User</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Avatar</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Call Performance</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white last:pr-6">Recording</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white first:pl-6 last:pr-6">Date</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Users</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Performance</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Recording</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredAndSortedData && filteredAndSortedData.length > 0 ? (
                   visibleData.map((log, index) => (
                     <tr key={index} className="border-b border-gray-200/10">
-                      {/* Date Column */}
-                      <td className="px-4 py-3 text-black text-xs whitespace-nowrap text-center">
-                        {formatDateShort(log.date)}
-                      </td>
-              
-                      {/* User Column */}
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-2">
+                      <td className="px-4 py-3 text-black text-xs whitespace-nowrap text-center">{formatDateShort(log.date)}</td>
+                      <td className="px-4 py-3 text-center">
+                        <div className="flex items-center justify-start gap-2 ml-8">
                           <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                             <AvatarImage 
                               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" 
                               alt={`${log.name}'s profile`} 
                             />
                           </Avatar>
-                          <span className="font-medium text-black text-sm whitespace-nowrap">{log.name}</span>
-                        </div>
-                      </td>
-              
-                      {/* Avatar/Caller Column */}
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-2">
+                          <span className="font-medium text-black text-sm">{log.name}</span>
+                          
+                          <Image
+                            src="https://images.vexels.com/media/users/3/155474/isolated/preview/4e12cd94f7591c3c851fce62fdc3d463-x-cross-doodle-icon.png"
+                            alt="X icon"
+                            width={12}
+                            height={12}
+                            className="mx-2"
+                          />
+                          
                           <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                             <AvatarImage src={log.callerImage} alt={`Caller for ${log.name}`} />
                           </Avatar>
-                          <div className="flex flex-col">
-                            <span className="text-xs font-medium bg-[#F3E8FF] text-[#7C3AED] px-3 py-1 rounded-full border border-[#7C3AED]/20">
-                              {index === 0 ? "Creative Finance" : index === 1 ? "Agent Outreach" : index === 2 ? "Foreclosure" : index === 3 ? "Wholesaling" : index === 4 ? "Creative Finance" : "Wholesaling"}
-                            </span>
-                            {index === 0 ? (
-                              <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full backdrop-blur-sm mt-1">Intermediate</span>
-                            ) : index === 1 ? (
-                              <span className="text-xs font-medium bg-green-100/80 text-green-800 border border-green-300 px-3 py-1 rounded-full backdrop-blur-sm mt-1">Easy</span>
-                            ) : index === 2 ? (
-                              <span className="text-xs font-medium bg-red-100/80 text-red-800 border border-red-300 px-3 py-1 rounded-full backdrop-blur-sm mt-1">Hard</span>
-                            ) : index === 3 ? (
-                              <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full backdrop-blur-sm mt-1">Intermediate</span>
-                            ) : index === 4 ? (
-                              <span className="text-xs font-medium bg-green-100/80 text-green-800 border border-green-300 px-3 py-1 rounded-full backdrop-blur-sm mt-1">Easy</span>
-                            ) : (
-                              <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full backdrop-blur-sm mt-1">Intermediate</span>
-                            )}
-                          </div>
+                          
+                          <span className="text-xs font-medium bg-[#F3E8FF] text-[#7C3AED] px-3 py-1 rounded-full border border-[#7C3AED]/20">
+                            {index === 0 ? "Creative Finance" : index === 1 ? "Agent Outreach" : index === 2 ? "Foreclosure" : index === 3 ? "Wholesaling" : index === 4 ? "Creative Finance" : "Wholesaling"}
+                          </span>
+                          
+                          {index === 0 ? (
+                            <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full backdrop-blur-sm">Intermediate</span>
+                          ) : index === 1 ? (
+                            <span className="text-xs font-medium bg-green-100/80 text-green-800 border border-green-300 px-3 py-1 rounded-full backdrop-blur-sm">Easy</span>
+                          ) : index === 2 ? (
+                            <span className="text-xs font-medium bg-red-100/80 text-red-800 border border-red-300 px-3 py-1 rounded-full backdrop-blur-sm">Hard</span>
+                          ) : index === 3 ? (
+                            <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full backdrop-blur-sm">Intermediate</span>
+                          ) : index === 4 ? (
+                            <span className="text-xs font-medium bg-green-100/80 text-green-800 border border-green-300 px-3 py-1 rounded-full backdrop-blur-sm">Easy</span>
+                          ) : (
+                            <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full backdrop-blur-sm">Intermediate</span>
+                          )}
                         </div>
                       </td>
                       <td className="px-4 py-3 text-center">
@@ -415,7 +405,124 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                             </Button>
                           </DialogTrigger>
                           <DialogContent className="max-w-4xl w-[95vw] p-6">
-                            {/* Your dialog content here */}
+                             {/* Header - ponecháváme beze změny */}
+                             <div className="flex items-center justify-between w-full p-2 mb-6 bg-gray-50 rounded-lg">
+                                <div className="flex items-center gap-3">
+                                   <span className="text-sm text-gray-500">{formatDateShort(log.date)}</span>
+                                   <div className="flex items-center gap-2">
+                                      <Avatar className="h-6 w-6 border border-[#5b06be]">
+                                         <AvatarImage src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" alt={`${log.name}'s profile`} />
+                                      </Avatar>
+                                      <span className="text-sm">{log.name}</span>
+                                      <span className="mx-2">×</span>
+                                      <Avatar className="h-6 w-6 border border-[#5b06be]">
+                                         <AvatarImage src={log.callerImage} alt={`Caller for ${log.name}`} />
+                                      </Avatar>
+                                      <span className="text-xs font-medium bg-[#F3E8FF] text-[#7C3AED] px-3 py-1 rounded-full border border-[#7C3AED]/20">
+                                         Creative Finance
+                                      </span>
+                                      <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full">
+                                         Intermediate
+                                      </span>
+                                   </div>
+                                </div>
+                                <Button 
+                                   variant="default" 
+                                   size="sm"
+                                   className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-4 py-2 text-sm"
+                                   onClick={() => handleSaveFeedback(log.name, feedbacks[log.name] || '')}
+                                >
+                                   Add Feedback for {log.name}
+                                </Button>
+                             </div>
+                          
+                             {/* Main content */}
+                              <div className="grid grid-cols-2 gap-6 h-[calc(100vh-250px)]">
+                                 {/* Levý sloupec */}
+                                 <div className="h-full">
+                                    <Tabs defaultValue="metrics" className="w-full h-full flex flex-col">
+                                       <TabsList className="grid w-full grid-cols-2 mb-4 flex-shrink-0">
+                                          <TabsTrigger value="metrics">Metrics</TabsTrigger>
+                                          <TabsTrigger value="transcript">Transcript</TabsTrigger>
+                                       </TabsList>
+                                       
+                                       <TabsContent value="metrics" className="flex-grow overflow-auto">
+                                          <div className="space-y-4">
+                                             <DropdownMenu>
+                                                <DropdownMenuTrigger asChild>
+                                                   <Button variant="outline" className="w-full justify-between">
+                                                      Overall Score
+                                                      <ChevronDown className="ml-2 h-4 w-4" />
+                                                   </Button>
+                                                </DropdownMenuTrigger>
+                                                <DropdownMenuContent className="w-full">
+                                                   <DropdownMenuItem inset={false}>
+                                                      <span>Overall Score</span>
+                                                      <span className="ml-2 text-[#22c55e] font-semibold">{log.performance}/100</span>
+                                                   </DropdownMenuItem>
+                                                </DropdownMenuContent>
+                                             </DropdownMenu>
+                                             <div className="bg-[#f0fdf4] border border-[#22c55e] rounded-xl p-4">
+                                                <div className="flex justify-between items-center mb-2">
+                                                   <h3 className="text-lg font-semibold">Overall Score</h3>
+                                                   <span className="text-[#22c55e] font-bold">{log.performance}/100</span>
+                                                </div>
+                                                <p className="text-sm text-gray-600">Combined score reflecting the agent's overall performance across all metrics.</p>
+                                             </div>
+                                          </div>
+                                       </TabsContent>
+                                       
+                                       <TabsContent value="transcript">
+                                          <TranscriptView messages={[]} agentName={log.name} className="h-[calc(100vh-300px)]" />
+                                       </TabsContent>
+                                    </Tabs>
+                                 </div>
+                                 
+                                 {/* Right column */}
+                                 <div className="h-full flex flex-col justify-between">
+                                   {/* Level Up Plan */}
+                                   <div>
+                                      <div className="flex items-center justify-between mb-4">
+                                         <h2 className="text-lg font-semibold">Level Up Plan</h2>
+                                         <div className="flex items-center gap-2">
+                                            <Button variant="ghost" size="sm"><ChevronLeft className="h-4 w-4" /></Button>
+                                            <span className="text-sm">1/3</span>
+                                            <Button variant="ghost" size="sm"><ChevronRight className="h-4 w-4" /></Button>
+                                         </div>
+                                      </div>
+                                      
+                                      <div className="bg-white rounded-xl shadow-sm p-6">
+                                         <div className="flex items-center justify-between mb-2">
+                                            <h3 className="text-lg font-semibold text-[#7C3AED]">Objection Handling</h3>
+                                            <Button variant="ghost" size="sm" className="text-[#7C3AED]">
+                                               <Pencil className="h-4 w-4 mr-2" />
+                                               Edit
+                                            </Button>
+                                         </div>
+                                         <p className="text-sm text-gray-600">Improve addressing customer concerns.</p>
+                                      </div>
+                                   </div>
+                                
+                                   {/* Call Notes a Power Moment Grid */}
+                                   <div className="grid grid-cols-2 gap-6">
+                                      <div className="bg-white rounded-xl shadow-sm p-4">
+                                         <h2 className="text-lg font-semibold mb-2">Call Notes</h2>
+                                         <p className="text-sm text-gray-600 line-clamp-3">
+                                            Customer showed interest in our premium package. Follow up next week to discuss financing options.
+                                         </p>
+                                      </div>
+                                      <div className="bg-white rounded-xl shadow-sm p-4">
+                                         <div className="flex items-start gap-2 mb-2">
+                                            <h2 className="text-lg font-semibold">Power Moment!</h2>
+                                            <span className="text-yellow-500">⚡</span>
+                                         </div>
+                                         <p className="text-sm text-gray-600 line-clamp-3">
+                                            Polite and professional tone throughout the call.
+                                         </p>
+                                      </div>
+                                   </div>
+                                </div>
+                             </div>
                           </DialogContent>
                         </Dialog>
                       </td>
@@ -445,7 +552,6 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               </Button>
             </div>
           )}
-          </div>
         </CardContent>
         <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
           <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden">
@@ -876,7 +982,7 @@ function CallNotesWidget({ log }: { log: CallLogData }) {
   return (
     <div className="bg-white rounded-xl shadow-md p-4 h-[calc(40vh-80px)] flex flex-col">
       <h2 className="text-lg font-semibold mb-2">Call Notes</h2>
-      <div className="flex-grow overflow-y-auto pr-2 scrollbar scrollbar-thin scrollbar-thumb-[#5b06be] scrollbar-track-gray-100 hover:scrollbar-thumb-[#7016e0]">
+      <div className="flex-grow overflow-y-auto pr-2">
         <p className="text-sm text-gray-600">
           Customer showed interest in our premium package. Follow up next week to discuss financing options. Customer showed interest in our premium package. Follow up next week to discuss financing options. Customer showed interest in our premium package. Follow up next week to discuss financing options. Customer showed interest in our premium package. Follow up next week to discuss financing options.
         </p>
@@ -926,7 +1032,7 @@ export function TranscriptView({ messages, className, agentName }: TranscriptVie
   return (
     <div className={cn("h-full flex flex-col", className)}>
       <h2 className="text-xl font-semibold mb-4">Call Transcript</h2>
-      <div className="flex-grow overflow-y-auto pr-4 space-y-4 scrollbar scrollbar-thin scrollbar-thumb-[#5b06be] scrollbar-track-gray-100 hover:scrollbar-thumb-[#7016e0]">
+      <div className="flex-grow overflow-y-auto pr-4 space-y-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400">
         {messages.map((message, index) => (
           <div
             key={index}
