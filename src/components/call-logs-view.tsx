@@ -243,17 +243,19 @@ export function CallLogsView({ data }: CallLogsViewProps) {
     return (
       <div className="w-full bg-white overflow-hidden">
         <div className="p-6 border-b flex flex-row items-center justify-between">
-          <div className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
-            <Image
-              src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
-              alt="Team Call Logs"
-              width={24}
-              height={24}
-              className="h-6 w-6"
-            />
-            Team Call Logs
-          </div>
-          <div className="flex items-center gap-4">
+          <CardHeader>
+          <div className="flex justify-between items-center">
+            <div className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
+              <Image
+                src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
+                alt="Team Call Logs"
+                width={24}
+                height={24}
+                className="h-6 w-6"
+              />
+              <CardTitle>Team Call Logs</CardTitle>
+            </div>
+            <div className="flex items-center gap-4">
               <Button 
                 variant="outline" 
                 size="sm"
