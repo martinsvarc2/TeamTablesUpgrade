@@ -394,7 +394,9 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                               />
                             </Button>
                           </DialogTrigger>
-                          {/* Rest of the Dialog content remains the same */}
+                          <DialogContent>
+                            {/* Zde vložit obsah dialogu */}
+                          </DialogContent>
                         </Dialog>
                       </td>
             
@@ -645,19 +647,28 @@ function AudioPlayer({ audioUrl }: { audioUrl: string }) {
       <div className="flex flex-col items-center gap-1">
         <span className="text-[10px] px-2 py-0.5 bg-[#5b06be] text-white rounded-full min-w-[3.5rem] h-5 flex items-center justify-center transition-all hover:bg-[#7016e0]">
           {formatTime(currentTime)}</span>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() =>{
-            const speeds = [1, 1.25, 1.5, 1.75, 2]
-            const currentIndex = speeds.indexOf(playbackSpeed)
-            const nextIndex = (currentIndex + 1) % speeds.length
-            setPlaybackSpeed(speeds[nextIndex])
-          }}
-          className="text-[10px] px-2 py-0.5 bg-[#5b06be] text-white rounded-full min-w-[3.5rem] h-5 hover:bg-[#7016e0] flex items-center justify-center"
-        >
-          {playbackSpeed}x
-        </Button>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-[10px] px-2 py-0.5 bg-[#5b06be] text-white rounded-full min-w-[3.5rem] h-5 hover:bg-[#7016e0] hover:text-white flex items-center justify-center"
+            >
+              {playbackSpeed}x
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            {[1, 1.25, 1.5, 1.75, 2].map((speed) => (
+              <DropdownMenuItem 
+                key={speed}
+                onClick={() => setPlaybackSpeed(speed)}
+                className="cursor-pointer"
+              >
+                {speed}x
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
       <audio ref={audioRef}>
         <source src={audioUrl} type="audio/mpeg"/>
