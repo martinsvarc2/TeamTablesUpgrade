@@ -536,28 +536,6 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                                 </div>
                              </div>
                           </DialogContent>
-                                
-                                   {/* Call Notes a Power Moment Grid */}
-                                   <div className="grid grid-cols-2 gap-6">
-                                      <div className="bg-white rounded-xl shadow-sm p-4">
-                                         <h2 className="text-lg font-semibold mb-2">Call Notes</h2>
-                                         <p className="text-sm text-gray-600 line-clamp-3">
-                                            Customer showed interest in our premium package. Follow up next week to discuss financing options.
-                                         </p>
-                                      </div>
-                                      <div className="bg-white rounded-xl shadow-sm p-4">
-                                         <div className="flex items-start gap-2 mb-2">
-                                            <h2 className="text-lg font-semibold">Power Moment!</h2>
-                                            <span className="text-yellow-500">⚡</span>
-                                         </div>
-                                         <p className="text-sm text-gray-600 line-clamp-3">
-                                            Polite and professional tone throughout the call.
-                                         </p>
-                                      </div>
-                                   </div>
-                                </div>
-                             </div>
-                          </DialogContent>
                         </Dialog>
                       </td>
                       <td className="px-4 py-3 text-center">
