@@ -343,7 +343,10 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               <tbody>
                 {filteredAndSortedData && filteredAndSortedData.length > 0 ? (
                   visibleData.map((log, index) => (
-                    <tr key={index} className="border-b border-gray-100">
+                    <tr 
+                      key={index} 
+                      className="border-b border-[#f3f4f6] hover:bg-gray-50 transition-colors duration-150"
+                    >
                       <td className="px-4 py-3 text-black text-xs whitespace-nowrap text-center">
                         {formatDateShort(log.date)}
                       </td>
