@@ -333,10 +333,11 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <table className="w-full">
               <thead>
                 <tr className="bg-[#f8b922]">
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white first:pl-6 last:pr-6">Date</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Users</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Performance</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Recording</th>
+                  <th className="px-6 py-4 text-left text-sm font-medium text-white first:pl-6 last:pr-6">Date</th>
+                  <th className="px-6 py-4 text-left text-sm font-medium text-white">User</th>
+                  <th className="px-6 py-4 text-left text-sm font-medium text-white">Agent</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Call Performance</th>
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Call Recording</th>
                 </tr>
               </thead>
               <tbody>
@@ -344,27 +345,28 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                   visibleData.map((log, index) => (
                     <tr key={index} className="border-b border-gray-200/10">
                       <td className="px-4 py-3 text-black text-xs whitespace-nowrap text-center">{formatDateShort(log.date)}</td>
-                      <td className="px-4 py-3 text-center">
-                        <div className="flex items-center justify-start gap-2 ml-8">
+                      {/* User Column */}
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-2">
+                          <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
+                            <AvatarImage src={log.callerImage} alt={`${log.name}'s profile`} />
+                          </Avatar>
+                          <span className="font-medium text-black text-sm">{log.name}</span>
+                        </div>
+                      </td>
+                      
+                      {/* Agent Column */}
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-2">
                           <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                             <AvatarImage 
                               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" 
-                              alt={`${log.name}'s profile`} 
+                              alt="Agent profile" 
                             />
                           </Avatar>
-                          <span className="font-medium text-black text-sm">{log.name}</span>
-                          
-                          <Image
-                            src="https://images.vexels.com/media/users/3/155474/isolated/preview/4e12cd94f7591c3c851fce62fdc3d463-x-cross-doodle-icon.png"
-                            alt="X icon"
-                            width={12}
-                            height={12}
-                            className="mx-2"
-                          />
-                          
-                          <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
-                            <AvatarImage src={log.callerImage} alt={`Caller for ${log.name}`} />
-                          </Avatar>
+                          <span className="font-medium text-black text-sm">Agent</span>
+                        </div>
+                      </td>
                           
                           <span className="text-xs font-medium bg-[#F3E8FF] text-[#7C3AED] px-3 py-1 rounded-full border border-[#7C3AED]/20">
                             {index === 0 ? "Creative Finance" : index === 1 ? "Agent Outreach" : index === 2 ? "Foreclosure" : index === 3 ? "Wholesaling" : index === 4 ? "Creative Finance" : "Wholesaling"}
