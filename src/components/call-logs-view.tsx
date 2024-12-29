@@ -405,113 +405,95 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                             </Button>
                           </DialogTrigger>
                           <DialogContent className="max-w-4xl w-[95vw] p-6">
-                            {/* Header */}
-                            <div className="flex items-center justify-between w-full p-2 mb-6 bg-gray-50 rounded-lg">
-                              <div className="flex items-center gap-3">
-                                <span className="text-sm text-gray-500">{formatDateShort(log.date)}</span>
-                                <div className="flex items-center gap-2">
-                                  <Avatar className="h-6 w-6 border border-[#5b06be]">
-                                    <AvatarImage src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" alt={`${log.name}'s profile`} />
-                                  </Avatar>
-                                  <span className="text-sm">{log.name}</span>
-                                  <span className="mx-2">×</span>
-                                  <Avatar className="h-6 w-6 border border-[#5b06be]">
-                                    <AvatarImage src={log.callerImage} alt={`Caller for ${log.name}`} />
-                                  </Avatar>
-                                  <span className="text-xs font-medium bg-[#F3E8FF] text-[#7C3AED] px-3 py-1 rounded-full border border-[#7C3AED]/20">
-                                    Creative Finance
-                                  </span>
-                                  <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full">
-                                    Intermediate
-                                  </span>
+                             {/* Header - ponecháváme beze změny */}
+                             <div className="flex items-center justify-between w-full p-2 mb-6 bg-gray-50 rounded-lg">
+                                <div className="flex items-center gap-3">
+                                   <span className="text-sm text-gray-500">{formatDateShort(log.date)}</span>
+                                   <div className="flex items-center gap-2">
+                                      <Avatar className="h-6 w-6 border border-[#5b06be]">
+                                         <AvatarImage src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" alt={`${log.name}'s profile`} />
+                                      </Avatar>
+                                      <span className="text-sm">{log.name}</span>
+                                      <span className="mx-2">×</span>
+                                      <Avatar className="h-6 w-6 border border-[#5b06be]">
+                                         <AvatarImage src={log.callerImage} alt={`Caller for ${log.name}`} />
+                                      </Avatar>
+                                      <span className="text-xs font-medium bg-[#F3E8FF] text-[#7C3AED] px-3 py-1 rounded-full border border-[#7C3AED]/20">
+                                         Creative Finance
+                                      </span>
+                                      <span className="text-xs font-medium bg-orange-100/80 text-orange-800 border border-orange-300 px-3 py-1 rounded-full">
+                                         Intermediate
+                                      </span>
+                                   </div>
                                 </div>
-                              </div>
-                              <Button 
-                                variant="default" 
-                                size="sm"
-                                className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-4 py-2 text-sm"
-                                onClick={() => handleSaveFeedback(log.name, feedbacks[log.name] || '')}
-                              >
-                                Add Feedback for {log.name}
-                              </Button>
-                            </div>
+                                <Button 
+                                   variant="default" 
+                                   size="sm"
+                                   className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-4 py-2 text-sm"
+                                   onClick={() => handleSaveFeedback(log.name, feedbacks[log.name] || '')}
+                                >
+                                   Add Feedback for {log.name}
+                                </Button>
+                             </div>
                           
-                           {/* Main content */}
-                            <div className="grid grid-cols-2 gap-6 h-[calc(90vh-180px)]">  {/* Updated height calculation */}
-                              {/* Left column */}
-                              <div className="h-full">
-                                <Tabs defaultValue="metrics" className="w-full h-full">
-                                  <TabsList className="grid w-full grid-cols-2 mb-4">
-                                    <TabsTrigger value="metrics">Metrics</TabsTrigger>
-                                    <TabsTrigger value="transcript">Transcript</TabsTrigger>
-                                  </TabsList>
-                                  <TabsContent value="metrics" className="h-[calc(100%-48px)]">
-                                    <div className="space-y-4">
-                                      <DropdownMenu>
-                                        <DropdownMenuTrigger asChild>
-                                          <Button variant="outline" className="w-full justify-between">
-                                            Overall Score
-                                            <ChevronDown className="ml-2 h-4 w-4" />
-                                          </Button>
-                                        </DropdownMenuTrigger>
-                                        <DropdownMenuContent className="w-full">
-                                          <DropdownMenuItem inset={false}>
-                                            <span>Overall Score</span>
-                                            <span className="ml-2 text-[#22c55e] font-semibold">{log.performance}/100</span>
-                                          </DropdownMenuItem>
-                                        </DropdownMenuContent>
-                                      </DropdownMenu>
-                                      <div className="bg-[#f0fdf4] border border-[#22c55e] rounded-xl p-4">
-                                        <div className="flex justify-between items-center mb-2">
-                                          <h3 className="text-lg font-semibold">Overall Score</h3>
-                                          <span className="text-[#22c55e] font-bold">{log.performance}/100</span>
-                                        </div>
-                                        <p className="text-sm text-gray-600">Combined score reflecting the agent's overall performance across all metrics.</p>
+                             {/* Main content - nová struktura */}
+                             <div className="grid grid-cols-2 gap-6">
+                                {/* Levý sloupec */}
+                                <div className="space-y-6">
+                                   <Tabs defaultValue="metrics" className="w-full">
+                                      <TabsList className="grid w-full grid-cols-2 mb-4">
+                                         <TabsTrigger value="metrics">Metrics</TabsTrigger>
+                                         <TabsTrigger value="transcript">Transcript</TabsTrigger>
+                                      </TabsList>
+                                      
+                                      <TabsContent value="metrics">
+                                         <div className="space-y-4">
+                                            <DropdownMenu>
+                                               <DropdownMenuTrigger asChild>
+                                                  <Button variant="outline" className="w-full justify-between">
+                                                     Overall Score
+                                                     <ChevronDown className="ml-2 h-4 w-4" />
+                                                  </Button>
+                                               </DropdownMenuTrigger>
+                                               <DropdownMenuContent className="w-full">
+                                                  <DropdownMenuItem inset={false}>
+                                                     <span>Overall Score</span>
+                                                     <span className="ml-2 text-[#22c55e] font-semibold">{log.performance}/100</span>
+                                                  </DropdownMenuItem>
+                                               </DropdownMenuContent>
+                                            </DropdownMenu>
+                                            <div className="bg-[#f0fdf4] border border-[#22c55e] rounded-xl p-4">
+                                               <div className="flex justify-between items-center mb-2">
+                                                  <h3 className="text-lg font-semibold">Overall Score</h3>
+                                                  <span className="text-[#22c55e] font-bold">{log.performance}/100</span>
+                                               </div>
+                                               <p className="text-sm text-gray-600">Combined score reflecting the agent's overall performance across all metrics.</p>
+                                            </div>
+                                         </div>
+                                      </TabsContent>
+                                      
+                                      <TabsContent value="transcript">
+                                         <TranscriptView messages={[]} agentName={log.name} className="h-[calc(100vh-300px)]" />
+                                      </TabsContent>
+                                   </Tabs>
+                                </div>
+                          
+                                {/* Pravý sloupec */}
+                                <div className="space-y-6">
+                                   <div className="bg-white rounded-xl shadow-sm p-4">
+                                      <LevelUpPlanWidget />
+                                   </div>
+                                   
+                                   <div className="grid grid-cols-2 gap-6">
+                                      <div className="bg-white rounded-xl shadow-sm p-4">
+                                         <CallNotesWidget log={log} />
                                       </div>
-                                    </div>
-                                  </TabsContent>
-                                  <TabsContent value="transcript" className="h-[calc(100%-48px)]">
-                                    <TranscriptView messages={[]} agentName={log.name} className="h-full" />
-                                  </TabsContent>
-                                </Tabs>
-                              </div>
-                          
-                              {/* Right column */}
-                              <div className="space-y-6 h-full flex flex-col">
-                                {/* Level Up Plan - takes proportional height */}
-                                <div className="h-3/5">  {/* Changed from fixed percentage */}
-                                  <div className="bg-white rounded-xl shadow-sm p-4 h-full">
-                                    {/* ... Level Up Plan content ... */}
-                                  </div>
+                                      <div className="bg-white rounded-xl shadow-sm p-4">
+                                         <PowerMomentWidget moment="Polite and professional tone throughout the call." />
+                                      </div>
+                                   </div>
                                 </div>
-                            
-                                {/* Bottom grid - takes remaining height */}
-                                <div className="grid grid-cols-2 gap-6 h-2/5">  {/* Changed from fixed percentage */}
-                                  <div className="bg-white rounded-xl shadow-sm p-4 h-full">
-                                    <h2 className="text-lg font-semibold mb-2">Call Notes</h2>
-                                    <p className="text-sm text-gray-600 line-clamp-3">Customer showed interest in our premium package. Follow up next week to discuss financing options.</p>
-                                  </div>
-                                  <div className="bg-white rounded-xl shadow-sm p-4 h-full">
-                                    <div className="flex items-start gap-2 mb-2">
-                                      <h2 className="text-lg font-semibold">Power Moment!</h2>
-                                      <span className="text-yellow-500">⚡</span>
-                                    </div>
-                                    <p className="text-sm text-gray-600 line-clamp-3">Polite and professional tone throughout the call.</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          
-                                <div className="grid grid-cols-2 gap-6 flex-grow-0 flex-shrink-0 h-[40%]">
-                                  <div className="bg-white rounded-xl shadow-sm p-4 h-full">
-                                    <CallNotesWidget log={log} />
-                                  </div>
-                                  <div className="bg-white rounded-xl shadow-sm p-4 h-full">
-                                    <PowerMomentWidget moment="Polite and professional tone throughout the call." />
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                             </div>
                           </DialogContent>
                         </Dialog>
                       </td>
