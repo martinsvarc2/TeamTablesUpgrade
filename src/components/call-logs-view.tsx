@@ -381,7 +381,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                             <Button 
                               variant="ghost" 
                               size="sm"
-                              className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs h-7"
+                              className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] hover:text-white transition-all px-3 py-1 text-xs h-7"
                             >
                               <span className="font-medium">{log.performance}/100</span>
                               <span className="ml-1 font-medium">View Info</span>
@@ -616,7 +616,7 @@ function AudioPlayer({ audioUrl }: { audioUrl: string }) {
         variant="ghost"
         size="sm"
         onClick={togglePlayPause}
-        className="rounded-full bg-[#5b06be] text-white hover:bg-[#5b06be]/90 shadow-md shadow-black/10 w-8 h-8 p-0 flex items-center justify-center"
+        className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] hover:text-white transition-all shadow-md shadow-black/10 w-8 h-8 p-0 flex items-center justify-center"
       >
         {isPlaying ? (
           <Pause className="h-4 w-4" />
