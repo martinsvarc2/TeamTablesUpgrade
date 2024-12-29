@@ -335,7 +335,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                 <tr className="bg-[#f8b922]">
                   <th className="px-6 py-4 text-left text-sm font-medium text-white first:pl-6 last:pr-6">Date</th>
                   <th className="px-6 py-4 text-left text-sm font-medium text-white">User</th>
-                  <th className="px-6 py-4 text-left text-sm font-medium text-white">Agent</th>
+                  <th className="px-6 py-4 text-left text-sm font-medium text-white">Avatar</th>
                   <th className="px-6 py-4 text-center text-sm font-medium text-white">Call Performance</th>
                   <th className="px-6 py-4 text-center text-sm font-medium text-white">Call Recording</th>
                 </tr>
