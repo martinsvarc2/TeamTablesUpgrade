@@ -465,6 +465,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                                     />
                                   </Avatar>
                                   <span className="font-medium">{log.name}</span>
+                                  <X className="h-4 w-4 text-gray-400" /> {/* Přidaná X ikonka */}
                                 </div>
                                 <div className="flex items-center gap-2">
                                   <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
