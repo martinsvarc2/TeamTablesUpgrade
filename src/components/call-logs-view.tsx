@@ -378,8 +378,10 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                   <th className="w-48 px-6 py-4 text-center text-sm font-medium text-white">
                     Avatar
                   </th>
-                  <th className="w-64 px-6 py-4 text-center text-sm font-medium text-white">
-                    Call Performance
+                  <th className="w-64 px-6 py-4">
+                    <div className="flex justify-center items-center text-sm font-medium text-white ml-2">
+                      Call Performance
+                    </div>
                   </th>
                   <th className="flex-1 px-6 py-4 text-center text-sm font-medium text-white">
                     Call Recording
@@ -442,7 +444,8 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       </td>
             
                       {/* Performance Column */}
-                      <td className="px-4 py-3 text-center">
+                      <td className="px-4 py-3">
+                        <div className="flex justify-center items-center ml-2">
                         <Dialog>
                           <DialogTrigger asChild>
                             <Button 
