@@ -335,16 +335,19 @@ function PerformanceDialog({ data }: { data: ActivityData }) {
       </div>
 
       <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
-        <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden">
-          <DialogHeader>
-            <DialogTitle className="sr-only">Select Date Range</DialogTitle>
-          </DialogHeader>
-          <Calendar onSelectRange={handleSelectDateRange} />
-        </DialogContent>
-      </Dialog>
-    </>
-  );
+      <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden">
+        <DialogHeader>
+          <DialogTitle className="sr-only">Select Date Range</DialogTitle>
+        </DialogHeader>
+        <Calendar onSelectRange={handleSelectDateRange} />
+      </DialogContent>
+    </Dialog>
+    </Card>  {/* Tento tag přidat */}
+  </>
+ )
 }
+
+export { ActivityView }
 
 function ActivityView({ data }: ActivityViewProps) {
   const [searchQuery, setSearchQuery] = useState("")
