@@ -1000,7 +1000,7 @@ function CallNotesWidget({ log }: { log: CallLogData }) {
         <MessageSquare className="h-5 w-5 text-[#5b06be]" />
         Call Notes
       </h2>
-      <div className="flex-grow overflow-y-auto pr-2 custom-purple-scrollbar">
+      <div className="flex-grow overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-[#F8F0FF] [&::-webkit-scrollbar-thumb]:bg-[#5b06be] [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-[#7016e0]">
         <p className="text-sm text-gray-600">
           {log.notes}
         </p>
@@ -1059,7 +1059,7 @@ export function TranscriptView({ messages, className, agentName }: TranscriptVie
   return (
     <div className={cn("h-full flex flex-col", className)}>
       <h2 className="text-xl font-semibold mb-4">Call Transcript</h2>
-      <div className="flex-grow overflow-y-auto pr-4 space-y-4 custom-purple-scrollbar">
+      <div className="flex-grow overflow-y-auto pr-4 space-y-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-[#F8F0FF] [&::-webkit-scrollbar-thumb]:bg-[#5b06be] [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-[#7016e0]">
         {messages.map((message, index) => (
           <div
             key={index}
