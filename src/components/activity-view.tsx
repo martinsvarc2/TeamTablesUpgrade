@@ -416,7 +416,7 @@ function ActivityView({ data }: ActivityViewProps) {
             height={24}
             className="h-6 w-6"
           />
-          <h2 className="text-xl font-bold flex items-center gap-2 text-black">Performance Overview</h2>
+          <h2 className="text-2xl font-bold flex items-center gap-2 text-black">Performance Overview</h2>
         </div>
         <div className="flex items-center gap-2">
           <DropdownMenu>
