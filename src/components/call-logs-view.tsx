@@ -349,11 +349,30 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <table className="w-full">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white first:pl-6 last:pr-6">Date</th>
-                  <th className="px-6 py-4 text-left text-sm font-medium text-white">User</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Avatar</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Call Performance</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">Call Recording</th>
+                  {/* Date - zarovnat na střed */}
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">
+                    Date
+                  </th>
+                  
+                  {/* User - zarovnat vlevo s ml-8 jako má obsah */}
+                  <th className="px-6 py-4 text-left text-sm font-medium text-white pl-8">
+                    User
+                  </th>
+                  
+                  {/* Avatar - zarovnat vlevo s ml-8 jako má obsah */}
+                  <th className="px-6 py-4 text-left text-sm font-medium text-white pl-8">
+                    Avatar
+                  </th>
+                  
+                  {/* Call Performance - zarovnat na střed */}
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">
+                    Call Performance
+                  </th>
+                  
+                  {/* Call Recording - zarovnat na střed */}
+                  <th className="px-6 py-4 text-center text-sm font-medium text-white">
+                    Call Recording
+                  </th>
                 </tr>
               </thead>
             </table>
