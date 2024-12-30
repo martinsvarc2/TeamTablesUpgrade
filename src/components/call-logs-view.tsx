@@ -360,28 +360,28 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               </div>
             </div>
         </CardHeader>
-        <CardContent className="p-0">
+        <CardContent className="p-0 -mr-8">
           <div className="overflow-x-hidden">
             <table className="w-full">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
                   <th className="w-24 px-4 py-4">
-                    <div className="flex justify-start items-center text-sm font-medium text-white pl-4">
+                    <div className="flex justify-start items-center text-sm font-medium text-white">
                       Date
                     </div>
                   </th>
-                  <th className="w-52 px-4 py-4">
+                  <th className="w-56 px-4 py-4">
                     <div className="flex items-center justify-center text-sm font-medium text-white">
                       User
                     </div>
                   </th>
-                  <th className="w-72 px-4 py-4 text-center text-sm font-medium text-white">
+                  <th className="w-80 px-4 py-4 text-center text-sm font-medium text-white">
                     Avatar
                   </th>
                   <th className="w-64 px-4 py-4 text-center text-sm font-medium text-white">
                     Call Performance
                   </th>
-                  <th className="w-96 px-4 py-4 text-center text-sm font-medium text-white">
+                  <th className="w-auto px-4 py-4 text-center text-sm font-medium text-white">
                     Call Recording
                   </th>
                 </tr>
