@@ -370,7 +370,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       Date
                     </div>
                   </th>
-                  <th className="w-64 px-6 py-4 text-center text-sm font-medium text-white">
+                  <th className="w-64 px-6 py-4 text-left pl-16 text-sm font-medium text-white">
                     User
                   </th>
                   <th className="w-48 px-6 py-4 text-center text-sm font-medium text-white">
@@ -405,14 +405,14 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       
                       {/* User Column */}
                       <td className="px-4 py-3">
-                        <div className="flex items-center gap-2 justify-center">
-                          <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
+                        <div className="flex items-center gap-3 ml-4">
+                          <Avatar className="h-8 w-8 border-2 border-[#5b06be] flex-shrink-0">
                             <AvatarImage 
                               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
                               alt={`${log.name}'s profile`} 
                             />
                           </Avatar>
-                          <span className="font-medium text-black text-sm">{log.name}</span>
+                          <span className="font-medium text-black text-sm whitespace-nowrap">{log.name}</span>
                         </div>
                       </td>
                       
