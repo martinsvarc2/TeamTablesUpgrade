@@ -360,9 +360,9 @@ export function CallLogsView({ data }: CallLogsViewProps) {
           
             <div className="h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#5b06be] scrollbar-track-transparent hover:scrollbar-thumb-[#7016e0]">
               <table className="w-full">
-              <tbody>
-                {filteredAndSortedData && filteredAndSortedData.length > 0 ? (
-                  filteredAndSortedData.map((log, index) => (
+                <tbody>
+                  {filteredAndSortedData && filteredAndSortedData.length > 0 ? (
+                    filteredAndSortedData.map((log, index) => (
                     <tr 
                       key={index} 
                       className="border-b border-[#f3f4f6] hover:bg-gray-50 transition-colors duration-150"
@@ -439,6 +439,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               </tbody>
             </table>
           </div>
+        </div>
         </CardContent>
         <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
           <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden">
