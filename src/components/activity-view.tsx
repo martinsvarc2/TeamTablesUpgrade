@@ -504,49 +504,66 @@ function ActivityView({ data }: ActivityViewProps) {
             <table className="w-full table-fixed">
               <tbody>
                 {filteredAndSortedData.map((user, index) => (
-                  <tr key={index} className="border-b border-gray-100 hover:bg-gray-50 transition-all duration-300 ease-in-out">
-                    {/* User & Avatar Column */}
-                    <td className="px-4 py-3">
-                      <div className="flex items-center justify-center gap-2">
+                  <tr 
+                    key={index} 
+                    className="border-b border-gray-100 hover:bg-gray-50 transition-all duration-300 ease-in-out"
+                  >
+                    <td className="px-2 py-4">
+                      <div className="flex items-center gap-2">
                         <Avatar className="h-8 w-8 border-2 border-[#5b06be] text-black">
-                          <AvatarImage src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" />
-                          <AvatarFallback>{user.avatar}</AvatarFallback>
+                          <AvatarImage src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" alt={`${user.name}'s profile`} />
+                          <AvatarFallback className="bg-[#5b06be]/10 text-[#5b06be]">
+                            {user.avatar}
+                          </AvatarFallback>
                         </Avatar>
                         <span className="font-medium text-black text-sm">{user.name}</span>
                       </div>
                     </td>
-                    
-                    {/* Performance Column */}
-                    <td className="px-4 py-3 text-center">
-                      <div className="flex justify-center">
-                        <Button variant="ghost" size="sm"
-                          className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0]"
-                        >
-                          <span className="font-medium">{user.overallPerformance}/100</span>
-                          <span className="ml-1 font-medium">View Info</span>
-                        </Button>
-                      </div>
+                    <td className="px-2 py-4 text-center">
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs h-7"
+                          >
+                            <span className="font-medium">{user.overallPerformance}/100</span>
+                            <span className="ml-1 font-medium">View Info</span>
+                            <Image
+                              src="https://res.cloudinary.com/drkudvyog/image/upload/v1735521910/info_icon_white_btbu18.png"
+                              alt="Click to view"
+                              width={12}
+                              height={12}
+                              className="ml-0.5 inline-block"
+                            />
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[1180px] w-[98vw] h-[95vh] overflow-y-auto p-4"> 
+                          <DialogTitle className="sr-only">Performance Details</DialogTitle>
+                          <div className="h-full">
+                            <PerformanceDialog data={user} />
+                          </div>
+                        </DialogContent>
+                      </Dialog>
                     </td>
-              
-                    {/* Numbers Columns */}
-                    <td className="px-4 py-3 text-center">{user.trainingsToday}</td>
-                    <td className="px-4 py-3 text-center">{user.thisWeek}</td>
-                    <td className="px-4 py-3 text-center">{user.thisMonth}</td>
-                    <td className="px-4 py-3 text-center">{user.total}</td>
-                    <td className="px-4 py-3 text-center">{user.currentStreak}</td>
-                    <td className="px-4 py-3 text-center">{user.longestStreak}</td>
-                    <td className="px-4 py-3 text-center">{user.consistency}%</td>
-                    
-                    {/* Notes Column */}
-                    <td className="px-4 py-3">
-                      <div className="flex justify-center">
-                        <Button variant="ghost" size="sm"
-                          className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0]"
-                          onClick={() => handleAddNote(user)}
-                        >
-                          {notes[user.name] ? 'Edit Note' : 'Add Note'}
-                        </Button>
-                      </div>
+                    <td className="px-2 py-4 text-center text-black">{user.trainingsToday}</td>
+                    <td className="px-2 py-4 text-center text-black">{user.thisWeek}</td>
+                    <td className="px-2 py-4 text-center text-black">{user.thisMonth}</td>
+                    <td className="px-2 py-4 text-center text-black">{user.total}</td>
+                    <td className="px-2 py-4 text-center text-black">{user.currentStreak}</td>
+                    <td className="px-2 py-4 text-center text-black">{user.longestStreak}</td>
+                    <td className="px-2 py-4 text-center">
+                      <span className="text-black font-medium">{user.consistency}%</span>
+                    </td>
+                    <td className="px-2 py-4 text-center">
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all"
+                        onClick={() => handleAddNote(user)}
+                      >
+                        {notes[user.name] ? 'Edit Note' : 'Add Note'}
+                      </Button>
                     </td>
                   </tr>
                 ))}
