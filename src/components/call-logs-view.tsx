@@ -423,26 +423,13 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                             <span className="font-medium text-black text-sm">Agent</span>
                           </div>
                           <div className="flex items-center gap-2">
-                            <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">
+                            <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs whitespace-nowrap">
                               Creative Finance
                             </span>
-                            <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">
+                            <span className="px-2 py-1 bg-orange-100 text-orange-700 rounded-full text-xs whitespace-nowrap">
                               Intermediate
                             </span>
                           </div>
-                        </div>
-                      </td>
-                      
-                      {/* Agent Column */}
-                      <td className="px-4 py-3">
-                        <div className="flex items-center gap-2 ml-8">
-                          <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
-                            <AvatarImage 
-                              src={log.callerImage}
-                              alt="Agent profile" 
-                            />
-                          </Avatar>
-                          <span className="font-medium text-black text-sm">Agent</span>
                         </div>
                       </td>
             
