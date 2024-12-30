@@ -366,7 +366,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
                   <th className="w-24 px-6 py-4">
-                    <div className="flex justify-center items-center text-sm font-medium text-white">
+                    <div className="flex justify-start items-center text-sm font-medium text-white pl-4">
                       Date
                     </div>
                   </th>
@@ -396,7 +396,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       className="border-b border-[#f3f4f6] hover:bg-gray-50 transition-colors duration-150"
                     >
                       <td className="px-4 py-3">
-                        <div className="flex justify-center items-center">
+                        <div className="flex justify-start items-center pl-4">
                           <span className="text-black text-xs whitespace-nowrap">
                             {formatDateShort(log.date)}
                           </span>
