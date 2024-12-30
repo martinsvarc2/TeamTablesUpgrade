@@ -422,7 +422,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                             </Avatar>
                             <span className="font-medium text-black text-sm">Agent</span>
                           </div>
-                          <div className="flex items-center gap-2">
+                          <div className="flex flex-col items-center gap-1">
                             <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs whitespace-nowrap">
                               Creative Finance
                             </span>
