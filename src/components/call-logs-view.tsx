@@ -460,12 +460,17 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                                 <div className="flex items-center gap-2">
                                   <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                                     <AvatarImage 
-                                      src="https://res.cloudinary.com/drkudvyog/image/upload/v1735534232/clash_icon_duha_wvhzo9.png"
+                                      src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
                                       alt={`${log.name}'s profile`} 
                                     />
                                   </Avatar>
                                   <span className="font-medium">{log.name}</span>
-                                  <X className="h-4 w-4 text-gray-400" /> {/* Přidaná X ikonka */}
+                                  <Image
+                                    src="https://res.cloudinary.com/drkudvyog/image/upload/v1735534232/clash_icon_duha_wvhzo9.png"
+                                    alt="Clash Icon"
+                                    width={16}
+                                    height={16}
+                                  />
                                 </div>
                                 <div className="flex items-center gap-2">
                                   <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
