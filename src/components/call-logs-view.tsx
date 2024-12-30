@@ -249,9 +249,9 @@ export function CallLogsView({ data }: CallLogsViewProps) {
 
   if (!callLogsData || callLogsData.length === 0) {
     return (
-      <div className="w-full bg-white overflow-hidden rounded-lg">
-        <div className="flex flex-row items-center justify-between space-y-0 p-6 bg-white shadow-md">
-          <h2 className="text-2xl font-bold flex items-center gap-2 text-black">
+      <Card className="w-full bg-white overflow-hidden">
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-6 bg-white shadow-md">
+          <CardTitle className="text-2xl font-bold flex items-center gap-2 text-black">
             <Image
               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
               alt="Team Call Logs"
@@ -271,9 +271,9 @@ export function CallLogsView({ data }: CallLogsViewProps) {
 
   try {
     return (
-      <div className="w-full bg-white overflow-hidden rounded-lg">
-        <div className="p-6 border-b flex flex-row items-center justify-between">
-          <h2 className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
+      <Card className="w-full bg-white overflow-hidden">
+        <CardHeader className="p-6 border-b flex flex-row items-center justify-between">
+          <CardTitle className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
             <Image
               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
               alt="Team Call Logs"
@@ -365,30 +365,20 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <table className="w-full">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  <th className="w-24 px-6 py-4">
-                    <div className="flex justify-center items-center text-sm font-medium text-white">
-                      Date
-                    </div>
+                  <th className="w-24 px-6 py-4 text-center text-sm font-medium text-white">
+                    Date
                   </th>
-                  <th className="w-64 px-6 py-4">
-                    <div className="flex justify-center items-center text-sm font-medium text-white">
-                      User
-                    </div>
+                  <th className="w-64 px-6 py-4 text-center text-sm font-medium text-white">
+                    User
                   </th>
-                  <th className="w-48 px-6 py-4">
-                    <div className="flex justify-center items-center text-sm font-medium text-white">
-                      Avatar
-                    </div>
+                  <th className="w-48 px-6 py-4 text-center text-sm font-medium text-white">
+                    Avatar
                   </th>
-                  <th className="w-64 px-6 py-4">
-                    <div className="flex justify-center items-center text-sm font-medium text-white">
-                      Call Performance
-                    </div>
+                  <th className="w-64 px-6 py-4 text-center text-sm font-medium text-white">
+                    Call Performance
                   </th>
-                  <th className="flex-1 px-6 py-4">
-                    <div className="flex justify-center items-center text-sm font-medium text-white">
-                      Call Recording
-                    </div>
+                  <th className="flex-1 px-6 py-4 text-center text-sm font-medium text-white">
+                    Call Recording
                   </th>
                 </tr>
               </thead>
@@ -403,17 +393,13 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       key={index} 
                       className="border-b border-[#f3f4f6] hover:bg-gray-50 transition-colors duration-150"
                     >
-                      <td className="px-4 py-3">
-                        <div className="flex justify-center items-center">
-                          <span className="text-black text-xs whitespace-nowrap">
-                            {formatDateShort(log.date)}
-                          </span>
-                        </div>
+                      <td className="px-4 py-3 text-black text-xs whitespace-nowrap text-center">
+                        {formatDateShort(log.date)}
                       </td>
                       
                       {/* User Column */}
                       <td className="px-4 py-3">
-                        <div className="flex items-center justify-center gap-2">
+                        <div className="flex items-center gap-2 justify-center">
                           <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                             <AvatarImage 
                               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
@@ -426,7 +412,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       
                       {/* Agent Column */}
                       <td className="px-4 py-3">
-                        <div className="flex items-center justify-center gap-4">
+                        <div className="flex items-center gap-4 justify-center">
                           <div className="flex items-center gap-2">
                             <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                               <AvatarImage 
@@ -448,26 +434,25 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       </td>
             
                       {/* Performance Column */}
-                      <td className="px-4 py-3">
-                        <div className="flex justify-center items-center">
-                          <Dialog>
-                            <DialogTrigger asChild>
-                              <Button 
-                                variant="ghost" 
-                                size="sm"
-                                className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] hover:text-white transition-all px-3 py-1 text-xs h-7"
-                              >
-                                <span className="font-medium">{log.performance}/100</span>
-                                <span className="ml-1 font-medium">View Info</span>
-                                <Image
-                                  src="https://res.cloudinary.com/drkudvyog/image/upload/v1735521910/info_icon_white_btbu18.png"
-                                  alt="Click to view"
-                                  width={12}
-                                  height={12}
-                                  className="ml-0.5 inline-block"
-                                />
-                              </Button>
-                            </DialogTrigger>
+                      <td className="px-4 py-3 text-center">
+                        <Dialog>
+                          <DialogTrigger asChild>
+                            <Button 
+                              variant="ghost" 
+                              size="sm"
+                              className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] hover:text-white transition-all px-3 py-1 text-xs h-7"
+                            >
+                              <span className="font-medium">{log.performance}/100</span>
+                              <span className="ml-1 font-medium">View Info</span>
+                              <Image
+                                src="https://res.cloudinary.com/drkudvyog/image/upload/v1735521910/info_icon_white_btbu18.png"
+                                alt="Click to view"
+                                width={12}
+                                height={12}
+                                className="ml-0.5 inline-block"
+                              />
+                            </Button>
+                          </DialogTrigger>
                          <DialogContent className="max-w-5xl h-[80vh] p-6">
                           <DialogHeader className="pb-4">
                             <div className="flex items-center justify-between w-full py-2 border-b">
@@ -563,10 +548,8 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       </td>
             
                       {/* Recording Column */}
-                      <td className="px-4 py-3">
-                        <div className="flex justify-center items-center w-full">
-                            <AudioPlayer audioUrl={log.audioUrl} />                          
-                        </div>
+                      <td className="px-4 py-3 text-center">
+                        <AudioPlayer audioUrl={log.audioUrl} />
                       </td>
                     </tr>
                   ))
@@ -759,7 +742,7 @@ function AudioPlayer({ audioUrl }: { audioUrl: string }) {
   }
 
   return (
-    <div className="flex items-center justify-center gap-2 w-full">
+    <div className="flex items-center gap-2">
       <Button
         variant="ghost"
         size="sm"
@@ -779,10 +762,10 @@ function AudioPlayer({ audioUrl }: { audioUrl: string }) {
         ) : (
           <Play className="h-4 w-4" />
         )}
-      </Button>
+            </Button>
       <div
         ref={progressBarRef}
-        className="relative w-64 h-1.5 bg-gray-200 rounded-full cursor-pointer"
+        className="relative w-64 h-1.5 bg-gray-200 roundedfull cursor-pointer"
         onClick={handleProgressBarClick}
       >
         <div
