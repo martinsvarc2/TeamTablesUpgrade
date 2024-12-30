@@ -438,18 +438,44 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                           </DialogTrigger>
                           <DialogContent className="max-w-5xl h-[80vh] p-6">
                             <DialogHeader className="pb-4">
-                              <DialogTitle className="text-2xl font-bold flex items-center gap-2">
-                                <BarChart2 className="h-6 w-6 text-[#5b06be]" />
-                                Performance Analysis for {log.name}
-                              </DialogTitle>
+                              <div className="flex items-center justify-between w-full mb-6">
+                                <DialogTitle className="text-2xl font-bold flex items-center gap-2">
+                                  <BarChart2 className="h-6 w-6 text-[#5b06be]" />
+                                  Performance Analysis for {log.name}
+                                </DialogTitle>
+                                <div className="flex items-center gap-2">
+                                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">
+                                    Creative Finance
+                                  </span>
+                                  <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">
+                                    Intermediate
+                                  </span>
+                                </div>
+                              </div>
                             </DialogHeader>
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full overflow-hidden">
-                              <div className="flex flex-col gap-6">
+                            
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[calc(100%-80px)]">
+                              {/* Levá strana - Performance Metrics */}
+                              <div className="h-full">
                                 <PerformanceMetricsWidget log={log} />
                               </div>
-                              <div className="flex flex-col gap-6">
-                                <CallNotesWidget log={log} />
-                                <LevelUpPlanWidget />
+                          
+                              {/* Pravá strana - dvě komponenty pod sebou */}
+                              <div className="flex flex-col gap-6 h-full">
+                                {/* Horní část - Call Notes a Power Moment vedle sebe */}
+                                <div className="flex gap-6 h-[60%]">
+                                  <div className="flex-1">
+                                    <CallNotesWidget log={log} />
+                                  </div>
+                                  <div className="w-64">
+                                    <PowerMomentSection />
+                                  </div>
+                                </div>
+                                
+                                {/* Spodní část - Level Up Plan */}
+                                <div className="h-[40%]">
+                                  <LevelUpPlanWidget />
+                                </div>
                               </div>
                             </div>
                           </DialogContent>
