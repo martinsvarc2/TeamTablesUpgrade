@@ -349,28 +349,28 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <table className="w-full">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  {/* Date - zarovnáno s datumy */}
-                  <th className="w-32 text-center text-sm font-medium text-white">
+                  {/* Date - úzký sloupec, vycentrovaný */}
+                  <th className="w-24 px-6 py-4 text-center text-sm font-medium text-white">
                     Date
                   </th>
                   
-                  {/* User - zarovnáno s avatarem a jménem */}
-                  <th className="w-80 text-left text-sm font-medium text-white pl-[7.5rem]">
+                  {/* User - širší sloupec, stejné odsazení jako obsah */}
+                  <th className="w-64 px-6 py-4 text-left text-sm font-medium text-white" style={{ paddingLeft: '7rem' }}>
                     User
                   </th>
                   
-                  {/* Avatar - zarovnáno s agentem */}
-                  <th className="w-64 text-left text-sm font-medium text-white pl-[7.5rem]">
+                  {/* Avatar - středně široký sloupec, stejné odsazení jako Agent */}
+                  <th className="w-48 px-6 py-4 text-left text-sm font-medium text-white" style={{ paddingLeft: '7.5rem' }}>
                     Avatar
                   </th>
                   
-                  {/* Call Performance - zarovnáno s View Info */}
-                  <th className="w-64 text-center text-sm font-medium text-white">
+                  {/* Call Performance - širší sloupec pro View Info tlačítko */}
+                  <th className="w-64 px-6 py-4 text-center text-sm font-medium text-white">
                     Call Performance
                   </th>
                   
-                  {/* Call Recording - zarovnáno s přehrávačem */}
-                  <th className="flex-1 text-center text-sm font-medium text-white">
+                  {/* Call Recording - nejširší sloupec pro přehrávač */}
+                  <th className="flex-1 px-6 py-4 text-center text-sm font-medium text-white">
                     Call Recording
                   </th>
                 </tr>
@@ -415,47 +415,9 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                           <span className="font-medium text-black text-sm">Agent</span>
                         </div>
                       </td>
-                      
+            
                       {/* Performance Column */}
                       <td className="px-4 py-3 text-center">
-                        // ... View Info button content
-                      </td>
-                      
-                      {/* Recording Column */}
-                      <td className="px-4 py-3 text-center">
-                        <AudioPlayer audioUrl={log.audioUrl} />
-                      </td>
-                      
-                      // NAHRADIT ZA:
-                      <td className="w-32 text-center text-black text-xs whitespace-nowrap">
-                        {formatDateShort(log.date)}
-                      </td>
-                      
-                      <td className="w-80">
-                        <div className="flex items-center gap-2 pl-[7.5rem]">
-                          <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
-                            <AvatarImage 
-                              src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
-                              alt={`${log.name}'s profile`} 
-                            />
-                          </Avatar>
-                          <span className="font-medium text-black text-sm">{log.name}</span>
-                        </div>
-                      </td>
-                      
-                      <td className="w-64">
-                        <div className="flex items-center gap-2 pl-[7.5rem]">
-                          <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
-                            <AvatarImage 
-                              src={log.callerImage}
-                              alt="Agent profile" 
-                            />
-                          </Avatar>
-                          <span className="font-medium text-black text-sm">Agent</span>
-                        </div>
-                      </td>
-                      
-                      <td className="w-64 text-center">
                         <Dialog>
                           <DialogTrigger asChild>
                             <Button 
@@ -466,7 +428,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                               <span className="font-medium">{log.performance}/100</span>
                               <span className="ml-1 font-medium">View Info</span>
                               <Image
-                                src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Info_icon_duha_aqwjxp.png"
+                                src="https://res.cloudinary.com/drkudvyog/image/upload/v1735521910/info_icon_white_btbu18.png"
                                 alt="Click to view"
                                 width={12}
                                 height={12}
@@ -479,8 +441,9 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                           </DialogContent>
                         </Dialog>
                       </td>
-                      
-                      <td className="flex-1 text-center">
+            
+                      {/* Recording Column */}
+                      <td className="px-4 py-3 text-center">
                         <AudioPlayer audioUrl={log.audioUrl} />
                       </td>
                     </tr>
