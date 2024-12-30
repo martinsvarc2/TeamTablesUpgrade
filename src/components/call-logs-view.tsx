@@ -88,6 +88,22 @@ const callLogsData: CallLogData[] = [
     callerImage: "https://res.cloudinary.com/drkudvyog/image/upload/v1734301718/a-3d-cartoon-style-profile-image-of-david-a-40-yea-vzj8l6oUQwqDyV_BtWc0Eg-n9lLI1SAQfuxxvzy48S83Q_yy9urr.png"
   },
   {
+    name: "Sophie Williams",
+    avatar: "SW",
+    date: "2024-11-16",
+    performance: 91,
+    audioUrl: "/audio6.mp3",
+    audioUrlOgg: "/audio6.ogg",
+    transcript: "This is a sample transcript for Sophie Williams's call.",
+    engagement: 93,
+    objectionHandling: 91,
+    informationGathering: 92,
+    programExplanation: 90,
+    closingSkills: 89,
+    overallEffectiveness: 91,
+    callerImage: "https://res.cloudinary.com/drkudvyog/image/upload/v1734565206/a-3d-cartoon-style-profile-image-of-rachel-a-30-ye-tkHg-wwXRnKMpxUbbd3X5w-x8ca8T9zQB-uIbW2TAzcMg_exndep.png"
+  },
+  {
     name: "Rachel Taylor",
     avatar: "RT",
     date: "2024-11-13",
@@ -330,8 +346,8 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               </div>
             </div>
         </CardHeader>
-        <CardContent className="p-0 flex flex-col h-[calc(100%-76px)]">
-          <div className="overflow-x-auto">
+        <CardContent className="p-0 flex flex-col h-[calc(100vh-160px)]">
+          <div className="overflow-x-auto h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#5b06be] scrollbar-track-transparent hover:scrollbar-thumb-[#7016e0]">
             <table className="w-full">
               <thead>
                 <tr className="bg-[#f8b922]">
@@ -985,5 +1001,23 @@ export function TranscriptView({ messages, className, agentName }: TranscriptVie
     100% {
       box-shadow: 0 0 0 0 rgba(91, 6, 190, 0);
     }
+  }
+
+  /* Scrollbar styly */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #5b06be;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #7016e0;
   }
 `}</style>
