@@ -504,12 +504,53 @@ function ActivityView({ data }: ActivityViewProps) {
             <table className="w-full table-fixed">
               <tbody>
                 {filteredAndSortedData.map((user, index) => (
-                  <tr 
-                    key={index} 
-                    className="border-b border-gray-100 hover:bg-gray-50 transition-all duration-300 ease-in-out"
-                  >
-                    <td className="px-2 py-4">
-                      <div className="flex items-center gap-2">
+                  <tr key={index} className="border-b border-gray-100 hover:bg-gray-50 transition-all duration-300 ease-in-out">
+                    {/* User & Avatar Column */}
+                    <td className="px-4 py-3">
+                      <div className="flex items-center justify-center gap-2">
+                        <Avatar className="h-8 w-8 border-2 border-[#5b06be] text-black">
+                          <AvatarImage src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" />
+                          <AvatarFallback>{user.avatar}</AvatarFallback>
+                        </Avatar>
+                        <span className="font-medium text-black text-sm">{user.name}</span>
+                      </div>
+                    </td>
+                    
+                    {/* Performance Column */}
+                    <td className="px-4 py-3 text-center">
+                      <div className="flex justify-center">
+                        <Button variant="ghost" size="sm"
+                          className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0]"
+                        >
+                          <span className="font-medium">{user.overallPerformance}/100</span>
+                          <span className="ml-1 font-medium">View Info</span>
+                        </Button>
+                      </div>
+                    </td>
+              
+                    {/* Numbers Columns */}
+                    <td className="px-4 py-3 text-center">{user.trainingsToday}</td>
+                    <td className="px-4 py-3 text-center">{user.thisWeek}</td>
+                    <td className="px-4 py-3 text-center">{user.thisMonth}</td>
+                    <td className="px-4 py-3 text-center">{user.total}</td>
+                    <td className="px-4 py-3 text-center">{user.currentStreak}</td>
+                    <td className="px-4 py-3 text-center">{user.longestStreak}</td>
+                    <td className="px-4 py-3 text-center">{user.consistency}%</td>
+                    
+                    {/* Notes Column */}
+                    <td className="px-4 py-3">
+                      <div className="flex justify-center">
+                        <Button variant="ghost" size="sm"
+                          className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0]"
+                          onClick={() => handleAddNote(user)}
+                        >
+                          {notes[user.name] ? 'Edit Note' : 'Add Note'}
+                        </Button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
                         <Avatar className="h-8 w-8 border-2 border-[#5b06be] text-black">
                           <AvatarImage src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" alt={`${user.name}'s profile`} />
                           <AvatarFallback className="bg-[#5b06be]/10 text-[#5b06be]">
