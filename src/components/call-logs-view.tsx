@@ -452,12 +452,23 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                           </DialogTrigger>
                           <DialogContent className="max-w-5xl h-[80vh] p-6">
                             <DialogHeader className="pb-4">
-                              <div className="flex items-center justify-between w-full mb-6">
-                                <DialogTitle className="text-2xl font-bold flex items-center gap-2">
-                                  <BarChart2 className="h-6 w-6 text-[#5b06be]" />
-                                  Performance Analysis for {log.name}
-                                </DialogTitle>
-                                <div className="flex items-center gap-2">
+                              {/* Přidáme novou sekci pro horní lištu */}
+                              <div className="flex items-center justify-between w-full border-b pb-4 mb-4">
+                                <div className="flex items-center gap-3">
+                                  <div className="text-sm text-gray-600">Nov 13</div>
+                                  <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
+                                    <AvatarImage 
+                                      src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
+                                      alt={`${log.name}'s profile`} 
+                                    />
+                                  </Avatar>
+                                  <span className="font-medium">{log.name}</span>
+                                  <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
+                                    <AvatarImage 
+                                      src={log.callerImage}
+                                      alt="Agent profile" 
+                                    />
+                                  </Avatar>
                                   <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">
                                     Creative Finance
                                   </span>
@@ -465,8 +476,27 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                                     Intermediate
                                   </span>
                                 </div>
+                                <Button 
+                                  variant="default" 
+                                  size="sm"
+                                  className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] px-4"
+                                >
+                                  Edit Feedback for {log.name}
+                                </Button>
+                              </div>
+                          
+                              {/* Původní hlavička s nadpisem */}
+                              <div className="flex items-center justify-between w-full mb-6">
+                                <DialogTitle className="text-2xl font-bold flex items-center gap-2">
+                                  <BarChart2 className="h-6 w-6 text-[#5b06be]" />
+                                  Performance Analysis for {log.name}
+                                </DialogTitle>
                               </div>
                             </DialogHeader>
+                            
+                            {/* Zbytek obsahu zůstává stejný */}
+                            ...
+                          </DialogContent>
                             
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[calc(100%-80px)]">
                               {/* Levá strana - Performance Metrics */}
