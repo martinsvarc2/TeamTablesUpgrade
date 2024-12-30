@@ -345,9 +345,9 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             </div>
         </CardHeader>
         <CardContent className="p-0">
-          <div className="h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#5b06be] scrollbar-track-transparent hover:scrollbar-thumb-[#7016e0]">
+          <div className="overflow-x-auto">
             <table className="w-full">
-              <thead>
+              <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
                   <th className="px-6 py-4 text-center text-sm font-medium text-white first:pl-6 last:pr-6">Date</th>
                   <th className="px-6 py-4 text-left text-sm font-medium text-white">User</th>
@@ -356,6 +356,10 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                   <th className="px-6 py-4 text-center text-sm font-medium text-white">Call Recording</th>
                 </tr>
               </thead>
+            </table>
+          
+            <div className="h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#5b06be] scrollbar-track-transparent hover:scrollbar-thumb-[#7016e0]">
+              <table className="w-full">
               <tbody>
                 {filteredAndSortedData && filteredAndSortedData.length > 0 ? (
                   filteredAndSortedData.map((log, index) => (
