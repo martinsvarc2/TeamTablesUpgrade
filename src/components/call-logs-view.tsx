@@ -361,7 +361,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             </div>
         </CardHeader>
         <CardContent className="p-0">
-          <div className="overflow-x-auto">
+          <div className="overflow-x-hidden">
             <table className="w-full">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
@@ -390,7 +390,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               </thead>
             </table>
           
-            <div className="overflow-y-hidden">
+            <div className="h-[330px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-[#F8F0FF] [&::-webkit-scrollbar-thumb]:bg-[#5b06be] [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-[#7016e0]">
               <table className="w-full">
                 <tbody>
                   {filteredAndSortedData && filteredAndSortedData.length > 0 ? (
