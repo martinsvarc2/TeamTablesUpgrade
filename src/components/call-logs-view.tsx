@@ -370,8 +370,10 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       Date
                     </div>
                   </th>
-                  <th className="w-64 px-6 py-4 text-left pl-16 text-sm font-medium text-white">
-                    User
+                  <th className="w-64 px-6 py-4">
+                    <div className="flex items-center text-sm font-medium text-white ml-7">
+                      User
+                    </div>
                   </th>
                   <th className="w-48 px-6 py-4 text-center text-sm font-medium text-white">
                     Avatar
