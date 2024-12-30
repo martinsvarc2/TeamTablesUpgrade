@@ -997,10 +997,10 @@ function CallNotesWidget({ log }: { log: CallLogData }) {
   return (
     <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col">
       <h2 className="text-lg font-semibold mb-2 flex items-center gap-2">
-        <MessageSquare className="h-5 w-5 text-[#5b06be]" /> {/* Přidaná ikona */}
+        <MessageSquare className="h-5 w-5 text-[#5b06be]" />
         Call Notes
       </h2>
-      <div className="flex-grow overflow-y-auto pr-2">
+      <div className="flex-grow overflow-y-auto pr-2 custom-purple-scrollbar">
         <p className="text-sm text-gray-600">
           {log.notes}
         </p>
@@ -1059,7 +1059,7 @@ export function TranscriptView({ messages, className, agentName }: TranscriptVie
   return (
     <div className={cn("h-full flex flex-col", className)}>
       <h2 className="text-xl font-semibold mb-4">Call Transcript</h2>
-      <div className="flex-grow overflow-y-auto pr-4 space-y-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent hover:scrollbar-thumb-gray-400">
+      <div className="flex-grow overflow-y-auto pr-4 space-y-4 custom-purple-scrollbar">
         {messages.map((message, index) => (
           <div
             key={index}
@@ -1139,6 +1139,25 @@ export function TranscriptView({ messages, className, agentName }: TranscriptVie
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #7016e0;
+  }
+.custom-purple-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    background: transparent;
+  }
+
+  .custom-purple-scrollbar::-webkit-scrollbar-track {
+    background: #F8F0FF;
+    border-radius: 3px;
+  }
+
+  .custom-purple-scrollbar::-webkit-scrollbar-thumb {
+    background: #5b06be;
+    border-radius: 3px;
+    transition: background 0.2s ease;
+  }
+
+  .custom-purple-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #7016e0;
   }
 `}</style>
