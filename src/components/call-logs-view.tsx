@@ -272,7 +272,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
   try {
     return (
       <Card className="w-full bg-white overflow-hidden">
-        <CardHeader className="p-6 border-b flex flex-row items-center justify-between">
+        <CardHeader className="p-4 border-b flex flex-row items-center justify-between">
           <CardTitle className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
             <Image
               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
@@ -365,28 +365,29 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <table className="w-full table-fixed">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  <th className="w-24 px-4 py-4">  {/* Zmenšen padding z px-6 na px-4 */}
-                    <div className="flex justify-start items-center text-sm font-medium text-white pl-4">
+                  <th className="w-20 px-2 py-4">  {/* Zmenšeno z w-24 */}
+                    <div className="flex justify-start items-center text-sm font-medium text-white pl-2">
                       Date
                     </div>
                   </th>
-                  <th className="w-64 px-4 py-4">
-                    <div className="flex items-center justify-center text-sm font-medium text-white -ml-6"> {/* Změněno z -ml-8 na -ml-6 */}
+                  <th className="w-48 px-2 py-4"> {/* Zmenšeno z w-64 */}
+                    <div className="flex items-center justify-center text-sm font-medium text-white">
                       User
                     </div>
                   </th>
-                  <th className="w-48 px-4 py-4 text-center text-sm font-medium text-white">
+                  <th className="w-44 px-2 py-4 text-center text-sm font-medium text-white"> {/* Zmenšeno z w-48 */}
                     Avatar
                   </th>
-                  <th className="w-72 px-4 py-4 text-center"> {/* Zvětšena šířka z w-64 na w-72 */}
-                    <span className="text-sm font-medium text-white ml-16"> {/* Změněno z ml-20 na ml-16 */}
+                  <th className="w-52 px-2 py-4 text-center"> {/* Zmenšeno z w-72 */}
+                    <span className="text-sm font-medium text-white">
                       Call Performance
                     </span>
                   </th>
-                  <th className="w-[420px] px-4 py-4 text-center text-sm font-medium text-white"> {/* Nastavena fixní šířka místo flex-1 */}
+                  <th className="w-[360px] px-2 py-4 text-center text-sm font-medium text-white"> {/* Zmenšeno z w-[420px] */}
                     Call Recording
                   </th>
                 </tr>
+              </thead>
               </thead>
             </table>
           
@@ -775,7 +776,7 @@ function AudioPlayer({ audioUrl }: { audioUrl: string }) {
             </Button>
       <div
         ref={progressBarRef}
-        className="relative w-64 h-1.5 bg-gray-200 roundedfull cursor-pointer"
+        className="relative w-44 h-1.5 bg-gray-200 roundedfull cursor-pointer" /* Zmenšeno z w-52/w-64 */
         onClick={handleProgressBarClick}
       >
         <div
