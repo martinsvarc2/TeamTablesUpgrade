@@ -365,25 +365,25 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <table className="w-full table-fixed">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  <th className="w-24 px-6 py-4">
+                  <th className="w-24 px-4 py-4">  {/* Zmenšen padding z px-6 na px-4 */}
                     <div className="flex justify-start items-center text-sm font-medium text-white pl-4">
                       Date
                     </div>
                   </th>
-                  <th className="w-64 px-6 py-4">
-                    <div className="flex items-center justify-center text-sm font-medium text-white -ml-8">
+                  <th className="w-64 px-4 py-4">
+                    <div className="flex items-center justify-center text-sm font-medium text-white -ml-6"> {/* Změněno z -ml-8 na -ml-6 */}
                       User
                     </div>
                   </th>
-                  <th className="w-48 px-6 py-4 text-center text-sm font-medium text-white">
+                  <th className="w-48 px-4 py-4 text-center text-sm font-medium text-white">
                     Avatar
                   </th>
-                  <th className="w-64 px-6 py-4 text-center">
-                    <span className="text-sm font-medium text-white ml-20">
+                  <th className="w-72 px-4 py-4 text-center"> {/* Zvětšena šířka z w-64 na w-72 */}
+                    <span className="text-sm font-medium text-white ml-16"> {/* Změněno z ml-20 na ml-16 */}
                       Call Performance
                     </span>
                   </th>
-                  <th className="w-96 px-6 py-4 text-center text-sm font-medium text-white">
+                  <th className="w-[420px] px-4 py-4 text-center text-sm font-medium text-white"> {/* Nastavena fixní šířka místo flex-1 */}
                     Call Recording
                   </th>
                 </tr>
