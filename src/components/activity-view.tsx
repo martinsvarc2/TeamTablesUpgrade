@@ -482,23 +482,19 @@ function ActivityView({ data }: ActivityViewProps) {
           <table className="w-full table-fixed">
             <thead className="sticky top-0 z-10">
               <tr className="bg-[#f8b922]">
-                <th className="w-1/6 px-2 py-4 text-sm font-medium text-white">
-                  <div className="ml-12">Users</div>  {/* Přidán margin-left pro zarovnání s avatarem a jménem */}
-                </th>
-                <th className="w-1/6 px-2 py-4 text-sm font-medium text-white">
-                  <div className="ml-8">Overall Performance</div>  {/* Přidán margin-left pro zarovnání s View Info tlačítkem */}
-                </th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">Today</th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">This Week</th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">This Month</th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">Total</th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">Current Streak</th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">Best Streak</th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">
+                <th className="w-1/6 px-2 py-4 text-left pl-4 text-sm font-medium text-white">Users</th>
+                <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Overall Performance</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Today</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">This Week</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">This Month</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Total</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Current Streak</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Best Streak</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">
                   <div>Consistency</div>
                   <div>This Month</div>
                 </th>
-                <th className="w-1/6 px-2 py-4 text-sm font-medium text-white">Notes</th>
+                <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Notes</th>
               </tr>
             </thead>
           </table>
@@ -512,51 +508,44 @@ function ActivityView({ data }: ActivityViewProps) {
                     key={index} 
                     className="border-b border-gray-100 hover:bg-gray-50 transition-all duration-300 ease-in-out"
                   >
-                    {/* Users Column */}
                     <td className="px-2 py-4">
-                      <div className="flex items-center ml-8">
+                      <div className="flex items-center gap-2">
                         <Avatar className="h-8 w-8 border-2 border-[#5b06be] text-black">
                           <AvatarImage src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" alt={`${user.name}'s profile`} />
                           <AvatarFallback className="bg-[#5b06be]/10 text-[#5b06be]">
                             {user.avatar}
                           </AvatarFallback>
                         </Avatar>
-                        <span className="font-medium text-black text-sm ml-2">{user.name}</span>
+                        <span className="font-medium text-black text-sm">{user.name}</span>
                       </div>
                     </td>
-            
-                    {/* Overall Performance Column */}
-                    <td className="px-2 py-4">
-                      <div className="flex justify-center ml-8">
-                        <Dialog>
-                          <DialogTrigger asChild>
-                            <Button 
-                              variant="ghost" 
-                              size="sm"
-                              className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs h-7"
-                            >
-                              <span className="font-medium">{user.overallPerformance}/100</span>
-                              <span className="ml-1 font-medium">View Info</span>
-                              <Image
-                                src="https://res.cloudinary.com/drkudvyog/image/upload/v1735521910/info_icon_white_btbu18.png"
-                                alt="Click to view"
-                                width={12}
-                                height={12}
-                                className="ml-0.5 inline-block"
-                              />
-                            </Button>
-                          </DialogTrigger>
-                          <DialogContent className="sm:max-w-[1180px] w-[98vw] h-[95vh] overflow-y-auto p-4"> 
-                            <DialogTitle className="sr-only">Performance Details</DialogTitle>
-                            <div className="h-full">
-                              <PerformanceDialog data={user} />
-                            </div>
-                          </DialogContent>
-                        </Dialog>
-                      </div>
+                    <td className="px-2 py-4 text-center">
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button 
+                            variant="ghost" 
+                            size="sm"
+                            className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs h-7"
+                          >
+                            <span className="font-medium">{user.overallPerformance}/100</span>
+                            <span className="ml-1 font-medium">View Info</span>
+                            <Image
+                              src="https://res.cloudinary.com/drkudvyog/image/upload/v1735521910/info_icon_white_btbu18.png"
+                              alt="Click to view"
+                              width={12}
+                              height={12}
+                              className="ml-0.5 inline-block"
+                            />
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[1180px] w-[98vw] h-[95vh] overflow-y-auto p-4"> 
+                          <DialogTitle className="sr-only">Performance Details</DialogTitle>
+                          <div className="h-full">
+                            <PerformanceDialog data={user} />
+                          </div>
+                        </DialogContent>
+                      </Dialog>
                     </td>
-            
-                    {/* Numeric Columns */}
                     <td className="px-2 py-4 text-center text-black">{user.trainingsToday}</td>
                     <td className="px-2 py-4 text-center text-black">{user.thisWeek}</td>
                     <td className="px-2 py-4 text-center text-black">{user.thisMonth}</td>
@@ -566,8 +555,6 @@ function ActivityView({ data }: ActivityViewProps) {
                     <td className="px-2 py-4 text-center">
                       <span className="text-black font-medium">{user.consistency}%</span>
                     </td>
-            
-                    {/* Notes Column */}
                     <td className="px-2 py-4 text-center">
                       <Button 
                         variant="ghost" 
