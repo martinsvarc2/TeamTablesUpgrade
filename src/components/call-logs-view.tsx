@@ -253,8 +253,6 @@ export function CallLogsView({ data }: CallLogsViewProps) {
     )
   }
 
-  const visibleData = showMore ? filteredAndSortedData : filteredAndSortedData.slice(0, 5);
-
   try {
     return (
       <Card className="w-full bg-white overflow-hidden">
@@ -346,8 +344,8 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               </div>
             </div>
         </CardHeader>
-        <CardContent className="p-0 flex flex-col h-[calc(100vh-160px)]">
-          <div className="overflow-x-auto h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#5b06be] scrollbar-track-transparent hover:scrollbar-thumb-[#7016e0]">
+        <CardContent className="p-0">
+          <div className="h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#5b06be] scrollbar-track-transparent hover:scrollbar-thumb-[#7016e0]">
             <table className="w-full">
               <thead>
                 <tr className="bg-[#f8b922]">
@@ -360,7 +358,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               </thead>
               <tbody>
                 {filteredAndSortedData && filteredAndSortedData.length > 0 ? (
-                  visibleData.map((log, index) => (
+                  filteredAndSortedData.map((log, index) => (
                     <tr 
                       key={index} 
                       className="border-b border-[#f3f4f6] hover:bg-gray-50 transition-colors duration-150"
@@ -437,17 +435,6 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               </tbody>
             </table>
           </div>
-          {filteredAndSortedData.length > 5 && (
-            <div className="p-4 flex justify-center">
-              <Button
-                variant="ghost"
-                onClick={() => setShowMore(!showMore)}
-                className="rounded-full text-black hover:bg-gray-200 shadow-md shadow-black/10"
-              >
-                {showMore ? "Show Less" : "Show More"}
-              </Button>
-            </div>
-          )}
         </CardContent>
         <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
           <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden">
