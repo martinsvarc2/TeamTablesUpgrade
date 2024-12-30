@@ -365,8 +365,10 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <table className="w-full">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  <th className="w-24 px-6 py-4 text-center text-sm font-medium text-white">
-                    Date
+                  <th className="w-24 px-6 py-4">
+                    <div className="flex justify-center items-center text-sm font-medium text-white">
+                      Date
+                    </div>
                   </th>
                   <th className="w-64 px-6 py-4 text-center text-sm font-medium text-white">
                     User
@@ -393,8 +395,12 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       key={index} 
                       className="border-b border-[#f3f4f6] hover:bg-gray-50 transition-colors duration-150"
                     >
-                      <td className="px-4 py-3 text-black text-xs whitespace-nowrap text-center">
-                        {formatDateShort(log.date)}
+                      <td className="px-4 py-3">
+                        <div className="flex justify-center items-center">
+                          <span className="text-black text-xs whitespace-nowrap">
+                            {formatDateShort(log.date)}
+                          </span>
+                        </div>
                       </td>
                       
                       {/* User Column */}
