@@ -568,7 +568,7 @@ function ActivityView({ data }: ActivityViewProps) {
     </Card>
 
     <Dialog open={isNoteDialogOpen} onOpenChange={setIsNoteDialogOpen}>
-      <DialogContent className="sm:max-w-[600vw] w-[95vw] flex flex-col items-center">
+      <DialogContent className="sm:max-w-[450vw] w-[95vw] flex flex-col items-center">
         <DialogHeader>
           <DialogTitle>{notes[currentUser?.name || ''] ? 'Edit' : 'Add'} Note for {currentUser?.name}</DialogTitle>
         </DialogHeader>
