@@ -362,28 +362,28 @@ export function CallLogsView({ data }: CallLogsViewProps) {
         </CardHeader>
         <CardContent className="p-0">
           <div className="w-full">
-            <table className="w-full table-fixed">
+            <table className="w-full table-fixed max-w-[95%] mx-auto"> {/* Přidáno max-w-[95%] a mx-auto */}
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  <th className="w-24 px-4 py-4">  {/* Zmenšen padding z px-6 na px-4 */}
+                  <th className="w-28 px-4 py-4">
                     <div className="flex justify-start items-center text-sm font-medium text-white pl-4">
                       Date
                     </div>
                   </th>
                   <th className="w-64 px-4 py-4">
-                    <div className="flex items-center justify-center text-sm font-medium text-white -ml-6"> {/* Změněno z -ml-8 na -ml-6 */}
+                    <div className="flex items-center justify-center text-sm font-medium text-white">
                       User
                     </div>
                   </th>
-                  <th className="w-48 px-4 py-4 text-center text-sm font-medium text-white">
+                  <th className="w-80 px-4 py-4 text-center text-sm font-medium text-white">
                     Avatar
                   </th>
-                  <th className="w-72 px-4 py-4 text-center"> {/* Zvětšena šířka z w-64 na w-72 */}
-                    <span className="text-sm font-medium text-white ml-16"> {/* Změněno z ml-20 na ml-16 */}
+                  <th className="w-64 px-4 py-4 text-center">
+                    <span className="text-sm font-medium text-white">
                       Call Performance
                     </span>
                   </th>
-                  <th className="w-[420px] px-4 py-4 text-center text-sm font-medium text-white"> {/* Nastavena fixní šířka místo flex-1 */}
+                  <th className="w-96 px-4 py-4 text-center text-sm font-medium text-white">
                     Call Recording
                   </th>
                 </tr>
