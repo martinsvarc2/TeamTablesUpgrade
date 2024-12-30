@@ -478,8 +478,9 @@ function ActivityView({ data }: ActivityViewProps) {
       </CardHeader>
       <CardContent className="p-0">
         <div className="overflow-x-auto">
+          {/* První tabulka - fixní hlavička */}
           <table className="w-full table-fixed">
-            <thead>
+            <thead className="sticky top-0 z-10">
               <tr className="bg-[#f8b922]">
                 <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Users</th>
                 <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Overall Performance</th>
@@ -496,8 +497,13 @@ function ActivityView({ data }: ActivityViewProps) {
                 <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Notes</th>
               </tr>
             </thead>
-            <tbody>
-              {filteredAndSortedData.map((user, index) => (
+          </table>
+      
+          {/* Druhá tabulka - scrollovatelný obsah */}
+          <div className="h-[330px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#5b06be] scrollbar-track-transparent hover:scrollbar-thumb-[#7016e0]">
+            <table className="w-full table-fixed">
+              <tbody>
+                {filteredAndSortedData.map((user, index) => (
                 <tr 
                   key={index} 
                   className="border-b border-gray-100 hover:bg-gray-50 transition-all duration-300 ease-in-out"
