@@ -249,9 +249,9 @@ export function CallLogsView({ data }: CallLogsViewProps) {
 
   if (!callLogsData || callLogsData.length === 0) {
     return (
-      <div className="w-full bg-white overflow-hidden rounded-lg shadow">
-        <div className="p-6 border-b flex flex-row items-center justify-between">
-          <h2 className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
+      <Card className="w-full bg-white overflow-hidden">
+        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-6 bg-white shadow-md">
+          <CardTitle className="text-2xl font-bold flex items-center gap-2 text-black">
             <Image
               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
               alt="Team Call Logs"
@@ -271,9 +271,9 @@ export function CallLogsView({ data }: CallLogsViewProps) {
 
   try {
     return (
-      <div className="w-full bg-white overflow-hidden rounded-lg shadow">
-        <div className="p-6 border-b flex flex-row items-center justify-between">
-          <h2 className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
+      <Card className="w-full bg-white overflow-hidden">
+        <CardHeader className="p-6 border-b flex flex-row items-center justify-between">
+          <CardTitle className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
             <Image
               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
               alt="Team Call Logs"
@@ -282,7 +282,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               className="h-6 w-6"
             />
             Team Call Logs
-          </h2>
+          </CardTitle>
           <div className="flex items-center gap-4">
               <Button 
                 variant="outline" 
@@ -360,28 +360,28 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               </div>
             </div>
         </CardHeader>
-        <div className="p-0">
-          <div className="overflow-x-hidden pl-8">
+        <CardContent className="p-0">
+          <div className="overflow-x-hidden">
             <table className="w-full">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
                   <th className="w-24 px-4 py-4">
-                    <div className="flex justify-start items-center text-sm font-medium text-white">
+                    <div className="flex justify-start items-center text-sm font-medium text-white pl-4">
                       Date
                     </div>
                   </th>
-                  <th className="w-56 px-4 py-4">
+                  <th className="w-52 px-4 py-4">
                     <div className="flex items-center justify-center text-sm font-medium text-white">
                       User
                     </div>
                   </th>
-                  <th className="w-80 px-4 py-4 text-center text-sm font-medium text-white">
+                  <th className="w-72 px-4 py-4 text-center text-sm font-medium text-white">
                     Avatar
                   </th>
                   <th className="w-64 px-4 py-4 text-center text-sm font-medium text-white">
                     Call Performance
                   </th>
-                  <th className="w-auto px-4 py-4 text-center text-sm font-medium text-white">
+                  <th className="w-96 px-4 py-4 text-center text-sm font-medium text-white">
                     Call Recording
                   </th>
                 </tr>
@@ -398,7 +398,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       className="border-b border-[#f3f4f6] hover:bg-gray-50 transition-colors duration-150"
                     >
                       <td className="px-4 py-3">
-                        <div className="flex justify-start items-center pl-8">
+                        <div className="flex justify-start items-center pl-4">
                           <span className="text-black text-xs whitespace-nowrap">
                             {formatDateShort(log.date)}
                           </span>
@@ -407,7 +407,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       
                       {/* User Column */}
                       <td className="px-4 py-3">
-                        <div className="flex items-center gap-3 ml-12">
+                        <div className="flex items-center gap-3 ml-6">
                           <Avatar className="h-8 w-8 border-2 border-[#5b06be] flex-shrink-0">
                             <AvatarImage 
                               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
@@ -420,7 +420,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       
                       {/* Agent Column */}
                       <td className="px-4 py-3">
-                        <div className="flex items-center gap-4 justify-start pl-16">
+                        <div className="flex items-center gap-4 justify-center">
                           <div className="flex items-center gap-2">
                             <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                               <AvatarImage 
@@ -442,8 +442,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       </td>
             
                       {/* Performance Column */}
-                      <td className="px-4 py-3">
-                        <div className="flex justify-start items-center pl-32">
+                      <td className="px-4 py-3 text-center">
                         <Dialog>
                           <DialogTrigger asChild>
                               <Button 
@@ -573,7 +572,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             </table>
           </div>
         </div>
-        </div>
+        </CardContent>
         <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
           <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden">
             <DialogHeader>
@@ -582,8 +581,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <Calendar onSelectRange={handleSelectDateRange} />
           </DialogContent>
         </Dialog>
-      </div>
-    </div>
+      </Card>
     )
   } catch (err) {
     setError(err as Error);
