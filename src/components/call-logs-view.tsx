@@ -362,36 +362,40 @@ export function CallLogsView({ data }: CallLogsViewProps) {
         </CardHeader>
         <CardContent className="p-0">
           <div className="w-full">
-            <table className="w-full table-fixed max-w-[95%] mx-auto"> {/* Přidáno max-w-[95%] a mx-auto */}
+            <table className="w-[98%] mx-auto table-fixed">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  <th className="w-28 px-4 py-4">
-                    <div className="flex justify-start items-center text-sm font-medium text-white pl-4">
+                  <th className="w-32 px-4 py-4">
+                    <div className="text-sm font-medium text-white">
                       Date
                     </div>
                   </th>
                   <th className="w-64 px-4 py-4">
-                    <div className="flex items-center justify-center text-sm font-medium text-white">
+                    <div className="text-sm font-medium text-white">
                       User
                     </div>
                   </th>
-                  <th className="w-80 px-4 py-4 text-center text-sm font-medium text-white">
-                    Avatar
+                  <th className="w-96 px-4 py-4">
+                    <div className="text-sm font-medium text-white">
+                      Avatar
+                    </div>
                   </th>
-                  <th className="w-64 px-4 py-4 text-center">
-                    <span className="text-sm font-medium text-white">
+                  <th className="w-64 px-4 py-4">
+                    <div className="text-sm font-medium text-white">
                       Call Performance
-                    </span>
+                    </div>
                   </th>
-                  <th className="w-96 px-4 py-4 text-center text-sm font-medium text-white">
-                    Call Recording
+                  <th className="w-[420px] px-4 py-4">
+                    <div className="text-sm font-medium text-white">
+                      Call Recording
+                    </div>
                   </th>
                 </tr>
               </thead>
             </table>
           
             <div className="h-[330px] overflow-y-auto overflow-x-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-[#F8F0FF] [&::-webkit-scrollbar-thumb]:bg-[#5b06be] [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-[#7016e0]">
-              <table className="w-full">
+              <table className="w-[98%] mx-auto table-fixed">
                 <tbody>
                   {filteredAndSortedData && filteredAndSortedData.length > 0 ? (
                     filteredAndSortedData.map((log, index) => (
