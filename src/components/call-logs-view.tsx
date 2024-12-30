@@ -362,7 +362,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
         </CardHeader>
         <CardContent className="p-0">
           <div className="w-full">
-            <table className="w-full min-w-full table-fixed">
+            <table className="w-full table-fixed">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
                   <th className="w-24 px-6 py-4">
@@ -383,7 +383,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       Call Performance
                     </span>
                   </th>
-                  <th className="flex-1 px-6 py-4 text-center text-sm font-medium text-white">
+                  <th className="w-96 px-6 py-4 text-center text-sm font-medium text-white">
                     Call Recording
                   </th>
                 </tr>
