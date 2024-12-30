@@ -282,7 +282,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               className="h-6 w-6"
             />
             Team Call Logs
-          </CardTitle>
+          </h2>
           <div className="flex items-center gap-4">
               <Button 
                 variant="outline" 
@@ -573,7 +573,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             </table>
           </div>
         </div>
-        </CardContent>
+        </div>
         <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
           <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden">
             <DialogHeader>
@@ -582,7 +582,8 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <Calendar onSelectRange={handleSelectDateRange} />
           </DialogContent>
         </Dialog>
-      </Card>
+      </div>
+    </div>
     )
   } catch (err) {
     setError(err as Error);
