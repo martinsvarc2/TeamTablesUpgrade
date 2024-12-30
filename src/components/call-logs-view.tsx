@@ -169,6 +169,20 @@ const callLogsData: CallLogData[] = [
   }
 ]
 
+function PowerMomentSection() {
+  return (
+    <div className="bg-white rounded-xl shadow-md p-4 h-full">
+      <div className="flex items-center gap-2 mb-3">
+        <Zap className="h-5 w-5 text-[#f8b922]" />
+        <h2 className="text-lg font-semibold">Power Moment!</h2>
+      </div>
+      <p className="text-sm text-gray-600">
+        Polite and professional tone throughout the call.
+      </p>
+    </div>
+  )
+}
+
 export function CallLogsView({ data }: CallLogsViewProps) {
   const [showMore, setShowMore] = useState(false)
   const [feedbacks, setFeedbacks] = useState<{ [key: string]: string }>({})
