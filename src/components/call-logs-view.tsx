@@ -452,72 +452,76 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                           </DialogTrigger>
                           <DialogContent className="max-w-5xl h-[80vh] p-6">
                             <DialogHeader className="pb-4">
-                              {/* Přidáme novou sekci pro horní lištu */}
-                              <div className="flex items-center justify-between w-full border-b pb-4 mb-4">
-                                <div className="flex items-center gap-3">
-                                  <div className="text-sm text-gray-600">Nov 13</div>
-                                  <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
-                                    <AvatarImage 
-                                      src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
-                                      alt={`${log.name}'s profile`} 
-                                    />
-                                  </Avatar>
-                                  <span className="font-medium">{log.name}</span>
-                                  <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
-                                    <AvatarImage 
-                                      src={log.callerImage}
-                                      alt="Agent profile" 
-                                    />
-                                  </Avatar>
-                                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">
-                                    Creative Finance
-                                  </span>
-                                  <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">
-                                    Intermediate
-                                  </span>
+                              <div className="flex flex-col gap-4">
+                                {/* Horní část s informacemi */}
+                                <div className="flex items-center justify-between w-full py-2 border-b">
+                                  <div className="flex items-center gap-4">
+                                    <span className="text-sm text-gray-500">Nov 13</span>
+                                    <div className="flex items-center gap-2">
+                                      <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
+                                        <AvatarImage 
+                                          src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
+                                          alt={`${log.name}'s profile`} 
+                                        />
+                                      </Avatar>
+                                      <span className="font-medium">{log.name}</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                      <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
+                                        <AvatarImage 
+                                          src={log.callerImage}
+                                          alt="Agent profile" 
+                                        />
+                                      </Avatar>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                      <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">
+                                        Creative Finance
+                                      </span>
+                                      <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">
+                                        Intermediate
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <Button 
+                                    variant="default" 
+                                    size="sm"
+                                    className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] px-4"
+                                  >
+                                    Edit Feedback for {log.name}
+                                  </Button>
                                 </div>
-                                <Button 
-                                  variant="default" 
-                                  size="sm"
-                                  className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] px-4"
-                                >
-                                  Edit Feedback for {log.name}
-                                </Button>
-                              </div>
                           
-                              {/* Původní hlavička s nadpisem */}
-                              <div className="flex items-center justify-between w-full mb-6">
-                                <DialogTitle className="text-2xl font-bold flex items-center gap-2">
-                                  <BarChart2 className="h-6 w-6 text-[#5b06be]" />
-                                  Performance Analysis for {log.name}
-                                </DialogTitle>
+                                {/* Titulek */}
+                                <div className="flex items-center justify-between w-full">
+                                  <DialogTitle className="text-2xl font-bold flex items-center gap-2">
+                                    <BarChart2 className="h-6 w-6 text-[#5b06be]" />
+                                    Performance Analysis for {log.name}
+                                  </DialogTitle>
+                                </div>
                               </div>
                             </DialogHeader>
-                            
-                            {/* Zbytek obsahu zůstává stejný */}
-                            ...
-                          </DialogContent>
-                            
+                          
                             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[calc(100%-80px)]">
                               {/* Levá strana - Performance Metrics */}
                               <div className="h-full">
                                 <PerformanceMetricsWidget log={log} />
                               </div>
-                            
+                          
                               {/* Pravá strana - dvě komponenty pod sebou */}
                               <div className="flex flex-col gap-6 h-full">
                                 {/* Horní část - Call Notes a Power Moment vedle sebe */}
-                                <div className="flex gap-6 h-[55%]">  {/* Změněno z 60% na 55% pro lepší zarovnání */}
-                                  <div className="flex-1 h-full"> {/* Přidáno h-full */}
+                                <div className="flex gap-6 h-[55%]">
+                                  <div className="flex-1 h-full">
                                     <CallNotesWidget log={log} />
                                   </div>
-                                  <div className="w-64 h-full"> {/* Přidáno h-full */}
+                                  <div className="w-64 h-full">
                                     <PowerMomentSection />
                                   </div>
                                 </div>
                                 
                                 {/* Spodní část - Level Up Plan */}
-                                <div className="h-[45%]"> {/* Změněno z 40% na 45% pro lepší zarovnání */}
+                                <div className="h-[45%]">
                                   <LevelUpPlanWidget />
                                 </div>
                               </div>
