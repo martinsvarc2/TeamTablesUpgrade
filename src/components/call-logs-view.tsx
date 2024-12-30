@@ -436,8 +436,22 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                               />
                             </Button>
                           </DialogTrigger>
-                          <DialogContent>
-                            {/* Zde vložit obsah dialogu */}
+                          <DialogContent className="max-w-5xl h-[80vh] p-6">
+                            <DialogHeader className="pb-4">
+                              <DialogTitle className="text-2xl font-bold flex items-center gap-2">
+                                <BarChart2 className="h-6 w-6 text-[#5b06be]" />
+                                Performance Analysis for {log.name}
+                              </DialogTitle>
+                            </DialogHeader>
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full overflow-hidden">
+                              <div className="flex flex-col gap-6">
+                                <PerformanceMetricsWidget log={log} />
+                              </div>
+                              <div className="flex flex-col gap-6">
+                                <CallNotesWidget log={log} />
+                                <LevelUpPlanWidget />
+                              </div>
+                            </div>
                           </DialogContent>
                         </Dialog>
                       </td>
