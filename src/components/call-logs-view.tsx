@@ -365,29 +365,28 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <table className="w-full table-fixed">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  <th className="w-20 px-2 py-4">  {/* Zmenšeno z w-24 */}
+                  <th className="w-20 px-2 py-4">
                     <div className="flex justify-start items-center text-sm font-medium text-white pl-2">
                       Date
                     </div>
                   </th>
-                  <th className="w-48 px-2 py-4"> {/* Zmenšeno z w-64 */}
+                  <th className="w-48 px-2 py-4">
                     <div className="flex items-center justify-center text-sm font-medium text-white">
                       User
                     </div>
                   </th>
-                  <th className="w-44 px-2 py-4 text-center text-sm font-medium text-white"> {/* Zmenšeno z w-48 */}
+                  <th className="w-44 px-2 py-4 text-center text-sm font-medium text-white">
                     Avatar
                   </th>
-                  <th className="w-52 px-2 py-4 text-center"> {/* Zmenšeno z w-72 */}
+                  <th className="w-52 px-2 py-4 text-center">
                     <span className="text-sm font-medium text-white">
                       Call Performance
                     </span>
                   </th>
-                  <th className="w-[360px] px-2 py-4 text-center text-sm font-medium text-white"> {/* Zmenšeno z w-[420px] */}
+                  <th className="w-[360px] px-2 py-4 text-center text-sm font-medium text-white">
                     Call Recording
                   </th>
                 </tr>
-              </thead>
               </thead>
             </table>
           
@@ -768,15 +767,11 @@ function AudioPlayer({ audioUrl }: { audioUrl: string }) {
         onClick={togglePlayPause}
         className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] hover:text-white transition-all shadow-md shadow-black/10 w-8 h-8 p-0 flex items-center justify-center"
       >
-        {isPlaying ? (
-          <Pause className="h-4 w-4" />
-        ) : (
-          <Play className="h-4 w-4" />
-        )}
-            </Button>
+        {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+      </Button>
       <div
         ref={progressBarRef}
-        className="relative w-44 h-1.5 bg-gray-200 roundedfull cursor-pointer" /* Zmenšeno z w-52/w-64 */
+        className="relative w-44 h-1.5 bg-gray-200 roundedfull cursor-pointer"
         onClick={handleProgressBarClick}
       >
         <div
