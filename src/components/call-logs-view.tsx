@@ -446,24 +446,24 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       {/* Performance Column */}
                       <td className="px-4 py-3">
                         <div className="flex justify-center items-center ml-2">
-                        <Dialog>
-                          <DialogTrigger asChild>
-                            <Button 
-                              variant="ghost" 
-                              size="sm"
-                              className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] hover:text-white transition-all px-3 py-1 text-xs h-7"
-                            >
-                              <span className="font-medium">{log.performance}/100</span>
-                              <span className="ml-1 font-medium">View Info</span>
-                              <Image
-                                src="https://res.cloudinary.com/drkudvyog/image/upload/v1735521910/info_icon_white_btbu18.png"
-                                alt="Click to view"
-                                width={12}
-                                height={12}
-                                className="ml-0.5 inline-block"
-                              />
-                            </Button>
-                          </DialogTrigger>
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <Button 
+                                variant="ghost" 
+                                size="sm"
+                                className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] hover:text-white transition-all px-3 py-1 text-xs h-7"
+                              >
+                                <span className="font-medium">{log.performance}/100</span>
+                                <span className="ml-1 font-medium">View Info</span>
+                                <Image
+                                  src="https://res.cloudinary.com/drkudvyog/image/upload/v1735521910/info_icon_white_btbu18.png"
+                                  alt="Click to view"
+                                  width={12}
+                                  height={12}
+                                  className="ml-0.5 inline-block"
+                                />
+                              </Button>
+                            </DialogTrigger>
                          <DialogContent className="max-w-5xl h-[80vh] p-6">
                           <DialogHeader className="pb-4">
                             <div className="flex items-center justify-between w-full py-2 border-b">
