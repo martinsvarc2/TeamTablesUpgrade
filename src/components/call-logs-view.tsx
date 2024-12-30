@@ -195,6 +195,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
   const [searchQuery, setSearchQuery] = useState(""); // Added searchQuery state
   const [feedbackText, setFeedbackText] = useState(""); // Added feedbackText state
   const [selectedTimeFrame, setSelectedTimeFrame] = useState("All time"); // Added selectedTimeFrame state
+  const [feedbackDialogOpen, setFeedbackDialogOpen] = useState(false);
 
   const handleSaveFeedback = (name: string, feedback: string) => {
     setFeedbacks(prev => ({ ...prev, [name]: feedback }));
@@ -451,79 +452,91 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                               />
                             </Button>
                           </DialogTrigger>
-                          <DialogContent className="max-w-5xl h-[80vh] p-6">
-                            <DialogHeader className="pb-4">
-                              <div className="flex flex-col gap-4">
-                                {/* Horní část s informacemi */}
-                                <div className="flex items-center justify-between w-full py-2 border-b">
-                                  <div className="flex items-center gap-4">
-                                    <span className="text-sm text-gray-500">Nov 13</span>
-                                    <div className="flex items-center gap-2">
-                                      <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
-                                        <AvatarImage 
-                                          src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
-                                          alt={`${log.name}'s profile`} 
-                                        />
-                                      </Avatar>
-                                      <span className="font-medium">{log.name}</span>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                      <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
-                                        <AvatarImage 
-                                          src={log.callerImage}
-                                          alt="Agent profile" 
-                                        />
-                                      </Avatar>
-                                    </div>
-                                    <div className="flex items-center gap-2">
-                                      <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">
-                                        Creative Finance
-                                      </span>
-                                      <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">
-                                        Intermediate
-                                      </span>
-                                    </div>
-                                  </div>
+                         <DialogContent className="max-w-5xl h-[80vh] p-6">
+                          <DialogHeader className="pb-4">
+                            <div className="flex items-center justify-between w-full py-2 border-b">
+                              <div className="flex items-center gap-4">
+                                <span className="text-sm text-gray-500">Nov 13</span>
+                                <div className="flex items-center gap-2">
+                                  <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
+                                    <AvatarImage 
+                                      src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
+                                      alt={`${log.name}'s profile`} 
+                                    />
+                                  </Avatar>
+                                  <span className="font-medium">{log.name}</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
+                                    <AvatarImage 
+                                      src={log.callerImage}
+                                      alt="Agent profile" 
+                                    />
+                                  </Avatar>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">
+                                    Creative Finance
+                                  </span>
+                                  <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">
+                                    Intermediate
+                                  </span>
+                                </div>
+                              </div>
+                              <Dialog>
+                                <DialogTrigger asChild>
                                   <Button 
                                     variant="default" 
                                     size="sm"
                                     className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] px-4"
-                                    onClick={() => {
-                                      setIsOpen(true); // Pro otevření FeedbackDialog
-                                      handleAddFeedback(log.name); // Pro zpracování feedbacku
-                                    }}
                                   >
                                     Edit Feedback for {log.name}
                                   </Button>
-                                </div
-                              </div>
-                            </DialogHeader>
-                          
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[calc(100%-80px)]">
-                              {/* Levá strana - Performance Metrics */}
-                              <div className="h-full">
-                                <PerformanceMetricsWidget log={log} />
-                              </div>
-                          
-                              {/* Pravá strana - dvě komponenty pod sebou */}
-                              <div className="flex flex-col gap-6 h-full">
-                                {/* Horní část - Call Notes a Power Moment vedle sebe */}
-                                <div className="flex gap-6 h-[55%]">
-                                  <div className="flex-1 h-full">
-                                    <CallNotesWidget log={log} />
+                                </DialogTrigger>
+                                <DialogContent className="sm:max-w-[425px]">
+                                  <div className="mt-4 space-y-4">
+                                    <Textarea 
+                                      value={feedbackText}
+                                      onChange={(e) => setFeedbackText(e.target.value)}
+                                      placeholder="Enter your feedback here..."
+                                      className="min-h-[100px] border-gray-300 focus:ring-black"
+                                    />
+                                    <div className="flex justify-center mt-4">
+                                      <Button
+                                        variant="default"
+                                        className="w-full max-w-md bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all rounded-full py-6 text-lg font-medium"
+                                        onClick={() => handleSaveFeedback(log.name, feedbackText)}
+                                      >
+                                        Save Feedback
+                                      </Button>
+                                    </div>
                                   </div>
-                                  <div className="w-64 h-full">
-                                    <PowerMomentSection />
-                                  </div>
+                                </DialogContent>
+                              </Dialog>
+                            </div>
+                          </DialogHeader>
+                                                  
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[calc(100%-80px)]">
+                            <div className="h-full">
+                              <PerformanceMetricsWidget log={log} />
+                            </div>
+                        
+                            <div className="flex flex-col gap-6 h-full">
+                              <div className="flex gap-6 h-[55%]">
+                                <div className="flex-1 h-full">
+                                  <CallNotesWidget log={log} />
                                 </div>
-                                
-                                {/* Spodní část - Level Up Plan */}
-                                <div className="h-[45%]">
-                                  <LevelUpPlanWidget />
+                                <div className="w-64 h-full">
+                                  <PowerMomentSection />
                                 </div>
+                              </div>
+                              
+                              <div className="h-[45%]">
+                                <LevelUpPlanWidget />
                               </div>
                             </div>
-                          </DialogContent>
+                          </div>
+                        </DialogContent>
                         </Dialog>
                       </td>
             
@@ -1000,11 +1013,19 @@ function LevelUpPlanWidget() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalAreas = 3;
 
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % totalAreas);
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + totalAreas) % totalAreas);
+  };
+
   return (
     <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold flex items-center gap-2">
-          <TrendingUp className="h-5 w-5 text-[#5b06be]" /> {/* Přidaná ikona */}
+          <TrendingUp className="h-5 w-5 text-[#5b06be]" />
           Level Up Plan
         </h2>
         <div className="flex items-center gap-2">
@@ -1021,7 +1042,7 @@ function LevelUpPlanWidget() {
         <AreasOfImprovement currentIndex={currentIndex} />
       </div>
     </div>
-  )
+  );
 }
 
 interface TranscriptViewProps {
