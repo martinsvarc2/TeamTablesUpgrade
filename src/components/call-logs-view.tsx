@@ -390,7 +390,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               </thead>
             </table>
           
-            <div className="h-[330px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-[#F8F0FF] [&::-webkit-scrollbar-thumb]:bg-[#5b06be] [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-[#7016e0]">
+            <div className="overflow-y-hidden">
               <table className="w-full">
                 <tbody>
                   {filteredAndSortedData && filteredAndSortedData.length > 0 ? (
