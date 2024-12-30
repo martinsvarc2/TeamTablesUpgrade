@@ -172,7 +172,7 @@ const callLogsData: CallLogData[] = [
 
 function PowerMomentSection() {
   return (
-    <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col"> {/* Přidánoo flex flex-col */}
+    <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col"> {/* Přidáno flex flex-col */}
       <div className="flex items-center gap-2 mb-3">
         <Zap className="h-5 w-5 text-[#f8b922]" />
         <h2 className="text-lg font-semibold">Power Moment!</h2>
@@ -365,7 +365,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <table className="w-full">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  <th className="w-24 px-4 py-4">
+                  <th className="w-24 px-6 py-4">
                     <div className="flex justify-center items-center text-sm font-medium text-white">
                       Date
                     </div>
