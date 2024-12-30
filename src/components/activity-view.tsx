@@ -303,7 +303,7 @@ function PerformanceDialog({ data }: { data: ActivityData }) {
               {selectedTimeFrame}
             </Button>
           </div>
-          <div className="h-[400px]">
+          <div className="h-[250px]">
             <ChartContainer
               config={{
                 score: {
