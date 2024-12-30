@@ -482,40 +482,18 @@ function ActivityView({ data }: ActivityViewProps) {
           <table className="w-full table-fixed">
             <thead className="sticky top-0 z-10">
               <tr className="bg-[#f8b922]">
-                <th className="w-1/6 px-2 py-4 text-sm font-medium text-white">
-                  <div className="flex justify-start pl-2">Users</div>
+                <th className="w-1/6 px-2 py-4 text-left pl-4 text-sm font-medium text-white">Users</th>
+                <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Overall Performance</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Today</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">This Week</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">This Month</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Total</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Current Streak</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Best Streak</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">
+                  <div>Consistency</div>
+                  <div>This Month</div>
                 </th>
-                <th className="w-1/6 px-2 py-4 text-sm font-medium text-white">
-                  <div className="flex justify-center">Overall Performance</div>
-                </th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">
-                  <div className="flex justify-center">Today</div>
-                </th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">
-                  <div className="flex justify-center">This Week</div>
-                </th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">
-                  <div className="flex justify-center">This Month</div>
-                </th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">
-                  <div className="flex justify-center">Total</div>
-                </th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">
-                  <div className="flex justify-center">Current Streak</div>
-                </th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">
-                  <div className="flex justify-center">Best Streak</div>
-                </th>
-                <th className="w-1/12 px-2 py-4 text-sm font-medium text-white">
-                  <div className="flex flex-col items-center justify-center">
-                    <div>Consistency</div>
-                    <div>This Month</div>
-                  </div>
-                </th>
-                <th className="w-1/6 px-2 py-4 text-sm font-medium text-white">
-                  <div className="flex justify-center">Notes</div>
-                </th>
-              </tr>
                 <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Notes</th>
               </tr>
             </thead>
