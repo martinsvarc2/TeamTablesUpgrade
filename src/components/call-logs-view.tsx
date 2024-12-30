@@ -378,12 +378,10 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                   <th className="w-48 px-6 py-4 text-center text-sm font-medium text-white">
                     Avatar
                   </th>
-                  <th className="w-64 px-6 py-4">
-                    <div className="text-center -translate-x-8">
-                      <span className="text-sm font-medium text-white">
-                        Call Performance
-                      </span>
-                    </div>
+                  <th className="w-64 px-6 py-4 text-center">
+                    <span className="text-sm font-medium text-white">
+                      Call Performance
+                    </span>
                   </th>
                   <th className="flex-1 px-6 py-4 text-center text-sm font-medium text-white">
                     Call Recording
@@ -446,14 +444,14 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       </td>
             
                       {/* Performance Column */}
-                      <td className="px-4 py-3">
-                        <div className="text-center -translate-x-8">
+                      <td className="px-4 py-3 text-center">
+                        <Dialog>
                           <DialogTrigger asChild>
-                            <Button 
-                              variant="ghost" 
-                              size="sm"
-                              className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] hover:text-white transition-all px-3 py-1 text-xs h-7"
-                            >
+                              <Button 
+                                variant="ghost" 
+                                size="sm"
+                                className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] hover:text-white transition-all px-3 py-1 text-xs h-7"
+                              >
                                 <span className="font-medium">{log.performance}/100</span>
                                 <span className="ml-1 font-medium">View Info</span>
                                 <Image
@@ -560,7 +558,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       </td>
             
                       {/* Recording Column */}
-                      <td className="px-4 py-3 text-center -ml-8">
+                      <td className="px-4 py-3 text-center">
                         <AudioPlayer audioUrl={log.audioUrl} />
                       </td>
                     </tr>
