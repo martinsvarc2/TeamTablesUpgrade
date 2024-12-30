@@ -365,7 +365,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <table className="w-full">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  <th className="w-24 px-6 py-4">
+                  <th className="w-24 px-4 py-4">
                     <div className="flex justify-center items-center text-sm font-medium text-white">
                       Date
                     </div>
