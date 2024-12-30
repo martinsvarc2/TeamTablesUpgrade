@@ -570,8 +570,8 @@ function ActivityView({ data }: ActivityViewProps) {
             </tbody>
           </table>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </CardContent>
 
     <Dialog open={isNoteDialogOpen} onOpenChange={setIsNoteDialogOpen}>
       <DialogContent className="!max-w-[600px] w-[95vw] flex flex-col items-center">
