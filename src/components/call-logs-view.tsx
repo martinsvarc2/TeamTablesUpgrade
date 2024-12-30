@@ -409,7 +409,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                               <span className="font-medium">{log.performance}/100</span>
                               <span className="ml-1 font-medium">View Info</span>
                               <Image
-                                src="https://res.cloudinary.com/drkudvyog/image/upload/v1735521613/icon_duha_bile_lines_k3oxw3.png"
+                                src="https://res.cloudinary.com/drkudvyog/image/upload/v1735521613/icon_bila_duha_fjlaxf.png"
                                 alt="Click to view"
                                 width={12}
                                 height={12}
