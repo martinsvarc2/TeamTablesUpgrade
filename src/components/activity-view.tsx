@@ -335,19 +335,16 @@ function PerformanceDialog({ data }: { data: ActivityData }) {
       </div>
 
       <Dialog open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
-      <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden">
-        <DialogHeader>
-          <DialogTitle className="sr-only">Select Date Range</DialogTitle>
-        </DialogHeader>
-        <Calendar onSelectRange={handleSelectDateRange} />
-      </DialogContent>
-    </Dialog>
-    </Card>  {/* Tento tag přidat */}
-  </>
- )
+        <DialogContent className="sm:max-w-[600px] p-0 overflow-hidden">
+          <DialogHeader>
+            <DialogTitle className="sr-only">Select Date Range</DialogTitle>
+          </DialogHeader>
+          <Calendar onSelectRange={handleSelectDateRange} />
+        </DialogContent>
+      </Dialog>
+    </>
+  );
 }
-
-export { ActivityView }
 
 function ActivityView({ data }: ActivityViewProps) {
   const [searchQuery, setSearchQuery] = useState("")
@@ -481,9 +478,8 @@ function ActivityView({ data }: ActivityViewProps) {
       </CardHeader>
       <CardContent className="p-0">
         <div className="overflow-x-auto">
-          {/* První tabulka - fixní hlavička */}
           <table className="w-full table-fixed">
-            <thead className="sticky top-0 z-10">
+            <thead>
               <tr className="bg-[#f8b922]">
                 <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Users</th>
                 <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Overall Performance</th>
@@ -500,79 +496,73 @@ function ActivityView({ data }: ActivityViewProps) {
                 <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Notes</th>
               </tr>
             </thead>
-          </table>
-            
-          {/* Druhá tabulka - scrollovatelný obsah */}
-          <div className="h-[330px] overflow-y-auto scrollbar-thin scrollbar-thumb-[#5b06be] scrollbar-track-transparent hover:scrollbar-thumb-[#7016e0]">
-            <table className="w-full table-fixed">
-              <tbody>
-                {filteredAndSortedData.map((user, index) => (
-                  <tr 
-                    key={index} 
-                    className="border-b border-gray-100 hover:bg-gray-50 transition-all duration-300 ease-in-out"
-                  >
-                    <td className="px-2 py-4">
-                      <div className="flex items-center gap-2">
-                        <Avatar className="h-8 w-8 border-2 border-[#5b06be] text-black">
-                          <AvatarImage src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" alt={`${user.name}'s profile`} />
-                          <AvatarFallback className="bg-[#5b06be]/10 text-[#5b06be]">
-                            {user.avatar}
-                          </AvatarFallback>
-                        </Avatar>
-                        <span className="font-medium text-black text-sm">{user.name}</span>
-                      </div>
-                    </td>
-                    <td className="px-2 py-4 text-center">
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <Button 
-                            variant="ghost" 
-                            size="sm"
-                            className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs h-7"
-                          >
-                            <span className="font-medium">{user.overallPerformance}/100</span>
-                            <span className="ml-1 font-medium">View Info</span>
-                            <Image
-                              src="https://res.cloudinary.com/drkudvyog/image/upload/v1735521910/info_icon_white_btbu18.png"
-                              alt="Click to view"
-                              width={12}
-                              height={12}
-                              className="ml-0.5 inline-block"
-                            />
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="sm:max-w-[1180px] w-[98vw] h-[95vh] overflow-y-auto p-4"> 
-                          <DialogTitle className="sr-only">Performance Details</DialogTitle>
-                          <div className="h-full">
-                            <PerformanceDialog data={user} />
-                          </div>
-                        </DialogContent>
-                      </Dialog>
-                    </td>
-                    <td className="px-2 py-4 text-center text-black">{user.trainingsToday}</td>
-                    <td className="px-2 py-4 text-center text-black">{user.thisWeek}</td>
-                    <td className="px-2 py-4 text-center text-black">{user.thisMonth}</td>
-                    <td className="px-2 py-4 text-center text-black">{user.total}</td>
-                    <td className="px-2 py-4 text-center text-black">{user.currentStreak}</td>
-                    <td className="px-2 py-4 text-center text-black">{user.longestStreak}</td>
-                    <td className="px-2 py-4 text-center">
-                      <span className="text-black font-medium">{user.consistency}%</span>
-                    </td>
-                    <td className="px-2 py-4 text-center">
-                      <Button 
+            <tbody>
+              {filteredAndSortedData.map((user, index) => (
+                <tr 
+                  key={index} 
+                  className="border-b border-gray-100 hover:bg-gray-50 transition-all duration-300 ease-in-out"
+                >
+                  <td className="px-2 py-4">
+                    <div className="flex items-center gap-2">
+                      <Avatar className="h-8 w-8 border-2 border-[#5b06be] text-black">
+                        <AvatarImage src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png" alt={`${user.name}'s profile`} />
+                        <AvatarFallback className="bg-[#5b06be]/10 text-[#5b06be]">
+                          {user.avatar}
+                        </AvatarFallback>
+                      </Avatar>
+                      <span className="font-medium text-black text-sm">{user.name}</span>
+                    </div>
+                  </td>
+                  <td className="px-2 py-4 text-center">
+                    <Dialog>
+                      <DialogTrigger asChild>
+                       <Button 
                         variant="ghost" 
                         size="sm"
-                        className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all"
-                        onClick={() => handleAddNote(user)}
+                        className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs h-7"
                       >
-                        {notes[user.name] ? 'Edit Note' : 'Add Note'}
+                        <span className="font-medium">{user.overallPerformance}/100</span>
+                        <span className="ml-1 font-medium">View Info</span>
+                        <Image
+                          src="https://res.cloudinary.com/drkudvyog/image/upload/v1735521910/info_icon_white_btbu18.png"
+                          alt="Click to view"
+                          width={12}
+                          height={12}
+                          className="ml-0.5 inline-block"
+                        />
                       </Button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                      </DialogTrigger>
+                      <DialogContent className="sm:max-w-[1180px] w-[98vw] h-[95vh] overflow-y-auto p-4"> 
+                        <DialogTitle className="sr-only">Performance Details</DialogTitle>
+                        <div className="h-full">
+                          <PerformanceDialog data={user} />
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </td>
+                  <td className="px-2 py-4 text-center text-black">{user.trainingsToday}</td>
+                  <td className="px-2 py-4 text-center text-black">{user.thisWeek}</td>
+                  <td className="px-2 py-4 text-center text-black">{user.thisMonth}</td>
+                  <td className="px-2 py-4 text-center text-black">{user.total}</td>
+                  <td className="px-2 py-4 text-center text-black">{user.currentStreak}</td>
+                  <td className="px-2 py-4 text-center text-black">{user.longestStreak}</td>
+                  <td className="px-2 py-4 text-center">
+                    <span className="text-black font-medium">{user.consistency}%</span>
+                  </td>
+                  <td className="px-2 py-4 text-center">
+                    <Button 
+                      variant="ghost" 
+                      size="sm"
+                      className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all"
+                      onClick={() => handleAddNote(user)}
+                    >
+                      {notes[user.name] ? 'Edit Note' : 'Add Note'}
+                    </Button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </CardContent>
     </Card>
@@ -612,8 +602,8 @@ function ActivityView({ data }: ActivityViewProps) {
         <Calendar onSelectRange={handleSelectDateRange} />
       </DialogContent>
     </Dialog>
-    </>
-    )
-    }
-    
-    export { ActivityView }
+  </>
+ )
+}
+
+export { ActivityView }
