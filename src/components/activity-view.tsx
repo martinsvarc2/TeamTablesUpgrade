@@ -489,7 +489,10 @@ function ActivityView({ data }: ActivityViewProps) {
                 <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Total</th>
                 <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Current Streak</th>
                 <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Best Streak</th>
-                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white whitespace-nowrap">Consistency This Month</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">
+                  <div>Consistency</div>
+                  <div>This Month</div>
+                </th>
                 <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Notes</th>
               </tr>
             </thead>
