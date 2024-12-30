@@ -612,8 +612,8 @@ function ActivityView({ data }: ActivityViewProps) {
         <Calendar onSelectRange={handleSelectDateRange} />
       </DialogContent>
     </Dialog>
-  </>
-  )
-}
-
-export { ActivityView }
+    </>
+    )
+    }
+    
+    export { ActivityView }
