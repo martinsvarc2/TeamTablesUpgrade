@@ -379,7 +379,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                     Avatar
                   </th>
                   <th className="w-64 px-6 py-4 text-center">
-                    <span className="text-sm font-medium text-white ml-10">
+                    <span className="text-sm font-medium text-white ml-14">
                       Call Performance
                     </span>
                   </th>
