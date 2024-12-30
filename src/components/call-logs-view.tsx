@@ -366,19 +366,18 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
                   {/* Date - úzký sloupec, vycentrovaný */}
-                  <th className="w-24 px-6 py-4 text-center text-sm font-medium text-white">
-                    Date
-                  </th>
-                  
-                  {/* User - širší sloupec, stejné odsazení jako obsah */}
-                  <th className="w-64 px-6 py-4 text-left text-sm font-medium text-white" style={{ paddingLeft: '7rem' }}>
-                    User
-                  </th>
-                  
-                  {/* Avatar - středně široký sloupec, stejné odsazení jako Agent */}
-                  <th className="w-48 px-6 py-4 text-left text-sm font-medium text-white" style={{ paddingLeft: '7.5rem' }}>
-                    Avatar
-                  </th>
+                  <tr className="bg-[#f8b922]">
+                    <th className="w-24 px-6 py-4 text-center text-sm font-medium text-white">
+                      Date
+                    </th>
+                    
+                    <th className="w-64 px-6 py-4 text-center text-sm font-medium text-white">
+                      User
+                    </th>
+                    
+                    <th className="w-48 px-6 py-4 text-center text-sm font-medium text-white">
+                      Avatar
+                    </th>
                   
                   {/* Call Performance - širší sloupec pro View Info tlačítko */}
                   <th className="w-64 px-6 py-4 text-center text-sm font-medium text-white">
@@ -408,14 +407,24 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       
                       {/* User Column */}
                       <td className="px-4 py-3">
-                        <div className="flex items-center gap-2 ml-8">
-                          <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
-                            <AvatarImage 
-                              src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
-                              alt={`${log.name}'s profile`} 
-                            />
-                          </Avatar>
-                          <span className="font-medium text-black text-sm">{log.name}</span>
+                        <div className="flex items-center gap-4">
+                          <div className="flex items-center gap-2 ml-8">
+                            <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
+                              <AvatarImage 
+                                src={log.callerImage}
+                                alt="Agent profile" 
+                              />
+                            </Avatar>
+                            <span className="font-medium text-black text-sm">Agent</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm">
+                              Creative Finance
+                            </span>
+                            <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">
+                              Intermediate
+                            </span>
+                          </div>
                         </div>
                       </td>
                       
