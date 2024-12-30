@@ -966,14 +966,26 @@ function LevelUpPlanWidget() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalAreas = 3;
 
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalAreas) % totalAreas);
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalAreas);
+  };
+
   return (
-    <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col"> {/* Změněno na h-full */}
+    <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold">Level Up Plan</h2>
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm" onClick={handlePrevious}><ChevronLeft className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="sm" onClick={handlePrevious}>
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
           <span className="text-sm">{currentIndex + 1}/{totalAreas}</span>
-          <Button variant="ghost" size="sm" onClick={handleNext}><ChevronRight className="h-4 w-4" /></Button>
+          <Button variant="ghost" size="sm" onClick={handleNext}>
+            <ChevronRight className="h-4 w-4" />
+          </Button>
         </div>
       </div>
       <div className="flex-1">
