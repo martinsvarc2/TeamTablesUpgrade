@@ -361,28 +361,34 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             </div>
         </CardHeader>
         <CardContent className="p-0">
-          <div className="overflow-x-hidden">
-            <table className="w-full">
+          <div className="w-full">
+            <table className="w-[98%] mx-auto table-fixed">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  <th className="w-24 px-4 py-4">
-                    <div className="flex justify-start items-center text-sm font-medium text-white pl-4">
+                  <th className="w-32 px-4 py-4">
+                    <div className="text-sm font-medium text-white">
                       Date
                     </div>
                   </th>
-                  <th className="w-52 px-4 py-4">
-                    <div className="flex items-center justify-center text-sm font-medium text-white">
+                  <th className="w-64 px-4 py-4">
+                    <div className="text-sm font-medium text-white">
                       User
                     </div>
                   </th>
-                  <th className="w-72 px-4 py-4 text-center text-sm font-medium text-white">
-                    Avatar
+                  <th className="w-96 px-4 py-4">
+                    <div className="text-sm font-medium text-white">
+                      Avatar
+                    </div>
                   </th>
-                  <th className="w-64 px-4 py-4 text-center text-sm font-medium text-white">
-                    Call Performance
+                  <th className="w-64 px-4 py-4">
+                    <div className="text-sm font-medium text-white">
+                      Call Performance
+                    </div>
                   </th>
-                  <th className="w-96 px-4 py-4 text-center text-sm font-medium text-white">
-                    Call Recording
+                  <th className="w-[420px] px-4 py-4">
+                    <div className="text-sm font-medium text-white">
+                      Call Recording
+                    </div>
                   </th>
                 </tr>
               </thead>
