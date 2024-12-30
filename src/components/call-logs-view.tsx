@@ -361,8 +361,8 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             </div>
         </CardHeader>
         <CardContent className="p-0">
-          <div className="overflow-x-hidden">
-            <table className="w-full">
+          <div className="w-full">
+            <table className="w-full min-w-full table-fixed">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
                   <th className="w-24 px-6 py-4">
