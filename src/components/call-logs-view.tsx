@@ -413,7 +413,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       
                       {/* User Column */}
                       <td className="px-4 py-3">
-                        <td className="px-4 py-3">
+                        <td className="px-4 py-3">  // Zde je extra td tag
                           <div className="flex items-center justify-center gap-2">
                             <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                               <AvatarImage 
