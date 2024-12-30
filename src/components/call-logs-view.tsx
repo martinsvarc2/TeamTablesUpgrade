@@ -413,17 +413,16 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       
                       {/* User Column */}
                       <td className="px-4 py-3">
-                        <td className="px-4 py-3">  // Zde je extra td tag
-                          <div className="flex items-center justify-center gap-2">
-                            <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
-                              <AvatarImage 
-                                src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
-                                alt={`${log.name}'s profile`} 
-                              />
-                            </Avatar>
-                            <span className="font-medium text-black text-sm">{log.name}</span>
-                          </div>
-                        </td>
+                        <div className="flex items-center justify-center gap-2">
+                          <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
+                            <AvatarImage 
+                              src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
+                              alt={`${log.name}'s profile`} 
+                            />
+                          </Avatar>
+                          <span className="font-medium text-black text-sm">{log.name}</span>
+                        </div>
+                      </td>
                       
                       {/* Agent Column */}
                       <td className="px-4 py-3">
@@ -566,9 +565,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       {/* Recording Column */}
                       <td className="px-4 py-3">
                         <div className="flex justify-center items-center w-full">
-                          <div className="flex justify-center items-center">
-                            <AudioPlayer audioUrl={log.audioUrl} />
-                          </div>
+                            <AudioPlayer audioUrl={log.audioUrl} />                          
                         </div>
                       </td>
                     </tr>
