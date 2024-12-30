@@ -378,12 +378,10 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                   <th className="w-48 px-6 py-4 text-center text-sm font-medium text-white">
                     Avatar
                   </th>
-                  <th className="w-64 px-6 py-4">
-                    <div className="flex items-center justify-center -ml-8">
-                      <span className="text-sm font-medium text-white">
-                        Call Performance
-                      </span>
-                    </div>
+                  <th className="w-64 px-6 py-4 text-center">
+                    <span className="text-sm font-medium text-white -ml-8 inline-block">
+                      Call Performance
+                    </span>
                   </th>
                   <th className="flex-1 px-6 py-4 text-center text-sm font-medium text-white">
                     Call Recording
@@ -561,7 +559,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       </td>
             
                       {/* Recording Column */}
-                      <td className="px-4 py-3 text-center">
+                      <td className="px-4 py-3 text-center -ml-8">
                         <AudioPlayer audioUrl={log.audioUrl} />
                       </td>
                     </tr>
