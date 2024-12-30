@@ -360,8 +360,8 @@ export function CallLogsView({ data }: CallLogsViewProps) {
               </div>
             </div>
         </CardHeader>
-        <CardContent className="p-0 -mr-8">
-          <div className="overflow-x-hidden">
+        <CardContent className="p-0">
+          <div className="overflow-x-hidden pl-8">
             <table className="w-full">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
@@ -398,7 +398,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       className="border-b border-[#f3f4f6] hover:bg-gray-50 transition-colors duration-150"
                     >
                       <td className="px-4 py-3">
-                        <div className="flex justify-start items-center pl-4">
+                        <div className="flex justify-start items-center pl-8">
                           <span className="text-black text-xs whitespace-nowrap">
                             {formatDateShort(log.date)}
                           </span>
@@ -407,7 +407,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       
                       {/* User Column */}
                       <td className="px-4 py-3">
-                        <div className="flex items-center gap-3 ml-6">
+                        <div className="flex items-center gap-3 ml-12">
                           <Avatar className="h-8 w-8 border-2 border-[#5b06be] flex-shrink-0">
                             <AvatarImage 
                               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
@@ -420,7 +420,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       
                       {/* Agent Column */}
                       <td className="px-4 py-3">
-                        <div className="flex items-center gap-4 justify-center">
+                        <div className="flex items-center gap-4 justify-start pl-16">
                           <div className="flex items-center gap-2">
                             <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                               <AvatarImage 
@@ -442,7 +442,8 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       </td>
             
                       {/* Performance Column */}
-                      <td className="px-4 py-3 text-center">
+                      <td className="px-4 py-3">
+                        <div className="flex justify-start items-center pl-32">
                         <Dialog>
                           <DialogTrigger asChild>
                               <Button 
