@@ -481,7 +481,7 @@ function ActivityView({ data }: ActivityViewProps) {
           <table className="w-full table-fixed">
             <thead>
               <tr className="bg-[#f8b922]">
-                <th className="w-1/6 px-2 py-4 text-left text-sm font-medium text-white">Users</th>
+                <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Users</th>
                 <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Overall Performance</th>
                 <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Today</th>
                 <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">This Week</th>
@@ -489,7 +489,7 @@ function ActivityView({ data }: ActivityViewProps) {
                 <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Total</th>
                 <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Current Streak</th>
                 <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Best Streak</th>
-                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white">Consistency</th>
+                <th className="w-1/12 px-2 py-4 text-center text-sm font-medium text-white whitespace-nowrap">Consistency This Month</th>
                 <th className="w-1/6 px-2 py-4 text-center text-sm font-medium text-white">Notes</th>
               </tr>
             </thead>
