@@ -517,13 +517,20 @@ function ActivityView({ data }: ActivityViewProps) {
                     <Dialog>
                       <DialogTrigger asChild>
                        <Button 
-                          variant="ghost" 
-                          size="sm"
-                          className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs h-7"
-                        >
-                          <span className="font-medium">{user.overallPerformance}/100</span>
-                          <span className="ml-1 font-medium">View Info</span>
-                        </Button>
+                        variant="ghost" 
+                        size="sm"
+                        className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] transition-all px-3 py-1 text-xs h-7"
+                      >
+                        <span className="font-medium">{user.overallPerformance}/100</span>
+                        <span className="ml-1 font-medium">View Info</span>
+                        <Image
+                          src="https://res.cloudinary.com/drkudvyog/image/upload/v1735521910/info_icon_white_btbu18.png"
+                          alt="Click to view"
+                          width={12}
+                          height={12}
+                          className="ml-0.5 inline-block"
+                        />
+                      </Button>
                       </DialogTrigger>
                       <DialogContent className="sm:max-w-[1180px] w-[98vw] h-[95vh] overflow-y-auto p-4"> 
                         <DialogTitle className="sr-only">Performance Details</DialogTitle>
