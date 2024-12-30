@@ -171,7 +171,7 @@ const callLogsData: CallLogData[] = [
 
 function PowerMomentSection() {
   return (
-    <div className="bg-white rounded-xl shadow-md p-4 h-full">
+    <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col"> {/* Přidáno flex flex-col */}
       <div className="flex items-center gap-2 mb-3">
         <Zap className="h-5 w-5 text-[#f8b922]" />
         <h2 className="text-lg font-semibold">Power Moment!</h2>
@@ -473,21 +473,21 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                               <div className="h-full">
                                 <PerformanceMetricsWidget log={log} />
                               </div>
-                          
+                            
                               {/* Pravá strana - dvě komponenty pod sebou */}
                               <div className="flex flex-col gap-6 h-full">
                                 {/* Horní část - Call Notes a Power Moment vedle sebe */}
-                                <div className="flex gap-6 h-[60%]">
-                                  <div className="flex-1">
+                                <div className="flex gap-6 h-[55%]">  {/* Změněno z 60% na 55% pro lepší zarovnání */}
+                                  <div className="flex-1 h-full"> {/* Přidáno h-full */}
                                     <CallNotesWidget log={log} />
                                   </div>
-                                  <div className="w-64">
+                                  <div className="w-64 h-full"> {/* Přidáno h-full */}
                                     <PowerMomentSection />
                                   </div>
                                 </div>
                                 
                                 {/* Spodní část - Level Up Plan */}
-                                <div className="h-[40%]">
+                                <div className="h-[45%]"> {/* Změněno z 40% na 45% pro lepší zarovnání */}
                                   <LevelUpPlanWidget />
                                 </div>
                               </div>
@@ -951,11 +951,11 @@ function PerformanceMetricsWidget({ log }: { log: CallLogData }) {
 
 function CallNotesWidget({ log }: { log: CallLogData }) {
   return (
-    <div className="bg-white rounded-xl shadow-md p-4 h-[calc(40vh-80px)] flex flex-col">
+    <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col"> {/* Změněno na h-full */}
       <h2 className="text-lg font-semibold mb-2">Call Notes</h2>
       <div className="flex-grow overflow-y-auto pr-2">
         <p className="text-sm text-gray-600">
-          Customer showed interest in our premium package. Follow up next week to discuss financing options. Customer showed interest in our premium package. Follow up next week to discuss financing options. Customer showed interest in our premium package. Follow up next week to discuss financing options. Customer showed interest in our premium package. Follow up next week to discuss financing options.
+          {log.notes}
         </p>
       </div>
     </div>
@@ -966,16 +966,8 @@ function LevelUpPlanWidget() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalAreas = 3;
 
-  const handlePrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalAreas) % totalAreas);
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalAreas);
-  };
-
   return (
-    <div className="bg-white rounded-xl shadow-md p-4 flex flex-col h-[calc(40vh-80px)]">
+    <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col"> {/* Změněno na h-full */}
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold">Level Up Plan</h2>
         <div className="flex items-center gap-2">
@@ -984,7 +976,9 @@ function LevelUpPlanWidget() {
           <Button variant="ghost" size="sm" onClick={handleNext}><ChevronRight className="h-4 w-4" /></Button>
         </div>
       </div>
-      <AreasOfImprovement currentIndex={currentIndex} />
+      <div className="flex-1">
+        <AreasOfImprovement currentIndex={currentIndex} />
+      </div>
     </div>
   )
 }
