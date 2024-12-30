@@ -271,9 +271,9 @@ export function CallLogsView({ data }: CallLogsViewProps) {
 
   try {
     return (
-      <Card className="w-full bg-white overflow-hidden">
-        <CardHeader className="p-6 border-b flex flex-row items-center justify-between">
-          <CardTitle className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
+      <div className="w-full bg-white overflow-hidden rounded-lg shadow">
+        <div className="p-6 border-b flex flex-row items-center justify-between">
+          <h2 className="text-2xl font-bold flex items-center gap-2 text-black flex-1">
             <Image
               src="https://res.cloudinary.com/drkudvyog/image/upload/v1734436445/Team_Call_Logs_icon_duha_yvb0r1.png"
               alt="Team Call Logs"
