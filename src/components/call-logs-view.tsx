@@ -349,28 +349,28 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <table className="w-full">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  {/* Date - zarovnat na střed */}
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">
+                  {/* Date - úzký sloupec, vycentrovaný */}
+                  <th className="w-24 px-6 py-4 text-center text-sm font-medium text-white">
                     Date
                   </th>
                   
-                  {/* User - zarovnat vlevo s ml-8 jako má obsah */}
-                  <th className="px-6 py-4 text-left text-sm font-medium text-white pl-8">
+                  {/* User - širší sloupec, stejné odsazení jako obsah */}
+                  <th className="w-64 px-6 py-4 text-left text-sm font-medium text-white" style={{ paddingLeft: '7rem' }}>
                     User
                   </th>
                   
-                  {/* Avatar - zarovnat vlevo s ml-8 jako má obsah */}
-                  <th className="px-6 py-4 text-left text-sm font-medium text-white pl-8">
+                  {/* Avatar - středně široký sloupec, stejné odsazení jako Agent */}
+                  <th className="w-48 px-6 py-4 text-left text-sm font-medium text-white" style={{ paddingLeft: '7.5rem' }}>
                     Avatar
                   </th>
                   
-                  {/* Call Performance - zarovnat na střed */}
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">
+                  {/* Call Performance - širší sloupec pro View Info tlačítko */}
+                  <th className="w-64 px-6 py-4 text-center text-sm font-medium text-white">
                     Call Performance
                   </th>
                   
-                  {/* Call Recording - zarovnat na střed */}
-                  <th className="px-6 py-4 text-center text-sm font-medium text-white">
+                  {/* Call Recording - nejširší sloupec pro přehrávač */}
+                  <th className="flex-1 px-6 py-4 text-center text-sm font-medium text-white">
                     Call Recording
                   </th>
                 </tr>
