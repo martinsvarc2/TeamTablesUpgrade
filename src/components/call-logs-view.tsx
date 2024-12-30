@@ -445,7 +445,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             
                       {/* Performance Column */}
                       <td className="px-4 py-3">
-                        <div className="flex justify-center"> {/* Přidán wrapper div pro centrování */}
+                        <div className="flex justify-center">
                           <Dialog>
                             <DialogTrigger asChild>
                               <Button 
