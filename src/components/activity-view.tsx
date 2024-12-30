@@ -575,6 +575,7 @@ function ActivityView({ data }: ActivityViewProps) {
           </div>
         </div>
       </CardContent>
+    </Card>
 
     <Dialog open={isNoteDialogOpen} onOpenChange={setIsNoteDialogOpen}>
       <DialogContent className="!max-w-[600px] w-[95vw] flex flex-col items-center">
@@ -612,7 +613,7 @@ function ActivityView({ data }: ActivityViewProps) {
       </DialogContent>
     </Dialog>
   </>
- )
+  )
 }
 
 export { ActivityView }
