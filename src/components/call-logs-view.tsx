@@ -460,7 +460,7 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                                 <div className="flex items-center gap-2">
                                   <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                                     <AvatarImage 
-                                      src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
+                                      src="https://res.cloudinary.com/drkudvyog/image/upload/v1735534232/clash_icon_duha_wvhzo9.png"
                                       alt={`${log.name}'s profile`} 
                                     />
                                   </Avatar>
@@ -998,7 +998,12 @@ function CallNotesWidget({ log }: { log: CallLogData }) {
   return (
     <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col">
       <h2 className="text-lg font-semibold mb-2 flex items-center gap-2">
-        <MessageSquare className="h-5 w-5 text-[#5b06be]" />
+        <Image
+          src="https://res.cloudinary.com/drkudvyog/image/upload/v1734523886/User_s_notes_icon_duha_rlm6wm.png"
+          alt="Call Notes Icon"
+          width={20}
+          height={20}
+        />
         Call Notes
       </h2>
       <div className="flex-grow overflow-y-auto pr-2 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-[#F8F0FF] [&::-webkit-scrollbar-thumb]:bg-[#5b06be] [&::-webkit-scrollbar-thumb]:rounded-full hover:[&::-webkit-scrollbar-thumb]:bg-[#7016e0]">
@@ -1007,7 +1012,7 @@ function CallNotesWidget({ log }: { log: CallLogData }) {
         </p>
       </div>
     </div>
-  )
+  );
 }
 
 function LevelUpPlanWidget() {
@@ -1026,7 +1031,12 @@ function LevelUpPlanWidget() {
     <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold flex items-center gap-2">
-          <TrendingUp className="h-5 w-5 text-[#5b06be]" />
+          <Image
+            src="https://res.cloudinary.com/drkudvyog/image/upload/v1734524541/Level_up_plan_icon_duha_wtftip.png"
+            alt="Level Up Plan Icon"
+            width={20}
+            height={20}
+          />
           Level Up Plan
         </h2>
         <div className="flex items-center gap-2">
