@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Play, Pause, Pencil, BarChart2, Check, X, ArrowLeft, ChevronLeft, ChevronRight, Zap } from 'lucide-react'
 import { formatDateShort } from "../utils/formatters"
+import { MessageSquare, TrendingUp } from 'lucide-react'
 import {
   Dialog,
   DialogContent,
@@ -487,18 +488,14 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                                     variant="default" 
                                     size="sm"
                                     className="rounded-full bg-[#5b06be] text-white hover:bg-[#7016e0] px-4"
+                                    onClick={() => {
+                                      setIsOpen(true); // Pro otevření FeedbackDialog
+                                      handleAddFeedback(log.name); // Pro zpracování feedbacku
+                                    }}
                                   >
                                     Edit Feedback for {log.name}
                                   </Button>
-                                </div>
-                          
-                                {/* Titulek */}
-                                <div className="flex items-center justify-between w-full">
-                                  <DialogTitle className="text-2xl font-bold flex items-center gap-2">
-                                    <BarChart2 className="h-6 w-6 text-[#5b06be]" />
-                                    Performance Analysis for {log.name}
-                                  </DialogTitle>
-                                </div>
+                                </div
                               </div>
                             </DialogHeader>
                           
@@ -985,8 +982,11 @@ function PerformanceMetricsWidget({ log }: { log: CallLogData }) {
 
 function CallNotesWidget({ log }: { log: CallLogData }) {
   return (
-    <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col"> {/* Změněno na h-full */}
-      <h2 className="text-lg font-semibold mb-2">Call Notes</h2>
+    <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col">
+      <h2 className="text-lg font-semibold mb-2 flex items-center gap-2">
+        <MessageSquare className="h-5 w-5 text-[#5b06be]" /> {/* Přidaná ikona */}
+        Call Notes
+      </h2>
       <div className="flex-grow overflow-y-auto pr-2">
         <p className="text-sm text-gray-600">
           {log.notes}
@@ -1000,18 +1000,13 @@ function LevelUpPlanWidget() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalAreas = 3;
 
-  const handlePrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalAreas) % totalAreas);
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalAreas);
-  };
-
   return (
     <div className="bg-white rounded-xl shadow-md p-4 h-full flex flex-col">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-lg font-semibold">Level Up Plan</h2>
+        <h2 className="text-lg font-semibold flex items-center gap-2">
+          <TrendingUp className="h-5 w-5 text-[#5b06be]" /> {/* Přidaná ikona */}
+          Level Up Plan
+        </h2>
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="sm" onClick={handlePrevious}>
             <ChevronLeft className="h-4 w-4" />
