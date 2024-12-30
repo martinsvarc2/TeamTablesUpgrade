@@ -365,26 +365,18 @@ export function CallLogsView({ data }: CallLogsViewProps) {
             <table className="w-full">
               <thead className="sticky top-0 z-10">
                 <tr className="bg-[#f8b922]">
-                  {/* Date - úzký sloupec, vycentrovaný */}
-                  <tr className="bg-[#f8b922]">
-                    <th className="w-24 px-6 py-4 text-center text-sm font-medium text-white">
-                      Date
-                    </th>
-                    
-                    <th className="w-64 px-6 py-4 text-center text-sm font-medium text-white">
-                      User
-                    </th>
-                    
-                    <th className="w-48 px-6 py-4 text-center text-sm font-medium text-white">
-                      Avatar
-                    </th>
-                  
-                  {/* Call Performance - širší sloupec pro View Info tlačítko */}
+                  <th className="w-24 px-6 py-4 text-center text-sm font-medium text-white">
+                    Date
+                  </th>
+                  <th className="w-64 px-6 py-4 text-center text-sm font-medium text-white">
+                    User
+                  </th>
+                  <th className="w-48 px-6 py-4 text-center text-sm font-medium text-white">
+                    Avatar
+                  </th>
                   <th className="w-64 px-6 py-4 text-center text-sm font-medium text-white">
                     Call Performance
                   </th>
-                  
-                  {/* Call Recording - nejširší sloupec pro přehrávač */}
                   <th className="flex-1 px-6 py-4 text-center text-sm font-medium text-white">
                     Call Recording
                   </th>
@@ -407,8 +399,21 @@ export function CallLogsView({ data }: CallLogsViewProps) {
                       
                       {/* User Column */}
                       <td className="px-4 py-3">
-                        <div className="flex items-center gap-4">
-                          <div className="flex items-center gap-2 ml-8">
+                        <div className="flex items-center gap-2 justify-center">
+                          <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
+                            <AvatarImage 
+                              src="https://res.cloudinary.com/drkudvyog/image/upload/v1734565916/Profile_photo_duha_s_bilym_pozadim_cl4ukr.png"
+                              alt={`${log.name}'s profile`} 
+                            />
+                          </Avatar>
+                          <span className="font-medium text-black text-sm">{log.name}</span>
+                        </div>
+                      </td>
+                      
+                      {/* Agent Column */}
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-4 justify-center">
+                          <div className="flex items-center gap-2">
                             <Avatar className="h-8 w-8 border-2 border-[#5b06be]">
                               <AvatarImage 
                                 src={log.callerImage}
